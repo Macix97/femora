@@ -4,9 +4,9 @@ Femora is a Hack and Slash game based on Diablo II created by Blizzard Entertain
 
 * 4 main locations - Refugee Camp (sanctuary), Stony Plain, Death Valley and Hell Pit.
 * 2 NPC - Alchemist and Blacksmith who can sell or buy items.
-* Several types of the creatures eg. Zombie, Skeleton, Pit Fiend, Efreeti, Hell Knight, etc.
+* Several types of the creatures e.g. Zombie, Skeleton, Pit Fiend, Efreeti, Hell Knight, etc.
 * 1 playable class - Paladin, the Holy Warrior who wreak fear in enemies.
-* Plenty of the usable objects, parts of the equipments eg. swords, shields, helmets, armors, etc.
+* Plenty of the usable objects, parts of the equipments e.g. swords, shields, helmets, armors, etc.
 * And a lot more...
 
 A few pictures which present parts of the game:
