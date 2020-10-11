@@ -11,14 +11,19 @@ Femora is a Hack and Slash game based on Diablo II created by Blizzard Entertain
 
 A few pictures which present parts of the game:
 
-1. ![Refugee Camp](https://user-images.githubusercontent.com/26011505/95682070-96c66c00-0be3-11eb-8d7c-e327dadbc4f1.png)
+## Refugee Camp
+![Refugee Camp](https://user-images.githubusercontent.com/26011505/95682070-96c66c00-0be3-11eb-8d7c-e327dadbc4f1.png)
 
-2. ![Dialogue With Mirlanda](https://user-images.githubusercontent.com/26011505/95682129-e9a02380-0be3-11eb-8e1c-d2c7b4734bf4.png)
+## Dialogue With Mirlanda
+![Dialogue With Mirlanda](https://user-images.githubusercontent.com/26011505/95682129-e9a02380-0be3-11eb-8e1c-d2c7b4734bf4.png)
 
-3. ![Stony Plain](https://user-images.githubusercontent.com/26011505/95682161-1ce2b280-0be4-11eb-96fa-6b206341e070.png)
+## Stony Plain
+![Stony Plain](https://user-images.githubusercontent.com/26011505/95682161-1ce2b280-0be4-11eb-96fa-6b206341e070.png)
 
-4. ![Death Valley](https://user-images.githubusercontent.com/26011505/95682166-253aed80-0be4-11eb-9f7e-40f042a83d20.png)
+## Death Valley
+![Death Valley](https://user-images.githubusercontent.com/26011505/95682166-253aed80-0be4-11eb-9f7e-40f042a83d20.png)
 
-5. ![Hell Pit](https://user-images.githubusercontent.com/26011505/95682175-2a983800-0be4-11eb-8cfe-d4f407016d0c.png)
+## Hell Pit
+![Hell Pit](https://user-images.githubusercontent.com/26011505/95682175-2a983800-0be4-11eb-8cfe-d4f407016d0c.png)
 
 The project is personal and it is not commercial. Any similarities are due to sentimental reasons.
