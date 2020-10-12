@@ -11,6 +11,12 @@ Femora is a Hack and Slash game based on Diablo II created by Blizzard Entertain
 
 A few pictures which present parts of the game:
 
+### Main Menu
+![Main Menu](https://user-images.githubusercontent.com/26011505/95760017-cee4b200-0caa-11eb-8dfe-80728f934d47.png)
+
+### User Interface
+![User Interface](https://user-images.githubusercontent.com/26011505/95760089-e1f78200-0caa-11eb-8320-14051c078d05.png)
+
 ### Refugee Camp
 ![Refugee Camp](https://user-images.githubusercontent.com/26011505/95682070-96c66c00-0be3-11eb-8d7c-e327dadbc4f1.png)
 
