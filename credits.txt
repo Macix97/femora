@@ -1,0 +1,596 @@
+Below is a list of materials used in the program that are covered by the Creative Commons Attribution license:
+
+Creative Commons Attribution 3.0: https://creativecommons.org/licenses/by/3.0/
+Creative Commons Attribution 4.0: https://creativecommons.org/licenses/by/4.0/
+Sketchfab: https://sketchfab.com/
+Game-icons: https://game-icons.net/
+
+The game also contains characters and animations from mixamo:
+
+Mixamo: https://www.mixamo.com/
+
+Fonts provides 1001 Fonts:
+
+1001 Fonts: https://www.1001fonts.com/
+
+1. Chest
+Author: Mikhail Kadilnikov
+Link: https://sketchfab.com/3d-models/chest-fa807eea4f154481bf729483eb545d8f
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+2. Potion
+Author: James.Moore
+Link: https://sketchfab.com/3d-models/potion-9f6daf550b44423881ad77eaf1850d03
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+3. Ornate Book
+Author: N8
+Link: https://sketchfab.com/3d-models/ornate-book-f55f8ffd11ef48629962d0f178039849
+Changes: Used as a GUI fragment
+Licence version: CC BY 4.0
+
+4. Sword
+Author: minghauLoh
+Link: https://sketchfab.com/3d-models/sword-07463a2658e04d6ab8a42b5639a35d63
+Changes: Used as a GUI fragment
+Licence version: CC BY 4.0
+
+5. shield
+Author: Toast336
+Link: https://sketchfab.com/3d-models/shield-cd41c84b92fd4f60b2d114098bfb6201
+Changes: Used as a GUI fragment
+Licence version: CC BY 4.0
+
+6. Goblet - Easy Model
+Author: Steven Pelletier
+Link: https://sketchfab.com/3d-models/goblet-easy-model-ea9b05a36232472784c6cc4067cb93f0
+Changes: Used as a GUI fragment
+Licence version: CC BY 4.0
+
+7. Skull
+Author: Mountrise
+Link: https://sketchfab.com/3d-models/skull-73a40948be3044e183f9de73d0e59b6a
+Changes: Used as a GUI fragment
+Licence version: CC BY 4.0
+
+8. D&D Coin
+Author: madhatmodder
+Link: https://sketchfab.com/3d-models/dd-coin-31e341fd203d445fbbae547233b3014a
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+9. Low poly skeleton
+Author: Oleg Verevkin
+Link: https://sketchfab.com/3d-models/low-poly-skeleton-b2b679065af341acbf05665334960e5c
+Changes: Texture added
+Licence version: CC BY 4.0
+
+10. Two-Handed Sword
+Author: 2Garin
+Link: https://sketchfab.com/3d-models/two-handed-sword-57818f26de2f47c2af74fb430e6670f2
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+11. Mechanist
+Author: Rebecca
+Link: https://sketchfab.com/3d-models/mechanist-f2910cfad5be416b849b446ccfced8e1
+Changes: Some model elements removed
+Licence version: CC BY 4.0
+
+12. Helmet - Archery
+Author: Multipainkiller Studio
+Link: https://sketchfab.com/3d-models/helmet-archery-5b082c77519345b2a37d3beaff65418a
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+13. One-handed sword
+Author: wolkoed
+Link: https://sketchfab.com/3d-models/one-handed-sword-ba28b0ff866141538f6523ee04d6ec95
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+13. One-handed sword
+Author: wolkoed
+Link: https://sketchfab.com/3d-models/one-handed-sword-ba28b0ff866141538f6523ee04d6ec95
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+14. Shield
+Author: Sergey Egelsky
+Link: https://sketchfab.com/3d-models/shield-9626b82200e44a5ea4a0ac5cd8020e3f
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+15. Bandit Armor and Clothes - Game Model
+Author: wolkoed
+Link: https://sketchfab.com/3d-models/bandit-armor-and-clothes-game-model-d6cf54210a564ff5ab2c288bac7cd66f
+Changes: Armor texture changed
+Licence version: CC BY 4.0
+
+16. Long Sword
+Author: Multipainkiller Studio
+Link: https://sketchfab.com/3d-models/long-sword-17c5c88972044168ad1da2d19196a3fd
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+17. Shield
+Author: J_Son
+Link: https://sketchfab.com/3d-models/shield-36bb8d9a85d148e6b3cfd3550aca8569
+Changes: Texture changed.
+Licence version: CC BY 4.0
+
+18. Lowpoly PBR Knight Armour
+Author: soidev
+Link: https://sketchfab.com/3d-models/lowpoly-pbr-knight-armour-7e8485a272784e6cb3b5bda68ff319fa
+Changes: Helm texture changed
+Licence version: CC BY 4.0
+
+19. Demon_Axe
+Author: Jshimield
+Link: https://sketchfab.com/3d-models/demon-axe-3ccd0fb136ed4cd79bf51dbc54d13dd6
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+20. Horn
+Author: hamidrezaafshari
+Link: https://sketchfab.com/3d-models/horn-881ab4df081a49b786f3429df10fcbf3
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+21. Axe Knight pack
+Author: DemonLord
+Link: https://sketchfab.com/3d-models/axe-knight-pack-b46ec02bdc3f4f66a242ec077a7467e0
+Changes: Some model elements removed
+Licence version: CC BY 4.0
+
+22. Enchanted Sword
+Author: ArtByBradley
+Link: https://sketchfab.com/3d-models/enchanted-sword-53a7e7db2955445d8781c02c61be73c1
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+23. Shield
+Author: morty1
+Link: https://sketchfab.com/3d-models/shield-46ecdabe264e4f0f981fb14ad131b610
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+24. small rock 2 | low poly
+Author: aaron_nerlich
+Link: https://sketchfab.com/3d-models/small-rock-2-low-poly-e58c90c578c44826bfe175cec2dfe5c6
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+25. Tent
+Author: Vlasov Konstantin
+Link: https://sketchfab.com/3d-models/tent-e2daa9df6510432298de049d423fe4e8
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+26. Anvil Nature Morte
+Author: seenoise
+Link: https://sketchfab.com/3d-models/anvil-nature-morte-970427a0aff3465689ac509f4fde9d94
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+27. Wooden Bucket lowpoly
+Author: Vyacheslav_SD
+Link: https://sketchfab.com/3d-models/wooden-bucket-lowpoly-9687f0dab87548da9d8f1a41d94494be
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+28. Small Ground Stone (pebble)
+Author: Kallvin
+Link: https://sketchfab.com/3d-models/small-ground-stone-pebble-adbc195285d7469e9d51bd088003659c
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+29. Old Well (WIP)
+Author: Qu3st10n
+Link: https://sketchfab.com/3d-models/old-well-wip-efb1d1682e784facbec7f0e063803ebc
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+30. Simple Wooden Fences
+Author: Noise Bomb
+Link: https://sketchfab.com/3d-models/simple-wooden-fences-f61c545568484fc18662b2be09191f82
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+31. Masonry of firewood
+Author: Ruslan Malovsky
+Link: https://sketchfab.com/3d-models/masonry-of-firewood-969d091b9bf447ac944f1fd602820cea
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+32. Stump
+Author: Ruslan Malovsky
+Link: https://sketchfab.com/3d-models/stump-389df4cc80fd444e9de374df44f95fba
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+33. Simple Axe
+Author: tediuminteractive
+Link: https://sketchfab.com/3d-models/simple-axe-36b7e57fc16e441282ff2ab358ea75b4
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+34. Simple Axe
+Author: tediuminteractive
+Link: https://sketchfab.com/3d-models/simple-axe-36b7e57fc16e441282ff2ab358ea75b4
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+35. Book Open
+Author: FlukierJupiter
+Link: https://sketchfab.com/3d-models/book-open-bcc69dacd1bc4eadaf4b9fc0d6e2430b
+Changes: Used as a GUI fragment
+Licence version: CC BY 4.0
+
+36. Decorative Medieval Bowl
+Author: wolfgar74
+Link: https://sketchfab.com/3d-models/decorative-medieval-bowl-f1eccbd01c884fe28ec65ce699cf7b81
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+37. Medieval Props - Lowpoly
+Author: Alpha16
+Link: https://sketchfab.com/3d-models/medieval-props-lowpoly-3f4a74eb23ca4599aefdb77c80531bdc
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+38. Book
+Author: andree
+Link: https://sketchfab.com/3d-models/book-6528c56c4e9743278af435c50c9e799f
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+39. The Alchemists' Chest
+Author: VartkeSoftworks
+Link: https://sketchfab.com/3d-models/the-alchemists-chest-8c97d58a8de045afaa4b1245fe9f189a
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+40. Wooden Training Dummy Rack
+Author: JustSomeGuyX101
+Link: https://sketchfab.com/3d-models/wooden-training-dummy-rack-c261f462d4ee445683116b03d68902a1
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+41. PBR Target
+Author: zulubo
+Link: https://sketchfab.com/3d-models/pbr-target-ea1bec8a10054369862412c6d451e558
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+42. Lowpoly Sticks
+Author: Loïc Norgeot
+Link: https://sketchfab.com/3d-models/lowpoly-sticks-396f8957029e4440ba15efb0fe217d5f
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+43. Square Rock Cracked Photoscan
+Author: Kless Gyzen
+Link: https://sketchfab.com/3d-models/square-rock-cracked-photoscan-22aa59eb632242c3ac2441949c6750b6
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+44. Square Rock
+Author: Kless Gyzen
+Link: https://sketchfab.com/3d-models/square-rock-cbc2ef93f19c4a609e7579b3740e0a96
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+45. Photo-Scanned Round Rock
+Author: Kless Gyzen
+Link: https://sketchfab.com/3d-models/photo-scanned-round-rock-0c2926b5126f425a913dedd3a2e5ba75
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+46. Sandstone Full 360 Mesh
+Author: Kless Gyzen
+Link: https://sketchfab.com/3d-models/sandstone-full-360-mesh-2e172b0757e8409fa1f32abe4fe41914
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+47. Old Cart
+Author: Harry_L
+Link: https://sketchfab.com/3d-models/old-cart-b9ef0747d1b84dbc9414f3c141ae7d7a
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+48. Large militery tent
+Author: challe3d
+Link: https://sketchfab.com/3d-models/large-militery-tent-bd3d3d8afa3c4a5097d3d22911d6a921
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+49. Utensil
+Author: Ruslan Malovsky
+Link: https://sketchfab.com/3d-models/utensil-42efebceeb02436f8b3784862ced658b
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+50. Low poly realistic trees pack
+Author: v124entkl
+Link: https://sketchfab.com/3d-models/low-poly-realistic-trees-pack-bfa4b76925e14374b7c21836ca7f1503
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+51. Cart_X
+Author: spiralcules
+Link: https://sketchfab.com/3d-models/cart-x-25397dd73cc84a25b33b943a9d572e27
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+52. Alchemy Table
+Author: wolfgar74
+Link: https://sketchfab.com/3d-models/alchemy-table-09e4710c5f7247c39202442a352023a5
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+53. Wooden Table
+Author: shedmon
+Link: https://sketchfab.com/3d-models/wooden-table-acd1cef307b94803846d624b251a4e63
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+54. Medieval Food Stall
+Author: Matthew (jeandiz)
+Link: https://sketchfab.com/3d-models/medieval-food-stall-7d9b2922dd0941dab820c4763078c789
+Changes: Some model elements removed
+Licence version: CC BY 4.0
+
+55. broken_wall
+Author: v124entkl
+Link: https://sketchfab.com/3d-models/broken-wall-62ff1f199f9d4d0dbfb90c18087d8ba9
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+56. Wagon
+Author: FlukierJupiter
+Link: https://sketchfab.com/3d-models/wagon-f491eb62aaa24fdeb6dc52a1aab54d0c
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+57. Wooden Bed
+Author: toAflame
+Link: https://sketchfab.com/3d-models/wooden-bed-a12d3ae76e3944428f14e5b15d4f0efd
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+58. Smithgridstone
+Author: SXuno
+Link: https://sketchfab.com/3d-models/smithgridstone-ba7ab3443b8049fcb79f1389708a1494
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+59. Wood Stick 04
+Author: 3dhdscan
+Link: https://sketchfab.com/3d-models/wood-stick-04-b7fe8a4a3c2f4f038662ae47cfbfa6a7
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+60. A pile of clay
+Author: 3dhdscan
+Link: https://sketchfab.com/3d-models/a-pile-of-clay-c356e6679e8242659adee7f6c6304c37
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+61. A pile of sand
+Author: 3dhdscan
+Link: https://sketchfab.com/3d-models/a-pile-of-sand-107f6a1f6aa74449bcd32ef136311d86
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+62. firewood
+Author: aaron_nerlich
+Link: https://sketchfab.com/3d-models/firewood-fdc1acda16f64cc2a15190c4c429d3fa
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+63. Gallows
+Author: GaOssamu
+Link: https://sketchfab.com/3d-models/gallows-cf81468bd5ce483d8b089b69f840da40
+Changes: Some model elements removed
+Licence version: CC BY 4.0
+
+64. Medieval Torch
+Author: wolfgar74
+Link: https://sketchfab.com/3d-models/medieval-torch-bb86fad26bcd429c93a02a79417674eb
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+65. Low Poly Medieval Cage
+Author: vracolacus
+Link: https://sketchfab.com/3d-models/low-poly-medieval-cage-ba543441de814977800806b10948236d
+Changes: Some model elements removed
+Licence version: CC BY 4.0
+
+66. Wood Pallets
+Author: Gunnar Correa
+Link: https://sketchfab.com/3d-models/wood-pallets-25f4f7f3a392491391c38a3a675c1b42
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+67. Guillotine
+Author: yanix
+Link: https://sketchfab.com/3d-models/guillotine-74043e64e4384aa8878183e6d3fc301c
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+68. Vessel pack
+Author: MCStudios
+Link: https://sketchfab.com/3d-models/vessel-pack-e7f4be89823641d49223005a71525acf
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+69. River Rocks Model.
+Author: kubassa
+Link: https://sketchfab.com/3d-models/river-rocks-model-2dc354c1f84a43f493343f54e05eaed9
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+70. Teleportation Portal
+Author: Ahmad Azizi
+Link: https://sketchfab.com/3d-models/teleportation-portal-ad6b0ee7079441cfaaae0453a9c58063
+Changes: Some model elements removed
+Licence version: CC BY 4.0
+
+71. Palisade
+Author: adam127
+Link: https://sketchfab.com/3d-models/palisade-c88f57eb0d734484b010c3f170e48d4a
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+72. Log Fence Fortification (free download)
+Author: scrampunk
+Link: https://sketchfab.com/3d-models/log-fence-fortification-free-download-1c9262db11cf4b4bbc61b8e3e58c6913
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+73. Rubble
+Author: Pert Doherty
+Link: https://sketchfab.com/3d-models/rubble-9a180893d6454f68a764e62be3fc5c92
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+74. Rope Fence
+Author: PantherOne
+Link: https://sketchfab.com/3d-models/rope-fence-462e970561664ff9a98de84dfb24d8bf
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+75. stairs
+Author: RVECH
+Link: https://sketchfab.com/3d-models/stairs-6560ab865d0f4374916a15ab538d87fb
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+76. Medieval Ruin Building
+Author: BytesCrafter
+Link: https://sketchfab.com/3d-models/medieval-ruin-building-b42046ae0fab4471b6b7a758b8e65da6
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+77. Wooden Old Fence
+Author: BytesCrafter
+Link: https://sketchfab.com/3d-models/wooden-old-fence-1f4b998025224824a2a63875baad08a8
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+78. Medieval Ruin Column
+Author: BytesCrafter
+Link: https://sketchfab.com/3d-models/medieval-ruin-column-408fd92db8994120b8260928aef3eb58
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+79. Medieval Ruin Entrance
+Author: BytesCrafter
+Link: https://sketchfab.com/3d-models/medieval-ruin-entrance-711292d5a5c343ceb675782b24f213ee
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+80. Farm Cow Barn
+Author: BytesCrafter
+Link: https://sketchfab.com/3d-models/farm-cow-barn-bbcb26e0d16944ff977b7c484cd761ac
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+81. Tower Gloom
+Author: BytesCrafter
+Link: https://sketchfab.com/3d-models/tower-gloom-fc8833b840a24e7eaa33a222e8dddd74
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+82. Gate Of Darkness
+Author: BytesCrafter
+Link: https://sketchfab.com/3d-models/gate-of-darkness-2a7461a8745c470d8566c7d763123b1a
+Changes: Some model elements removed
+Licence version: CC BY 4.0
+
+83. Hero
+Author: Blueprint Games
+Link: https://sketchfab.com/3d-models/hero-3cdb3764b0b24489b216953b7df5ea92
+Changes: Some model elements removed
+Licence version: CC BY 4.0
+
+84. Paladin Shield [Free Download]
+Author: Efarys
+Link: https://sketchfab.com/3d-models/paladin-shield-free-download-0ae0f62030ad48d88364b327b7cd3fc3
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+85. Paladin's Sword
+Author: Turstrigo
+Link: https://sketchfab.com/3d-models/paladins-sword-b6422c9955a7465288fd22ea65a4d217
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+86. Viking Sword (Game Model)
+Author: Michael Makivic
+Link: https://sketchfab.com/3d-models/viking-sword-game-model-a05d0bd73e9e4508b873ffd7b6a6238d
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+87. medieval sword
+Author: LowSeb
+Link: https://sketchfab.com/3d-models/medieval-sword-da574cba504e4b83a3293f3d3bd067fb
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+88. Shields
+Author: avelium
+Link: https://sketchfab.com/3d-models/shields-33e5f5a6fbb34ebfb17f91fd6bd5a43d
+Changes: Some model elements removed
+Licence version: CC BY 4.0
+
+89. Medieval Shield
+Author: Digital Goblin
+Link: https://sketchfab.com/3d-models/medieval-shield-64c665915daf4e50b2d361b9ce52a3e1
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+90. CG Medieval Shield
+Author: Bliumotron2000
+Link: https://sketchfab.com/3d-models/cg-medieval-shield-1492afdefc3949a392561a844d04f782
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+91. Obsidian Blade
+Author: Peter Primini
+Link: https://sketchfab.com/3d-models/obsidian-blade-7a546a9233c5419da843b193cd032ea9
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+92. Overlord
+Author: 3DMaesen
+Link: https://sketchfab.com/3d-models/overlord-4e61da8bb7f3440db3df42ee26c4b797
+Changes: Some model elements removed
+Licence version: CC BY 4.0
+
+93. Helmet No11
+Author: ArtLeaving
+Link: https://sketchfab.com/3d-models/helmet-no11-859e173fa35d44ca853a2ef1a3c4e90b
+Changes: Texture changed
+Licence version: CC BY 4.0
+
+94. Icons and cursors available in the game
+Author: Lorc, Delapouite & contributors
+Link: https://game-icons.net/
+Changes: Used as a GUI fragment
+Licence version: CC BY 3.0
+
+95. Moria Citadel Font
+Author: Rook543
+Link: https://www.1001fonts.com/moria-citadel-font.html
+Changes: No changes made
+
+96. Immortal Font
+Author: Apostrophic Labs
+Link: https://www.1001fonts.com/immortal-font.html
+Changes: No changes made
+
+The author of the project would like to thank you for the materials provided.
