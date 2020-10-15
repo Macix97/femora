@@ -15,21 +15,21 @@ A few pictures which present parts of the game:
 ![Main Menu](https://user-images.githubusercontent.com/26011505/95760017-cee4b200-0caa-11eb-8dfe-80728f934d47.png)
 
 ### User Interface
-![User Interface](https://user-images.githubusercontent.com/26011505/95760089-e1f78200-0caa-11eb-8320-14051c078d05.png)
+![User Interface](https://user-images.githubusercontent.com/26011505/96172964-7110ce00-0f27-11eb-8429-c6033d58b46d.png)
 
 ### Refugee Camp
-![Refugee Camp](https://user-images.githubusercontent.com/26011505/95682070-96c66c00-0be3-11eb-8d7c-e327dadbc4f1.png)
+![Refugee Camp](https://user-images.githubusercontent.com/26011505/96172989-7a9a3600-0f27-11eb-9c23-6fd7be6b8709.png)
 
 ### Dialogue With Mirlanda
-![Dialogue With Mirlanda](https://user-images.githubusercontent.com/26011505/95682129-e9a02380-0be3-11eb-8e1c-d2c7b4734bf4.png)
+![Dialogue With Mirlanda](https://user-images.githubusercontent.com/26011505/96173017-85ed6180-0f27-11eb-8620-df1aa6ca20be.png)
 
 ### Stony Plain
-![Stony Plain](https://user-images.githubusercontent.com/26011505/95682161-1ce2b280-0be4-11eb-96fa-6b206341e070.png)
+![Stony Plain](https://user-images.githubusercontent.com/26011505/96173037-90a7f680-0f27-11eb-98a7-c640c8e12343.png)
 
 ### Death Valley
-![Death Valley](https://user-images.githubusercontent.com/26011505/95682166-253aed80-0be4-11eb-9f7e-40f042a83d20.png)
+![Death Valley](https://user-images.githubusercontent.com/26011505/96173076-9dc4e580-0f27-11eb-8994-b2d41e503da5.png)
 
 ### Hell Pit
-![Hell Pit](https://user-images.githubusercontent.com/26011505/95682175-2a983800-0be4-11eb-8cfe-d4f407016d0c.png)
+![Hell Pit](https://user-images.githubusercontent.com/26011505/96173103-a87f7a80-0f27-11eb-804d-c5bb30c2d905.png)
 
 The project is personal and it is not commercial. Any similarities are due to sentimental reasons.
