@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7457587588757459699}
   - component: {fileID: 3765612976896994826}
   - component: {fileID: 3206267172973828823}
+  - component: {fileID: 7460002076039967066}
   m_Layer: 0
   m_Name: Well
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 8012563891942627399, guid: cf8b0eb755193aa48ad2a61450aac4ac, type: 3}
+--- !u!205 &7460002076039967066
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3206267172973828822}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0.34883207, z: 0}
+  m_Size: 2.215853
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.049624998
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 3765612976896994826}
+  m_Enabled: 1

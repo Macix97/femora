@@ -160,6 +160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9112331412698260031}
+  - component: {fileID: 6867457617476078587}
   m_Layer: 0
   m_Name: Energy Potion
   m_TagString: Untagged
@@ -182,3 +183,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &6867457617476078587
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9112331412698260030}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0.1284273, z: 0.0004963577}
+  m_Size: 0.2570523
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.012148444
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 3235222834566625714}
+  m_Enabled: 1

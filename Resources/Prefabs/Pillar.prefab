@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2540871916514042520}
   - component: {fileID: 8106044887140277857}
   - component: {fileID: 7512746263889849022}
+  - component: {fileID: 6226966056297006750}
   m_Layer: 0
   m_Name: Pillar
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -8116138440861595531, guid: 1a19a8c4be727fe498567592607a4098, type: 3}
+--- !u!205 &6226966056297006750
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7512746263889849021}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.029579401, y: 1.3156247, z: -0.031189263}
+  m_Size: 2.6624522
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.054748457
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 8106044887140277857}
+  m_Enabled: 1

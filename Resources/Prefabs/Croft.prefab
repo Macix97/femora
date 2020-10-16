@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 936036630888812698}
   - component: {fileID: 6900061292773141603}
   - component: {fileID: 5187345487568066750}
+  - component: {fileID: 1557483146013399827}
   m_Layer: 0
   m_Name: Croft
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -7197498136215416782, guid: 5bb0fb0110bb51f469ce78df94f0922a, type: 3}
+--- !u!205 &1557483146013399827
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5187345487568066751}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.0007891655, y: 1.4218811, z: -0.085585594}
+  m_Size: 5.851366
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.10104475
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 6900061292773141603}
+  m_Enabled: 1

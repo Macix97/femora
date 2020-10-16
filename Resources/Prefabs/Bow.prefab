@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1168786878744642927}
   - component: {fileID: 4829217874381748630}
   - component: {fileID: 6573005987189329225}
+  - component: {fileID: 6967946247424419865}
   m_Layer: 0
   m_Name: Bow
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 6937701791748013656, guid: 8ba3bd81035c9314db9f17225eef0f4e, type: 3}
+--- !u!205 &6967946247424419865
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6573005987189329226}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.0164885, y: 0.014501963, z: -0.00085163116}
+  m_Size: 1.315609
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.013266975
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 4829217874381748630}
+  m_Enabled: 1

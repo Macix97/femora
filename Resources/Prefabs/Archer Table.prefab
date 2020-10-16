@@ -195,6 +195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1232339845941577857}
+  - component: {fileID: 3444958165059467068}
   m_Layer: 0
   m_Name: Archer Table
   m_TagString: Untagged
@@ -224,6 +225,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &3444958165059467068
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232339845941577862}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.053426504, y: 0.4437145, z: -0.008981764}
+  m_Size: 2.1894329
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.01276711
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 6929807501719077753}
+    - renderer: {fileID: 906647105576050838}
+    - renderer: {fileID: 6659671216877439373}
+    - renderer: {fileID: 5719801150304616271}
+    - renderer: {fileID: 1359590483951209522}
+    - renderer: {fileID: 618668799173966974}
+    - renderer: {fileID: 5385565962157911163}
+    - renderer: {fileID: 5117619693552377087}
+  m_Enabled: 1
 --- !u!1 &1488959409193030730
 GameObject:
   m_ObjectHideFlags: 0

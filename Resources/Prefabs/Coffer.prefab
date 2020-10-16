@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7814323551008675341}
   - component: {fileID: 4561729386924780276}
   - component: {fileID: 2842425273114074665}
+  - component: {fileID: 7649149150389728201}
   m_Layer: 0
   m_Name: Coffer
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -6478558492496220775, guid: e19079f99ae91a14e99234807a900f37, type: 3}
+--- !u!205 &7649149150389728201
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2842425273114074664}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.0006533861, y: 0.31456846, z: 0.00078099966}
+  m_Size: 1.1021571
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.053444445
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 4561729386924780276}
+  m_Enabled: 1

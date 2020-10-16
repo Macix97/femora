@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6258222679128516288}
   - component: {fileID: 424786652883606073}
   - component: {fileID: 7996174325976217582}
+  - component: {fileID: 1688843383565882243}
   m_Layer: 0
   m_Name: Cage
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -8634338456207152865, guid: f64f811453bdf0f46b762f2dec8b7830, type: 3}
+--- !u!205 &1688843383565882243
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2151017725263507173}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.0011108518, y: 1.0432075, z: -0.005800277}
+  m_Size: 2.0864198
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.013266975
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 424786652883606073}
+  m_Enabled: 1

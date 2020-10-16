@@ -392,6 +392,7 @@ GameObject:
   - component: {fileID: 2511822428576789292}
   - component: {fileID: 2511822428576789295}
   - component: {fileID: 2511822428576789294}
+  - component: {fileID: 2185120795323994217}
   m_Layer: 0
   m_Name: Mirlanda
   m_TagString: Person
@@ -596,6 +597,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aba7da765b12d44d9dc7c29e041df24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!205 &2185120795323994217
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2511822428576789280}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.0000023245811, y: 0.8790343, z: 0.0009408295}
+  m_Size: 1.7200379
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.048382718
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 2511822428576789281}
+  m_Enabled: 1
 --- !u!1 &2886525103062231001
 GameObject:
   m_ObjectHideFlags: 0

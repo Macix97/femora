@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4480935920234717188}
   - component: {fileID: 7859891930428808445}
   - component: {fileID: 8444007535525570598}
+  - component: {fileID: 5180574583538023333}
   m_Layer: 0
   m_Name: Firewood
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 5140725960048825839, guid: a67a1c5b8c0f99748bef7a4b24ef0868, type: 3}
+--- !u!205 &5180574583538023333
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8444007535525570593}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.036112428, y: 0.44843602, z: -0.00016844273}
+  m_Size: 2.6557546
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.054748457
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 7859891930428808445}
+  m_Enabled: 1

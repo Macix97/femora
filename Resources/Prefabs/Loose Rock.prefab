@@ -147,6 +147,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4646485155660765042}
+  - component: {fileID: 2709812825016182662}
   m_Layer: 0
   m_Name: Loose Rock
   m_TagString: Untagged
@@ -169,3 +170,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &2709812825016182662
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4646485155660765043}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.007017985, y: 0.13428134, z: 0.015886277}
+  m_Size: 0.3510068
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.011544
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 3531294896594844897}
+  m_Enabled: 1

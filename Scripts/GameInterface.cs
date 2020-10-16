@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.PostProcessing;
 
 public class GameInterface : MonoBehaviour
 {
@@ -398,6 +399,11 @@ public class GameInterface : MonoBehaviour
     internal HeroSkillDatabase.Skill LeftSkill;
     internal HeroSkillDatabase.Skill RightSkill;
 
+    //--- Post processing ---//
+    [SerializeField]
+    public PostProcessProfile[] PostProcessings;
+    private PostProcessVolume _postProcessVolume;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -543,6 +549,9 @@ public class GameInterface : MonoBehaviour
         CurStatment = PersonDatabase.NoStatment;
         QualityPanelImg.GetComponentInChildren<Text>().text = QualitySettings.names[0];
         QualityLevel = 0;
+        // Post processing
+        _postProcessVolume = gameObject.GetComponent<PostProcessVolume>();
+        _postProcessVolume.profile = PostProcessings[0];
         // Prepare game
         PrepareGame();
         // Adapt values
@@ -1821,11 +1830,18 @@ public class GameInterface : MonoBehaviour
         string[] qualityLevels = QualitySettings.names;
         // Decrease quality
         if (QualityLevel.Equals(qualityLevels.Length - 1))
+        {
             // Reset quality
             QualityLevel = 0;
+            _postProcessVolume.profile = PostProcessings[QualityLevel];
+        }
         // Increase quality
         else
+        {
+            // Set new quality level
             QualityLevel++;
+            _postProcessVolume.profile = PostProcessings[QualityLevel];
+        }
         // Change label
         QualityPanelImg.GetComponentInChildren<Text>().text = qualityLevels[QualityLevel];
         // Adjust graphics
@@ -1951,6 +1967,7 @@ public class GameInterface : MonoBehaviour
             QualityPanelImg.GetComponentInChildren<Text>().text = qualityLevels[QualityLevel];
             // Adjust graphics
             QualitySettings.SetQualityLevel(QualityLevel);
+            _postProcessVolume.profile = PostProcessings[QualityLevel];
             // Reset hero name variable
             GameProgressDatabase.HeroName = null;
             // Reset game save variable

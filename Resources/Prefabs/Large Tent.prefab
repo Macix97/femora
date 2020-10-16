@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1193252485496597780}
   - component: {fileID: 4878455832182493677}
   - component: {fileID: 6597518057159632176}
+  - component: {fileID: 6222592482602024184}
   m_Layer: 0
   m_Name: Large Tent
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 1851341338871466080, guid: 4ab7ff814fe359b4b809acefe42553d4, type: 3}
+--- !u!205 &6222592482602024184
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6597518057159632177}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.052571774, y: 1.782866, z: 0.00000047683716}
+  m_Size: 12.743059
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.1545864
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 4878455832182493677}
+  m_Enabled: 1

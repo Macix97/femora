@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1795800445711018937}
   - component: {fileID: 5464976958999500608}
   - component: {fileID: 6047113405164037019}
+  - component: {fileID: 5426503890030829093}
   m_Layer: 0
   m_Name: Entrance
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -8548174756391177993, guid: 3eb1c55832086824e87742c723119488, type: 3}
+--- !u!205 &5426503890030829093
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6047113405164037020}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.020290017, y: 1.9452509, z: 0.28572476}
+  m_Size: 3.9217045
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.095790125
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 5464976958999500608}
+  m_Enabled: 1

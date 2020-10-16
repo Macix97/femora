@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 91944346541099347}
   - component: {fileID: 91944346541099346}
   - component: {fileID: 1697687643198810534}
+  - component: {fileID: 7143481659290579314}
   m_Layer: 0
   m_Name: Hell Knight
   m_TagString: Enemy
@@ -330,6 +331,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a83a5ca540f99a43b53a9fea5f6684c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!205 &7143481659290579314
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91944346541099342}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.052438527, y: 0.90994966, z: 0.23364979}
+  m_Size: 1.9449215
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.04594445
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 91944346541099343}
+    - renderer: {fileID: 2315948896058643758}
+    - renderer: {fileID: 1064918720559112812}
+    - renderer: {fileID: 3868909431172469319}
+    - renderer: {fileID: 3868909431172470407}
+    - renderer: {fileID: 3868909431172262571}
+    - renderer: {fileID: 3868909431172247105}
+  m_Enabled: 1
 --- !u!1 &652864527095898555
 GameObject:
   m_ObjectHideFlags: 0

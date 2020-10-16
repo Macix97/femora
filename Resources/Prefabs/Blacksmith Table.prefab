@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1561347761943213984}
+  - component: {fileID: 7742559100285505568}
   m_Layer: 0
   m_Name: Blacksmith Table
   m_TagString: Untagged
@@ -32,6 +33,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &7742559100285505568
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561347761943213987}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.00600183, y: 0.43194604, z: 0.0071956515}
+  m_Size: 2.0705762
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.01404711
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 7130462241023591974}
+    - renderer: {fileID: 3465874723318069519}
+  m_Enabled: 1
 --- !u!1 &2892881879738011091
 GameObject:
   m_ObjectHideFlags: 0

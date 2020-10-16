@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3513591654544703116}
   - component: {fileID: 7205268563020612213}
   - component: {fileID: 8917856897943484072}
+  - component: {fileID: 5581432531639121964}
   m_Layer: 0
   m_Name: Vessel04
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -5694757017274567163, guid: 597a3263893a51149b98f62801214710, type: 3}
+--- !u!205 &5581432531639121964
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8917856897943484073}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0.116882674, z: -0.000000014901161}
+  m_Size: 0.2337657
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.0069012344
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 7205268563020612213}
+  m_Enabled: 1

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5524156157788680068}
   - component: {fileID: 2275786392406332285}
   - component: {fileID: 5342984979177764852}
+  - component: {fileID: 2285336582606204751}
   m_Layer: 0
   m_Name: Clay
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -3540717501585762055, guid: f91b7dce1472db843926767545b82fdb, type: 3}
+--- !u!205 &2285336582606204751
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552220533041538977}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.034241676, y: 0.7919531, z: 0.15541935}
+  m_Size: 7.145031
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.10104475
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 2275786392406332285}
+  m_Enabled: 1

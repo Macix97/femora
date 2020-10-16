@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1562228053670816537}
   - component: {fileID: 5085319653194536928}
   - component: {fileID: 7027294092486463538}
+  - component: {fileID: 4279926403184108176}
   m_Layer: 0
   m_Name: Sacks
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 6759908885854971357, guid: 69dc1f47db23a044daa4cba281ae81bf, type: 3}
+--- !u!205 &4279926403184108176
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6822523821638755132}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.038327575, y: 0.334516, z: -0.05155742}
+  m_Size: 2.0971043
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.053444445
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 5085319653194536928}
+  m_Enabled: 1

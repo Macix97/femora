@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6496065679345929238}
   - component: {fileID: 655872129682551023}
   - component: {fileID: 1235945862473745458}
+  - component: {fileID: 5246678479229154133}
   m_Layer: 0
   m_Name: Rubble
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -3764589354758518623, guid: 37f7883892c78f34cb4fb0c678c8065d, type: 3}
+--- !u!205 &5246678479229154133
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235945862473745459}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.48480487, y: 0.27044058, z: 0.23691273}
+  m_Size: 9.697416
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.052155863
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 655872129682551023}
+  m_Enabled: 1

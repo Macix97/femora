@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4682705063495351020}
   - component: {fileID: 1423355300263216661}
   - component: {fileID: 863582915236852424}
+  - component: {fileID: 2800136308629913613}
   m_Layer: 0
   m_Name: Canopy
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 2728963856613279042, guid: 6900ccc060dd840418cfb72a101d7b0a, type: 3}
+--- !u!205 &2800136308629913613
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863582915236852425}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.012409449, y: 1.0969799, z: 0.108302474}
+  m_Size: 2.9208188
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.054068442
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1423355300263216661}
+  m_Enabled: 1

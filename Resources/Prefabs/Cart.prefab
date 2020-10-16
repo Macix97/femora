@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8715654691973406072}
   - component: {fileID: 3154965776734183809}
   - component: {fileID: 3743730045707048284}
+  - component: {fileID: 5779153115176439413}
   m_Layer: 0
   m_Name: Cart
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 3596191092224140292, guid: cc5bcf7aacd0a184fb0d1b699f84754a, type: 3}
+--- !u!205 &5779153115176439413
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3743730045707048285}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.010148168, y: 0.775965, z: 0.16706908}
+  m_Size: 2.66054
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.053444445
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 3154965776734183809}
+  m_Enabled: 1

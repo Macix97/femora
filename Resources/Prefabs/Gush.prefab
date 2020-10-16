@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2627055723350132071}
   - component: {fileID: 5471169588260971731}
   - component: {fileID: 5166070554769437008}
+  - component: {fileID: 8345575902691364314}
   m_Layer: 0
   m_Name: Gush
   m_TagString: Untagged
@@ -4811,3 +4812,22 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!205 &8345575902691364314
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298679577349326950}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 2.4700007
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.054748457
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 5166070554769437008}
+  m_Enabled: 1

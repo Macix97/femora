@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2169739539579490340}
+  - component: {fileID: 5903646921749154547}
   m_Layer: 0
   m_Name: Small Energy Potion
   m_TagString: Untagged
@@ -31,6 +32,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &5903646921749154547
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2169739539579490363}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0.11361687, z: 0}
+  m_Size: 0.22617933
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.0077111106
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 2570285478479572202}
+  m_Enabled: 1
 --- !u!1 &4294088832943167542
 GameObject:
   m_ObjectHideFlags: 0

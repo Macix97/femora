@@ -267,6 +267,7 @@ GameObject:
   - component: {fileID: 675795262102276881}
   - component: {fileID: 675795262102276882}
   - component: {fileID: 308938978029206472}
+  - component: {fileID: 8576174182244250228}
   m_Layer: 0
   m_Name: Pit Fiend
   m_TagString: Enemy
@@ -579,6 +580,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a83a5ca540f99a43b53a9fea5f6684c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!205 &8576174182244250228
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675795262102276894}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.109016985, y: 0.9885695, z: 0.29309303}
+  m_Size: 2.1225371
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.047155865
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 675795262102276893}
+    - renderer: {fileID: 8554968462488951873}
+  m_Enabled: 1
 --- !u!1 &1154172957103206492
 GameObject:
   m_ObjectHideFlags: 0

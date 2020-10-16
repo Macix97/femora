@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 493307305145979949}
   - component: {fileID: 6189103717449410772}
   - component: {fileID: 5609456565087968265}
+  - component: {fileID: 773543882721894021}
   m_Layer: 0
   m_Name: Rock01
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -8971355165230693711, guid: 2f6435c6800e71545a966a1ac0061469, type: 3}
+--- !u!205 &773543882721894021
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5609456565087968264}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.12970364, y: 0.8139442, z: -0.1065774}
+  m_Size: 3.3510118
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.049624998
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 6189103717449410772}
+  m_Enabled: 1

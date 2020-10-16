@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7262984958967445686}
   - component: {fileID: 4032911058632541263}
   - component: {fileID: 3443865242761408658}
+  - component: {fileID: 4492614609231549632}
   m_Layer: 0
   m_Name: Caravan
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 1129351588170529308, guid: c65eda5439281944390e02e2fab2d876, type: 3}
+--- !u!205 &4492614609231549632
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3443865242761408659}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.0013395548, y: 1.4901179, z: 0.6547456}
+  m_Size: 5.904004
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.09927777
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 4032911058632541263}
+  m_Enabled: 1

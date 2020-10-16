@@ -160,6 +160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 897804975904491761}
+  - component: {fileID: 3451262110807438277}
   m_Layer: 0
   m_Name: Light Leather Armor
   m_TagString: Untagged
@@ -182,3 +183,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &3451262110807438277
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897804975904491766}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.0013996363, y: 0.1370484, z: -0.048668385}
+  m_Size: 1.3189435
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.054068442
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1810595454325874213}
+  m_Enabled: 1

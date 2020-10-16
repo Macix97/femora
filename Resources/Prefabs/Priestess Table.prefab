@@ -102,6 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1964364064634064971}
+  - component: {fileID: 6162084870535796960}
   m_Layer: 0
   m_Name: Priestess Table
   m_TagString: Untagged
@@ -128,6 +129,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &6162084870535796960
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964364064634064968}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.00600183, y: 0.4999622, z: 0.002155304}
+  m_Size: 2.0705762
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.046815116
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1762117502735507678}
+    - renderer: {fileID: 6869468933444160028}
+    - renderer: {fileID: 5715263407085205097}
+    - renderer: {fileID: 4996161807864504326}
+    - renderer: {fileID: 2426631890072454416}
+  m_Enabled: 1
 --- !u!1 &4148368123620585932
 GameObject:
   m_ObjectHideFlags: 0

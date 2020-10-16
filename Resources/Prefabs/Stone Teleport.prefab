@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1172379081648633705}
+  - component: {fileID: 5111342386693551624}
   m_Layer: 0
   m_Name: Stone Teleport
   m_TagString: Untagged
@@ -32,6 +33,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &5111342386693551624
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172379081648633706}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.01825118, y: 1.7261941, z: 0.95655894}
+  m_Size: 5.238217
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.09801511
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 8389624679377736333}
+    - renderer: {fileID: 8781451751179364254}
+  m_Enabled: 1
 --- !u!1 &7052968913362293570
 GameObject:
   m_ObjectHideFlags: 0

@@ -160,6 +160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4909092942908472639}
+  - component: {fileID: 2864542297057895665}
   m_Layer: 0
   m_Name: Small Healing Potion
   m_TagString: Untagged
@@ -182,3 +183,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &2864542297057895665
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4909092942908472636}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0.11361687, z: 0}
+  m_Size: 0.22617933
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.012148444
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1370790334511254679}
+  m_Enabled: 1

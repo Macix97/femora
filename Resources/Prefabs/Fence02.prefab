@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4749498048451900568}
   - component: {fileID: 1357010812503918689}
   - component: {fileID: 786375287611538618}
+  - component: {fileID: 7431379029157006142}
   m_Layer: 0
   m_Name: Fence02
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -3501067418043503883, guid: 80c718c2254f1fa4990c6b3ae69c477e, type: 3}
+--- !u!205 &7431379029157006142
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786375287611538621}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.0000030994415, y: 1.1066775, z: -0.0000032931566}
+  m_Size: 3.736211
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.04594445
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1357010812503918689}
+  m_Enabled: 1

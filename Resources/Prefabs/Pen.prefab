@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3393549061052107685}
   - component: {fileID: 8945494178655434588}
   - component: {fileID: 7212534061305611139}
+  - component: {fileID: 1111441302221395392}
   m_Layer: 0
   m_Name: Pen
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -1049237082592561434, guid: 6d5c8e94d15a45146bb675a167c12cbc, type: 3}
+--- !u!205 &1111441302221395392
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7212534061305611136}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.06996536, y: 0.62386817, z: -0.011433452}
+  m_Size: 2.1991253
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.047155865
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 8945494178655434588}
+  m_Enabled: 1

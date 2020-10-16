@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3242737418113844247}
   - component: {fileID: 9096160650589173998}
   - component: {fileID: 7350116380203732019}
+  - component: {fileID: 7621303510356771333}
   m_Layer: 0
   m_Name: Wagon
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -6299455910856566172, guid: dd7cca0e763e28b4fa8d5ee402ec8c48, type: 3}
+--- !u!205 &7621303510356771333
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7350116380203732018}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.00018548965, y: 0.656601, z: 1.0014136}
+  m_Size: 6.3426957
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.09752622
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 9096160650589173998}
+  m_Enabled: 1

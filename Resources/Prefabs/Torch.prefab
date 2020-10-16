@@ -14031,6 +14031,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2241944451407104082}
+  - component: {fileID: 75292057208557369}
   m_Layer: 0
   m_Name: Torch
   m_TagString: Untagged
@@ -14054,6 +14055,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &75292057208557369
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2241944451407104083}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0.6959031, z: -0.000000014901161}
+  m_Size: 1.3918079
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.054068442
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 7304675998393233954}
+    - renderer: {fileID: 1677078899620407684}
+    - renderer: {fileID: 1677078899620433934}
+    - renderer: {fileID: 1677078899620416700}
+  m_Enabled: 1
 --- !u!1 &9035269867499865854
 GameObject:
   m_ObjectHideFlags: 0

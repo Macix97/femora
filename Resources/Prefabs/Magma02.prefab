@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4105316963998955907}
   - component: {fileID: 7765768629299250554}
   - component: {fileID: 8356811055075373473}
+  - component: {fileID: 8796018122476084732}
   m_Layer: 0
   m_Name: Magma02
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 6529146397551352324, guid: 19762ca7e9bcc4f40a023b70c1f5b7c6, type: 3}
+--- !u!205 &8796018122476084732
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8356811055075373478}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.009744912, y: 0.09559705, z: 0.014944419}
+  m_Size: 0.44875908
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.014625
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 7765768629299250554}
+  m_Enabled: 1

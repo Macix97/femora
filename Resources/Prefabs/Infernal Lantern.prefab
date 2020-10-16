@@ -14124,6 +14124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7597867506975401872}
+  - component: {fileID: 7918297161437204140}
   m_Layer: 0
   m_Name: Infernal Lantern
   m_TagString: Untagged
@@ -14147,3 +14148,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &7918297161437204140
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7597867506975401875}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 1.3809816, z: 0}
+  m_Size: 2.7619631
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.052823998
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 4544198681341703186}
+    - renderer: {fileID: 2122085796808109061}
+    - renderer: {fileID: 2122085796808136079}
+    - renderer: {fileID: 2122085796808149309}
+  m_Enabled: 1

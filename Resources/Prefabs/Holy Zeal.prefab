@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7613376905390954285}
   - component: {fileID: 7744883481106565807}
   - component: {fileID: 7745544219073283771}
+  - component: {fileID: 7457646158998720659}
   m_Layer: 0
   m_Name: Holy Zeal
   m_TagString: Untagged
@@ -4811,3 +4812,22 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!205 &7457646158998720659
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7619200188088371131}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 0.00002
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.04594445
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 7745544219073283771}
+  m_Enabled: 1

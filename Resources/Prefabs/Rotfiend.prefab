@@ -391,6 +391,7 @@ GameObject:
   - component: {fileID: 2275740183461105933}
   - component: {fileID: 2275740183461105932}
   - component: {fileID: 1051620195583494316}
+  - component: {fileID: 1912766108614098650}
   m_Layer: 0
   m_Name: Rotfiend
   m_TagString: Enemy
@@ -703,6 +704,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a83a5ca540f99a43b53a9fea5f6684c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!205 &1912766108614098650
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2275740183461105928}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.0015591383, y: 0.86224556, z: 0.042252958}
+  m_Size: 1.8000002
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.052155863
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 2275740183461105929}
+  m_Enabled: 1
 --- !u!1 &2539608416589078811
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 178467143885858039}
   - component: {fileID: 5856512954302650382}
   - component: {fileID: 5294638371748768981}
+  - component: {fileID: 6410453617669358748}
   m_Layer: 0
   m_Name: Anvil
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 2274984026153331234, guid: 0f1181bd3e529b346b9a5a4e487b7aa5, type: 3}
+--- !u!205 &6410453617669358748
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5294638371748768978}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.02924326, y: 0.5006727, z: 0.010384589}
+  m_Size: 1.0119936
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.01276711
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 5856512954302650382}
+  m_Enabled: 1

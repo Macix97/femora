@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 213929828831018254}
   - component: {fileID: 5891976465894785527}
   - component: {fileID: 5330106281553098026}
+  - component: {fileID: 6781694831795758533}
   m_Layer: 0
   m_Name: Grindstone
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -4601378114921410287, guid: e4f773374cda9884a96eac29c294025d, type: 3}
+--- !u!205 &6781694831795758533
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5330106281553098027}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.05545664, y: 0.6068429, z: -0.07505238}
+  m_Size: 1.4022441
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.05088272
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 5891976465894785527}
+  m_Enabled: 1

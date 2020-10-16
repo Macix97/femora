@@ -5031,6 +5031,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6231208313673128687}
+  - component: {fileID: 1370880299606143965}
   m_Layer: 0
   m_Name: Farm
   m_TagString: Untagged
@@ -5106,3 +5107,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &1370880299606143965
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2340005598900319883}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.27293682, y: 0.62386817, z: -0.23408031}
+  m_Size: 22.79335
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.19900772
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1766143203550759694}
+    - renderer: {fileID: 1766143202535608772}
+    - renderer: {fileID: 1766143202659507587}
+    - renderer: {fileID: 1766143203953969724}
+    - renderer: {fileID: 1766143204103289353}
+    - renderer: {fileID: 1766143202688458063}
+    - renderer: {fileID: 1766143203750205572}
+    - renderer: {fileID: 1766143203250452016}
+    - renderer: {fileID: 1766143202559875369}
+    - renderer: {fileID: 1766143203085766594}
+    - renderer: {fileID: 1766143204049989879}
+    - renderer: {fileID: 1766143202582975676}
+    - renderer: {fileID: 1766143203296118752}
+    - renderer: {fileID: 1766143203468468068}
+    - renderer: {fileID: 1766143203051474098}
+    - renderer: {fileID: 1766143202046966744}
+    - renderer: {fileID: 1766143204034799163}
+    - renderer: {fileID: 1766143202521199633}
+    - renderer: {fileID: 1766143202313765295}
+    - renderer: {fileID: 1766143203555390640}
+    - renderer: {fileID: 1766143203780125791}
+    - renderer: {fileID: 1766143204002550004}
+    - renderer: {fileID: 1766143202919683703}
+    - renderer: {fileID: 1766143202797451956}
+    - renderer: {fileID: 1766143202561914012}
+    - renderer: {fileID: 1766143203509139692}
+    - renderer: {fileID: 1766143203030209486}
+    - renderer: {fileID: 1766143203857702852}
+    - renderer: {fileID: 1766143203661421877}
+    - renderer: {fileID: 1766143202978586824}
+    - renderer: {fileID: 1766143203671145392}
+    - renderer: {fileID: 1766143203085772895}
+    - renderer: {fileID: 1766143203631000116}
+    - renderer: {fileID: 1766143202109922450}
+    - renderer: {fileID: 1766143203723551744}
+    - renderer: {fileID: 1766143202362105125}
+    - renderer: {fileID: 1766143202422920840}
+    - renderer: {fileID: 1766143202981321383}
+    - renderer: {fileID: 1766143203620996776}
+    - renderer: {fileID: 1766143203630692582}
+    - renderer: {fileID: 1766143202111126469}
+    - renderer: {fileID: 1766143202783332420}
+    - renderer: {fileID: 1766143202729432926}
+    - renderer: {fileID: 1766143202652494713}
+    - renderer: {fileID: 1766143203717708789}
+    - renderer: {fileID: 1766143202117802488}
+    - renderer: {fileID: 1766143203092429637}
+    - renderer: {fileID: 1766143202015834428}
+    - renderer: {fileID: 1766143203410341619}
+    - renderer: {fileID: 1766143202722997469}
+    - renderer: {fileID: 1766143203613725786}
+    - renderer: {fileID: 1766143202712717414}
+    - renderer: {fileID: 1766143203034026575}
+    - renderer: {fileID: 1766143202964811925}
+  m_Enabled: 1

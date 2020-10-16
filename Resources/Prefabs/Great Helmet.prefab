@@ -160,6 +160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6673602201015462082}
+  - component: {fileID: 5828299692632737003}
   m_Layer: 0
   m_Name: Great Helmet
   m_TagString: Untagged
@@ -182,3 +183,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &5828299692632737003
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6673602201015462083}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.00011475384, y: 0.05928074, z: -0.02836512}
+  m_Size: 0.26573154
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.01404711
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 6654793738442000042}
+  m_Enabled: 1

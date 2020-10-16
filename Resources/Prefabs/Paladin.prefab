@@ -1078,6 +1078,7 @@ GameObject:
   - component: {fileID: 2100885052316053653}
   - component: {fileID: 2100885052316053654}
   - component: {fileID: 2100885052316053655}
+  - component: {fileID: 5255373939965310020}
   m_Layer: 2
   m_Name: Paladin
   m_TagString: Hero
@@ -1442,6 +1443,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c592db6ed1beafe48acee9847e579dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!205 &5255373939965310020
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100885052316053648}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.000096559525, y: 0.8213902, z: 0.020332426}
+  m_Size: 1.87
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.052155863
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 2100885052316053662}
+    - renderer: {fileID: 1691867567373545394}
+    - renderer: {fileID: 2165662223838367367}
+    - renderer: {fileID: 2309596719577265307}
+    - renderer: {fileID: 768335186742193726}
+  m_Enabled: 1
 --- !u!1 &2193620961259421009
 GameObject:
   m_ObjectHideFlags: 0

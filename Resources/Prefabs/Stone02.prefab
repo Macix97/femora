@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5240954844972898590}
   - component: {fileID: 1983578086644590055}
   - component: {fileID: 269023892610289980}
+  - component: {fileID: 5560556085551285895}
   m_Layer: 0
   m_Name: Stone02
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 6529146397551352324, guid: 19762ca7e9bcc4f40a023b70c1f5b7c6, type: 3}
+--- !u!205 &5560556085551285895
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269023892610289979}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.009744912, y: 0.09559705, z: 0.014944419}
+  m_Size: 0.44875908
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.013266975
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1983578086644590055}
+  m_Enabled: 1

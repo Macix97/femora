@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3982618212118171884}
   - component: {fileID: 3982618212118171885}
   - component: {fileID: 3982618212118171886}
+  - component: {fileID: 2710912449229323357}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -94,3 +95,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.5, y: 0.5, z: 2}
   m_Center: {x: 0, y: 0, z: -1}
+--- !u!205 &2710912449229323357
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3982618212118171887}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 2.5
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.014625
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 3982618212118171885}
+  m_Enabled: 1

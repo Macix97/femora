@@ -15,7 +15,7 @@ public class LocationManager : MonoBehaviour
     // Location end
     public static readonly string LocationEnd = " End";
     // New location text
-    public static readonly string NewLocationText = "Entering the ";
+    public static readonly string NewLocationText = "Entering ";
     // Game interface
     private GameInterface _gameInterface;
     // Hero class
@@ -45,10 +45,6 @@ public class LocationManager : MonoBehaviour
     private void Update()
     {
         CheckLocationName();
-        CheckLocationDist(ref _refugeeCamp, 105f);
-        CheckLocationDist(ref _stonyPlain, 210f);
-        CheckLocationDist(ref _deathValley, 110f);
-        CheckLocationDist(ref _hellPit, 150f);
     }
 
     // Set basic parameters
@@ -60,18 +56,6 @@ public class LocationManager : MonoBehaviour
         _deathValley = GameObject.Find(DeathValley).GetComponent<Transform>();
         _hellPit = GameObject.Find(HellPit).GetComponent<Transform>();
         _gameInterface = GameObject.Find(GameInterface.GameInterfaceController).GetComponent<GameInterface>();
-    }
-
-    // Check if hero is near from location
-    private void CheckLocationDist(ref Transform location, float distance)
-    {
-        // Check distance from location
-        if (Vector3.Distance(_heroClass.transform.position, location.position) > distance)
-            // Deactivate location
-            location.gameObject.SetActive(false);
-        else
-            // Activate location
-            location.gameObject.SetActive(true);
     }
 
     // Check current location name

@@ -160,6 +160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8692735919871005287}
+  - component: {fileID: 2910306793298147026}
   m_Layer: 0
   m_Name: Plenty Gold Coins
   m_TagString: Untagged
@@ -182,3 +183,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &2910306793298147026
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692735919871005280}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.0016258955, y: 0.02642056, z: 0.009396613}
+  m_Size: 0.40727645
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.01404711
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1616566923116184274}
+  m_Enabled: 1

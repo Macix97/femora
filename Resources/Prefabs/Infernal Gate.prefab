@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4008636182217103190}
   - component: {fileID: 7249951203677694895}
   - component: {fileID: 8980694674462072690}
+  - component: {fileID: 8683512759281412896}
   m_Layer: 0
   m_Name: Infernal Gate
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 8179710160104829550, guid: 13e8f73c1edcfba41a6690a1aba21d5b, type: 3}
+--- !u!205 &8683512759281412896
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8980694674462072691}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 2.1258833, z: -0.00000059604645}
+  m_Size: 4.2611327
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.095790125
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 7249951203677694895}
+  m_Enabled: 1

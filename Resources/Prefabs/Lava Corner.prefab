@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8074524988256935148}
   - component: {fileID: 2536354357039472661}
   - component: {fileID: 4255381397642417352}
+  - component: {fileID: 6233087308008887106}
   m_Layer: 0
   m_Name: Lava Corner
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 1133006377819140610, guid: 4b4253b2ee0ff1c4bb93ffcd2430d0bf, type: 3}
+--- !u!205 &6233087308008887106
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4255381397642417353}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.7659364, y: 0.4758134, z: -0.7666135}
+  m_Size: 3.6258903
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.05088272
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 2536354357039472661}
+  m_Enabled: 1

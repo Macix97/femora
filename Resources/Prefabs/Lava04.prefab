@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6634867933764996228}
   - component: {fileID: 1094163950565240957}
   - component: {fileID: 1662838011104625824}
+  - component: {fileID: 7029032714716191912}
   m_Layer: 0
   m_Name: Lava04
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 1500417894664506086, guid: 7116730f9abcde34aaaeeaa9710278ad, type: 3}
+--- !u!205 &7029032714716191912
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662838011104625825}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.23738313, y: 0.91419375, z: -0.3224088}
+  m_Size: 5.482682
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.05088272
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1094163950565240957}
+  m_Enabled: 1

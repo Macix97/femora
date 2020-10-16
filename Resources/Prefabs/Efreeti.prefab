@@ -19091,6 +19091,7 @@ GameObject:
   - component: {fileID: 2618375738888496288}
   - component: {fileID: 2618375738888496289}
   - component: {fileID: 6926823238754706712}
+  - component: {fileID: 4645873964261348558}
   m_Layer: 0
   m_Name: Efreeti
   m_TagString: Enemy
@@ -19403,6 +19404,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a83a5ca540f99a43b53a9fea5f6684c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!205 &4645873964261348558
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2618375738888496301}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.0000024437904, y: 0.88616246, z: 0.025687218}
+  m_Size: 1.8200468
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.05088272
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 2618375738888496300}
+    - renderer: {fileID: 8279413394941629859}
+    - renderer: {fileID: 135097778741984633}
+    - renderer: {fileID: 2139894673866210804}
+    - renderer: {fileID: 2296661505634002004}
+    - renderer: {fileID: 7907298651905089555}
+    - renderer: {fileID: 7458745201603429671}
+    - renderer: {fileID: 4878361853367162733}
+    - renderer: {fileID: 7937502136734273839}
+    - renderer: {fileID: 7394443873575341092}
+    - renderer: {fileID: 7394443873575318958}
+    - renderer: {fileID: 7394443873575332124}
+  m_Enabled: 1
 --- !u!1 &2932852455619771794
 GameObject:
   m_ObjectHideFlags: 0

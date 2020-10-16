@@ -4681,6 +4681,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 413332}
+  - component: {fileID: 1964852920263157884}
   m_Layer: 0
   m_Name: Flame
   m_TagString: Untagged
@@ -4706,6 +4707,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &1964852920263157884
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114206}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.049176004
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 19951904}
+    - renderer: {fileID: 19974314}
+    - renderer: {fileID: 19960856}
+    - renderer: {fileID: 19971926}
+  m_Enabled: 1
 --- !u!1 &158438
 GameObject:
   m_ObjectHideFlags: 0

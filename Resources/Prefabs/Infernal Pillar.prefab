@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6469678309086348939}
   - component: {fileID: 789365028820073074}
   - component: {fileID: 1353530987551493807}
+  - component: {fileID: 8523884224398787012}
   m_Layer: 0
   m_Name: Infernal Pillar
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -9153523627567954766, guid: 30424cc4e756dd7468786304d2cc8765, type: 3}
+--- !u!205 &8523884224398787012
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353530987551493806}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.0010075867, y: 1.3796495, z: -0.00048998}
+  m_Size: 2.7660224
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.053444445
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 789365028820073074}
+  m_Enabled: 1

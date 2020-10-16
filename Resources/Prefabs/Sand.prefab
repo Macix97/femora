@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4096476049295665947}
   - component: {fileID: 7774640294898833378}
   - component: {fileID: 2358964089551427209}
+  - component: {fileID: 6174415912084560918}
   m_Layer: 0
   m_Name: Sand
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 1445429886155621308, guid: ec5c02d4daae1e743b69eaade70f9099, type: 3}
+--- !u!205 &6174415912084560918
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8347919046367257406}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.41990256, y: 0.915564, z: -0.21435261}
+  m_Size: 8.590099
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.10104475
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 7774640294898833378}
+  m_Enabled: 1

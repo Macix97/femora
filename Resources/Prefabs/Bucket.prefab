@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2115754474423863748}
   - component: {fileID: 5647551416432178493}
   - component: {fileID: 6223117185924170208}
+  - component: {fileID: 7174096276277556218}
   m_Layer: 0
   m_Name: Bucket
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -944563635335726766, guid: 064c1abe32016c84197e505b19d312ca, type: 3}
+--- !u!205 &7174096276277556218
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6223117185924170209}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.000000029802322, y: 0.23522857, z: -0.0000020563602}
+  m_Size: 0.4702925
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.014625
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 5647551416432178493}
+  m_Enabled: 1

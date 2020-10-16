@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8128190759513028372}
   - component: {fileID: 2590039298873560045}
   - component: {fileID: 4309237899263164208}
+  - component: {fileID: 1258819625369606579}
   m_Layer: 0
   m_Name: Small Tree
   m_TagString: Untagged
@@ -93,3 +94,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -4100132735179760109, guid: 90df0c122e44ba0489a905f27ee038cd, type: 3}
+--- !u!205 &1258819625369606579
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4309237899263164209}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.019490957, y: 0.24750811, z: 0.06455982}
+  m_Size: 1.0926862
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.04594445
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 2590039298873560045}
+  m_Enabled: 1
