@@ -32,4 +32,4 @@ A few pictures which present parts of the game:
 ### Hell Pit
 ![Hell Pit](https://user-images.githubusercontent.com/26011505/96173103-a87f7a80-0f27-11eb-804d-c5bb30c2d905.png)
 
-The project is personal and it is not commercial. Any similarities are due to sentimental reasons.
+The project is personal and it is not commercial. Any similarities are due to sentimental reasons. Game was made by using Unity 3D 2019.2.2f1.
