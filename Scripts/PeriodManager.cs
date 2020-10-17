@@ -14,12 +14,10 @@ public class PeriodManager : MonoBehaviour
     private Light _sun;
     // Skybox
     private Material _skybox;
-    // Torches
-    private ParticleSystem[] _torches;
-    // Campfires
-    private ParticleSystem[] _campfires;
-    // Infernal lanterns
-    private ParticleSystem[] _infernalLanterns;
+    // Fire
+    private ParticleSystem[] _fire;
+    // Lights
+    private Light[] _lights;
     // Check if is day
     private bool _isDay;
     // Check if fire is active
@@ -57,34 +55,29 @@ public class PeriodManager : MonoBehaviour
         _rDiff = Mathf.Abs(DayColor.r - NightColor.r);
         _gDiff = Mathf.Abs(DayColor.g - NightColor.g);
         _bDiff = Mathf.Abs(DayColor.b - NightColor.b);
-        List<ParticleSystem> torches = new List<ParticleSystem>();
-        List<ParticleSystem> campfires = new List<ParticleSystem>();
-        List<ParticleSystem> infernalLanterns = new List<ParticleSystem>();
+        List<ParticleSystem> fire = new List<ParticleSystem>();
+        List<Light> lights = new List<Light>();
         GameObject[] allObjects = FindObjectsOfType<GameObject>();
+        // Search objects
         for (int cnt = 0; cnt < allObjects.Length; cnt++)
         {
-            if (allObjects[cnt].name.Equals(ItemClass.Torch))
+            // Add fire
+            if (allObjects[cnt].name.Equals(ItemClass.Torch) || allObjects[cnt].name.Equals(ItemClass.Campfire)
+                || allObjects[cnt].name.Equals(ItemClass.InfernalLantern))
             {
+                // Get light
+                Light light = allObjects[cnt].GetComponentInChildren<Light>();
+                // Turn off light
+                light.intensity = 0f;
+                // Add light
+                lights.Add(light);
                 ParticleSystem[] particles = allObjects[cnt].GetComponentsInChildren<ParticleSystem>();
                 foreach (ParticleSystem particle in particles)
-                    torches.Add(particle);
-            }
-            else if (allObjects[cnt].name.Equals(ItemClass.Campfire))
-            {
-                ParticleSystem[] particles = allObjects[cnt].GetComponentsInChildren<ParticleSystem>();
-                foreach (ParticleSystem particle in particles)
-                    campfires.Add(particle);
-            }
-            else if (allObjects[cnt].name.Equals(ItemClass.InfernalLantern))
-            {
-                ParticleSystem[] particles = allObjects[cnt].GetComponentsInChildren<ParticleSystem>();
-                foreach (ParticleSystem particle in particles)
-                    infernalLanterns.Add(particle);
+                    fire.Add(particle);
             }
         }
-        _torches = torches.ToArray();
-        _campfires = campfires.ToArray();
-        _infernalLanterns = infernalLanterns.ToArray();
+        _lights = lights.ToArray();
+        _fire = fire.ToArray();
         _isFire = false;
         _isDay = true;
     }
@@ -175,42 +168,22 @@ public class PeriodManager : MonoBehaviour
             // Check if fire is active
             if (!_isFire)
             {
-                // Search torches
-                foreach (ParticleSystem torch in _torches)
+                // Search fire
+                foreach (ParticleSystem fire in _fire)
                 {
                     // Get main module
-                    ParticleSystem.MainModule main = torch.main;
+                    ParticleSystem.MainModule main = fire.main;
                     // Restart particle system
-                    torch.Simulate(0f, true, true);
+                    fire.Simulate(0f, true, true);
                     // Enable looping
                     main.loop = true;
-                    // Set torch
-                    torch.Play();
+                    // Set fire
+                    fire.Play();
                 }
-                // Search campfires
-                foreach (ParticleSystem campfire in _campfires)
-                {
-                    // Get main module
-                    ParticleSystem.MainModule main = campfire.main;
-                    // Restart particle system
-                    campfire.Simulate(0f, true, true);
-                    // Enable looping
-                    main.loop = true;
-                    // Set campfire
-                    campfire.Play();
-                }
-                // Search infernal lanterns
-                foreach (ParticleSystem infernalLantern in _infernalLanterns)
-                {
-                    // Get main module
-                    ParticleSystem.MainModule main = infernalLantern.main;
-                    // Restart particle system
-                    infernalLantern.Simulate(0f, true, true);
-                    // Enable looping
-                    main.loop = true;
-                    // Set infernal Lantern
-                    infernalLantern.Play();
-                }
+                // Search lights
+                foreach (Light light in _lights)
+                    // Set light
+                    light.intensity = 1f;
                 // Set that fire is active
                 _isFire = true;
             }
@@ -221,30 +194,18 @@ public class PeriodManager : MonoBehaviour
             // Check if fire is active
             if (_isFire)
             {
-                // Search torches
-                foreach (ParticleSystem torch in _torches)
+                // Search fire
+                foreach (ParticleSystem fire in _fire)
                 {
                     // Get main module
-                    ParticleSystem.MainModule main = torch.main;
+                    ParticleSystem.MainModule main = fire.main;
                     // Disable looping
                     main.loop = false;
                 }
-                // Search campfires
-                foreach (ParticleSystem campfire in _campfires)
-                {
-                    // Get main module
-                    ParticleSystem.MainModule main = campfire.main;
-                    // Disable looping
-                    main.loop = false;
-                }
-                // Search infernal lanterns
-                foreach (ParticleSystem infernalLantern in _infernalLanterns)
-                {
-                    // Get main module
-                    ParticleSystem.MainModule main = infernalLantern.main;
-                    // Disable looping
-                    main.loop = false;
-                }
+                // Search lights
+                foreach (Light light in _lights)
+                    // Set light
+                    light.intensity = 0f;
                 // Set that fire is inactive
                 _isFire = false;
             }
