@@ -15,9 +15,7 @@ public class MenuMusicManager : MonoBehaviour
     private void Init()
     {
         AudioSrc = GetComponent<AudioSource>();
-        AudioSrc.clip = MusicDatabase
-            .GetProperSong(MusicDatabase.MainMenu,
-            MusicDatabase.Songs);
+        AudioSrc.clip = MusicDatabase.GetProperSong(MusicDatabase.MainMenu, MusicDatabase.Songs);
         AudioSrc.PlayDelayed(1f);
     }
 }
