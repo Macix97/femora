@@ -1,4 +1,4 @@
-The published project uses a CC BY license. The game can be processed in any way as long as the developer does not profit from it. It is also required to give the author a credit in case of using his work. More information can be found at the following address: https://creativecommons.org/licenses/
+The published project uses a CC BY-NC license. The game can be processed in any way as long as the developer does not profit from it. It is also required to give the author a credit in case of using his work. More information can be found at the following address: https://creativecommons.org/licenses/
 
 The author of the game directs all thanks to the independent developers for providing materials that were used to create the project. A complete list of used goods can be found in file credits.txt.
 
