@@ -266,7 +266,7 @@ Changes: Texture changed
 Licence version: CC BY 4.0
 
 42. Lowpoly Sticks
-Author: Loïc Norgeot
+Author: LoÃ¯c Norgeot
 Link: https://sketchfab.com/3d-models/lowpoly-sticks-396f8957029e4440ba15efb0fe217d5f
 Changes: Texture changed
 Licence version: CC BY 4.0
