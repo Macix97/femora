@@ -91,7 +91,7 @@
             LastEnemyLvl = EnemyDatabase.Enemies[0].Level,
             WalkSpeed = 3.5f,
             RunSpeed = 7f,
-            CurLocation = LocationManager.RefugeeCamp
+            CurLocation = "Refugee Camp"
         }
     };
 }

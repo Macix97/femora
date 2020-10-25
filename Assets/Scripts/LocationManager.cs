@@ -2,38 +2,35 @@
 
 public class LocationManager : MonoBehaviour
 {
-    // Refugee Camp
-    public static readonly string RefugeeCamp = "Refugee Camp";
-    // Stony Plain
-    public static readonly string StonyPlain = "Stony Plain";
-    // Stony Plain
-    public static readonly string DeathValley = "Death Valley";
-    // Hell Pit
-    public static readonly string HellPit = "Hell Pit";
-    // Location start
-    public static readonly string LocationStart = " Start";
-    // Location end
-    public static readonly string LocationEnd = " End";
     // New location text
     public static readonly string NewLocationText = "Entering ";
+    // Locations center
+    [SerializeField]
+    public GameObject[] LocationsCenter;
+    // Locations size
+    [SerializeField]
+    public Vector3[] LocationsSize;
+    // Protected areas center
+    [SerializeField]
+    public GameObject[] ProtAreasCenter;
+    // Protected areas size
+    [SerializeField]
+    public Vector3[] ProtAreasSize;
+    // Protected areas
+    private Bounds[] _protAreas;
+    // Locations
+    private Location[] _locations;
     // Game interface
     private GameInterface _gameInterface;
     // Hero class
     private HeroClass _heroClass;
-    // Refugee Camp transform
-    private Transform _refugeeCamp;
-    // Stony Plain transform
-    private Transform _stonyPlain;
-    // Death Valley transform
-    private Transform _deathValley;
-    // Hell Pit transform
-    private Transform _hellPit;
-    // First border height
-    private int _firstBorder = 90;
-    // Second border height
-    private int _secondBorder = 78;
-    // Third border height
-    private int _thirdBorder = 66;
+
+    // Location structure
+    public struct Location
+    {
+        public string Name { get; set; }
+        public Bounds Space { get; set; }
+    };
 
     // Awake is called when the script instance is being loaded
     private void Awake()
@@ -51,29 +48,42 @@ public class LocationManager : MonoBehaviour
     private void Init()
     {
         _heroClass = GameObject.FindGameObjectWithTag(HeroClass.HeroTag).GetComponent<HeroClass>();
-        _refugeeCamp = GameObject.Find(RefugeeCamp).GetComponent<Transform>();
-        _stonyPlain = GameObject.Find(StonyPlain).GetComponent<Transform>();
-        _deathValley = GameObject.Find(DeathValley).GetComponent<Transform>();
-        _hellPit = GameObject.Find(HellPit).GetComponent<Transform>();
         _gameInterface = GameObject.Find(GameInterface.GameInterfaceController).GetComponent<GameInterface>();
+        // Initialize protected areas
+        _protAreas = new Bounds[ProtAreasCenter.Length];
+        // Initialize locations
+        _locations = new Location[LocationsCenter.Length];
+        // Search protected areas
+        for (int cnt = 0; cnt < ProtAreasCenter.Length; cnt++)
+        {
+            // Set new area
+            _protAreas[cnt] = new Bounds(ProtAreasCenter[cnt].transform.position,
+                new Vector3(ProtAreasSize[cnt].x, ProtAreasSize[cnt].y, ProtAreasSize[cnt].z));
+        }
+        // Search locations
+        for (int cnt = 0; cnt < LocationsCenter.Length; cnt++)
+        {
+            // Set area name
+            _locations[cnt].Name = LocationsCenter[cnt].name;
+            // Set area space
+            _locations[cnt].Space = new Bounds(LocationsCenter[cnt].transform.position,
+                new Vector3(LocationsSize[cnt].x, LocationsSize[cnt].y, LocationsSize[cnt].z));
+        }
     }
 
     // Check current location name
     private void CheckLocationName()
     {
-        // Check hero position
-        if (_heroClass.transform.position.y > _firstBorder)
-            // This is Refugee Camp
-            ChangeLocationName(RefugeeCamp);
-        else if (_heroClass.transform.position.y <= _firstBorder && _heroClass.transform.position.y > _secondBorder)
-            // This is Stony Plain
-            ChangeLocationName(StonyPlain);
-        else if (_heroClass.transform.position.y <= _secondBorder && _heroClass.transform.position.y > _thirdBorder)
-            // This is Death Valley
-            ChangeLocationName(DeathValley);
-        else if (_heroClass.transform.position.y <= _thirdBorder)
-            // This is Hell Pit
-            ChangeLocationName(HellPit);
+        // Search locations
+        for (int cnt = 0; cnt < _locations.Length; cnt++)
+            // Check space
+            if (_locations[cnt].Space.Contains(_heroClass.transform.position))
+            {
+                // Change location name
+                ChangeLocationName(_locations[cnt].Name);
+                // Break action
+                break;
+            }
     }
 
     // Change current location name
@@ -93,5 +103,41 @@ public class LocationManager : MonoBehaviour
         _heroClass.CurLocation = locationName;
         // Adapt location name
         _gameInterface.SetLocationName(_heroClass.CurLocation);
+    }
+
+    // Check if hero is in protected area
+    public bool IsHeroInProtectedArea(Transform hero)
+    {
+        // Search protected areas
+        foreach (Bounds protArea in _protAreas)
+            // Check if hero is inside
+            if (protArea.Contains(hero.position))
+                // Hero is safe
+                return true;
+        // Hero is in danger
+        return false;
+    }
+
+    // Draw auxiliary mesh
+    private void OnDrawGizmos()
+    {
+        // Search protected areas
+        for (int cnt = 0; cnt < ProtAreasCenter.Length; cnt++)
+        {
+            // Change color
+            Gizmos.color = Color.green;
+            // Draw cube
+            Gizmos.DrawWireCube(ProtAreasCenter[cnt].transform.position,
+                new Vector3(ProtAreasSize[cnt].x, ProtAreasSize[cnt].y, ProtAreasSize[cnt].z));
+        }
+        // Search locations
+        for (int cnt = 0; cnt < LocationsCenter.Length; cnt++)
+        {
+            // Change color
+            Gizmos.color = Color.blue;
+            // Draw cube
+            Gizmos.DrawWireCube(LocationsCenter[cnt].transform.position,
+                new Vector3(LocationsSize[cnt].x, LocationsSize[cnt].y, LocationsSize[cnt].z));
+        }
     }
 }

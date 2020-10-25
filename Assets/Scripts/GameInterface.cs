@@ -1558,11 +1558,6 @@ public class GameInterface : MonoBehaviour
         LocationNameTxt.gameObject.SetActive(false);
         // Hide main info
         HideMainInfo();
-        // Get person renderer
-        SkinnedMeshRenderer skinnedMeshRenderer =
-            _heroBehavior.PersonClass.gameObject.GetComponent<SkinnedMeshRenderer>();
-        // Disable person shadow
-        skinnedMeshRenderer.shadowCastingMode = ShadowCastingMode.Off;
     }
 
     public void PrepareUIAfterTrade()
@@ -1608,11 +1603,6 @@ public class GameInterface : MonoBehaviour
         DeactivateElement(DialogueWindowImg.transform);
         // Show location name
         LocationNameTxt.gameObject.SetActive(true);
-        // Get person renderer
-        SkinnedMeshRenderer skinnedMeshRenderer =
-            _heroBehavior.PersonClass.gameObject.GetComponent<SkinnedMeshRenderer>();
-        // Enable person shadow
-        skinnedMeshRenderer.shadowCastingMode = ShadowCastingMode.On;
     }
 
     // Set visible or invisible active items when hero is talking

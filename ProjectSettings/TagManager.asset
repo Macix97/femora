@@ -12,6 +12,10 @@ TagManager:
   - UI
   - Camera
   - Terrain
+  - Hell Pit
+  - Death Valley
+  - Stony Plain
+  - Refugee Camp
   layers:
   - Default
   - TransparentFX

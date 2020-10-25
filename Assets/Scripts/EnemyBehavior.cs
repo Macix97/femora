@@ -3,8 +3,6 @@ using UnityEngine.AI;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    // Stopping distance
-    private float stopDist = 3f;
     // Enemy AI
     private NavMeshAgent _navMeshAgent;
     // Next attack time
@@ -15,8 +13,6 @@ public class EnemyBehavior : MonoBehaviour
     private Animator _animator;
     // Check if enemy is moving
     private bool _isMoving;
-    // Enemy location
-    private string _enemyLocation;
     // Enemy target
     private Transform _target;
     // Enemy class
@@ -31,10 +27,8 @@ public class EnemyBehavior : MonoBehaviour
     private HeroParameter _heroParameter;
     // Hero sound
     private HeroSound _heroSound;
-    // Level start
-    private Transform _levelStart;
-    // Level end
-    private Transform _levelEnd;
+    // Location manager
+    private LocationManager _locationManager;
 
     // Awake is called when the script instance is being loaded
     private void Awake()
@@ -64,32 +58,13 @@ public class EnemyBehavior : MonoBehaviour
         _heroClass = GameObject.FindGameObjectWithTag(HeroClass.HeroTag).GetComponent<HeroClass>();
         _heroSound = GameObject.FindGameObjectWithTag(HeroClass.HeroTag).GetComponent<HeroSound>();
         _heroParameter = GameObject.FindGameObjectWithTag(HeroClass.HeroTag).GetComponent<HeroParameter>();
+        _locationManager = GameObject.Find(GameInterface.GameController).GetComponent<LocationManager>();
         _enemyClass = GetComponent<EnemyClass>();
         _enemyParameter = GetComponent<EnemyParameter>();
         _enemySound = GetComponent<EnemySound>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
-        InitEnemyLocation(LocationManager.StonyPlain);
-        InitEnemyLocation(LocationManager.DeathValley);
-        InitEnemyLocation(LocationManager.HellPit);
         _nextAttack = Time.time;
-    }
-
-    // Initialize proper enemy location
-    private void InitEnemyLocation(string locationName)
-    {
-        // Check enemy parent
-        if (!transform.parent.name.Equals(locationName))
-            // Break action
-            return;
-        // Set enemy level start
-        _levelStart = GameObject.Find(locationName + LocationManager.LocationStart)
-            .GetComponent<Transform>();
-        // Set enemy level end
-        _levelEnd = GameObject.Find(locationName + LocationManager.LocationEnd)
-            .GetComponent<Transform>();
-        // Set enemy location
-        _enemyLocation = locationName;
     }
 
     // Check actual distance between enemy and hero
@@ -127,12 +102,8 @@ public class EnemyBehavior : MonoBehaviour
             && _navMeshAgent.remainingDistance
             > _enemyClass.AttackRay)
         {
-            // Check if hero is in enemy area
-            if ((Vector3.Distance(transform.position,
-                _levelStart.transform.position) <= stopDist
-                || Vector3.Distance(transform.position,
-                _levelEnd.transform.position) <= stopDist)
-                && !_enemyLocation.Equals(_heroClass.CurLocation))
+            // Check if hero is in save area
+            if (_locationManager.IsHeroInProtectedArea(_target))
             {
                 // Stop enemy
                 _isMoving = false;

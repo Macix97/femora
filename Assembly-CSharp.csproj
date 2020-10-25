@@ -92,6 +92,7 @@
      <None Include="Assets\credits.txt" />
      <None Include="Assets\Resources\Shaders\Panel.shader" />
      <None Include="Assets\Resources\Shaders\Text.shader" />
+     <None Include="Assets\Resources\Shaders\DoubleSidedStandard.shader" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/Macix/Documents/Unity Projects/Femora/femora/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
