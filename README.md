@@ -84,5 +84,5 @@ The list of used solutions:
 
 ## Credits
 
-The author of the project have using many of arts shared by CC0 or CC-BY license. Without this support, the game would not be possible.
+The author of the project have using many of arts shared by CC0 or CC BY license. Without this support, the game would not be possible.
 A complete list of the used materials and their creators can be found in the credits text file. Information can also be obtained by selecting the appropriate tab from the game menu.
