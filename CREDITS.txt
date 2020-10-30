@@ -1,16 +1,13 @@
 Below is a list of materials used in the program that are covered by the Creative Commons Attribution license:
-
 Creative Commons Attribution 3.0: https://creativecommons.org/licenses/by/3.0/
 Creative Commons Attribution 4.0: https://creativecommons.org/licenses/by/4.0/
 Sketchfab: https://sketchfab.com/
 Game-icons: https://game-icons.net/
 
 The game also contains characters and animations from mixamo:
-
 Mixamo: https://www.mixamo.com/
 
 Fonts provides 1001 Fonts:
-
 1001 Fonts: https://www.1001fonts.com/
 
 1. Chest
@@ -593,4 +590,4 @@ Author: Apostrophic Labs
 Link: https://www.1001fonts.com/immortal-font.html
 Changes: No changes made
 
-The author of the project would like to thank you for the materials provided.
+The author of the project would like to thank you for the provided materials.
