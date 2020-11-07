@@ -4,7 +4,7 @@
 
 Femora is a hack and slash game based on Diablo II created by Blizzard Entertainment. The history takes place in medieval-fantasy universe where Prime Evil tries to destroy the last bastion of humanity. In the game appear a lot of monsters and mechanisms known in titles like Titan Quest or Path of Exile.
 
-## Game play
+## Gameplay
 
 Action of the game goes on ancient land named Femora. From a certain date wild horde tries abandoned humanity from their kingdom. The bloody battles are consumed many brave warriors. There is no way to escape this madness. The only one chance is find the Prime Evil and break to the Pandemonium of Doom. There is one human who can do this - it's you!
 
