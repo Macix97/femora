@@ -263,7 +263,7 @@ Changes: Texture changed
 Licence version: CC BY 4.0
 
 42. Lowpoly Sticks
-Author: LoÃ¯c Norgeot
+Author: Loïc Norgeot
 Link: https://sketchfab.com/3d-models/lowpoly-sticks-396f8957029e4440ba15efb0fe217d5f
 Changes: Texture changed
 Licence version: CC BY 4.0
@@ -590,4 +590,4 @@ Author: Apostrophic Labs
 Link: https://www.1001fonts.com/immortal-font.html
 Changes: No changes made
 
-The author of the project would like to thank you for the provided materials.
+The author of the project would like to thank you for the materials provided.
