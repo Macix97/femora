@@ -6,6 +6,8 @@ public static class MusicDatabase
     public static readonly string Music = "Music/";
     // Main Menu
     public static readonly string MainMenu = "MainMenu";
+    // Credits
+    public static readonly string Credits = "Credits";
     // Refugee Camp
     public static readonly string RefugeeCamp = "RefugeeCamp";
     // Stony Plain
@@ -32,6 +34,12 @@ public static class MusicDatabase
         {
             Name = MainMenu,
             Audio = Resources.Load<AudioClip>(Music + MainMenu)
+        },
+        // Credits
+        new Song
+        {
+            Name = Credits,
+            Audio = Resources.Load<AudioClip>(Music + Credits)
         },
         // Refugee
         new Song

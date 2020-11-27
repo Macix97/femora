@@ -2,7 +2,6 @@
 using UnityEngine.UI;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
-using UnityEngine.Rendering;
 using UnityEngine.Rendering.PostProcessing;
 
 public class GameInterface : MonoBehaviour
@@ -701,8 +700,6 @@ public class GameInterface : MonoBehaviour
             _heroClass.transform.position = _heroClass.StartPos;
             // Set proper hero rotation
             _heroClass.transform.eulerAngles = _heroClass.StartRot;
-            // Set proper hero postion
-            _heroClass.transform.position = _heroClass.StartPos;
             // Resurrect hero
             _heroClass.CurHealth = _heroClass.MaxHealth;
             _heroClass.CurEnergy = _heroClass.MaxEnergy;
