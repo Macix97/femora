@@ -55,7 +55,7 @@ In Refugee Camp there are two traders:
 ### The pictures below show the most important aspects of the game:
 
 #### Main Menu
-![Main Menu](https://user-images.githubusercontent.com/26011505/95760017-cee4b200-0caa-11eb-8dfe-80728f934d47.png)
+![Main Menu](https://user-images.githubusercontent.com/26011505/100525405-dad7f500-31c0-11eb-983b-b2018c5ddfc2.png)
 #### Hero Choice
 ![Hero Choice](https://user-images.githubusercontent.com/26011505/97106127-15310c80-16c0-11eb-92b2-638bc0c13c17.png)
 #### Return to Refugee Camp
