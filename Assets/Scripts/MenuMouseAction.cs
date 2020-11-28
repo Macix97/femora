@@ -43,6 +43,10 @@ public class MenuMouseAction : MonoBehaviour, IPointerEnterHandler, IPointerExit
         if (name.Equals(MenuInterface.LoadGame))
             // Set proper hit
             _menuInterface.MenuHintTxt.text = MenuInterface.LoadGameText;
+        // Settings
+        if (name.Equals(MenuInterface.Settings))
+            // Set proper hit
+            _menuInterface.MenuHintTxt.text = MenuInterface.SettingsDesc;
         // Credits
         if (name.Equals(MenuInterface.Credits))
             // Set proper hit
@@ -51,8 +55,8 @@ public class MenuMouseAction : MonoBehaviour, IPointerEnterHandler, IPointerExit
         if (name.Equals(MenuInterface.ExitFemora))
             // Set proper hit
             _menuInterface.MenuHintTxt.text = MenuInterface.ExitFemoraText;
-        // New game back
-        if (name.Equals(MenuInterface.NewBack))
+        // New game back/Settings back
+        if (name.Equals(MenuInterface.NewBack) || name.Equals(MenuInterface.SettingsBack))
             // Set proper hit
             _menuInterface.MenuHintTxt.text = MenuInterface.ReturnToMainMenu;
         // Saves
@@ -94,30 +98,34 @@ public class MenuMouseAction : MonoBehaviour, IPointerEnterHandler, IPointerExit
             }
     }
 
-// Set action when mouse is outside graphical interface elements
-public void OnPointerExit(PointerEventData eventData)
-{
-    // Hide paladin image
-    _menuInterface.DeactivateElement(_menuInterface.HeroImageImg.transform);
-    // Hide stats menu
-    _menuInterface.DeactivateElement(_menuInterface.StatsMenuImg.transform);
-    // Check if it is panel
-    if (name.Contains(ItemClass.PanelId))
-        // Set white text
-        _menuInterface.SetWhiteText(transform);
-    // Check if it is some class or save slot
-    if (name.Contains(MenuInterface.ClassNameId) || name.Contains(MenuInterface.Save))
-        // Hide crosses
-        _menuInterface.HideMenuCrosses(transform);
-    // Check if new game window is active
-    if (_menuInterface.HeroBackgroundImg.IsActive())
-        // Select hint text
-        _menuInterface.MenuHintTxt.text = MenuInterface.ChooseYourClass;
-    // Check if main menu is active
-    else if (_menuInterface.FemoraTxt.IsActive())
-        // Select hint text
-        _menuInterface.MenuHintTxt.text = MenuInterface.SelectSomeOption;
-}
+    // Set action when mouse is outside graphical interface elements
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        // Hide paladin image
+        _menuInterface.DeactivateElement(_menuInterface.HeroImageImg.transform);
+        // Hide stats menu
+        _menuInterface.DeactivateElement(_menuInterface.StatsMenuImg.transform);
+        // Check if it is panel
+        if (name.Contains(ItemClass.PanelId))
+            // Set white text
+            _menuInterface.SetWhiteText(transform);
+        // Check if it is some class or save slot
+        if (name.Contains(MenuInterface.ClassNameId) || name.Contains(MenuInterface.Save))
+            // Hide crosses
+            _menuInterface.HideMenuCrosses(transform);
+        // Check if new game window is active
+        if (_menuInterface.HeroBackgroundImg.IsActive())
+            // Select hint text
+            _menuInterface.MenuHintTxt.text = MenuInterface.ChooseYourClass;
+        // Check if main menu is active
+        else if (_menuInterface.FemoraTxt.IsActive())
+            // Select hint text
+            _menuInterface.MenuHintTxt.text = MenuInterface.SelectSomeOption;
+        // Check if settings menu is active
+        else if (_menuInterface.SettingsTxt.IsActive())
+            // Select hint text
+            _menuInterface.MenuHintTxt.text = MenuInterface.SettingsMenuDesc;
+    }
 
     // Set action when mouse is clicked graphical interface elements
     public void OnPointerClick(PointerEventData eventData)
@@ -133,6 +141,7 @@ public void OnPointerExit(PointerEventData eventData)
             // Hide proper elements
             _menuInterface.DeactivateElement(_menuInterface.NewGameImg.transform);
             _menuInterface.DeactivateElement(_menuInterface.LoadGameImg.transform);
+            _menuInterface.DeactivateElement(_menuInterface.SettingsImg.transform);
             _menuInterface.DeactivateElement(_menuInterface.CreditsImg.transform);
             _menuInterface.DeactivateElement(_menuInterface.ExitFemoraImg.transform);
             _menuInterface.DeactivateElement(_menuInterface.FemoraTxt.transform);
@@ -149,6 +158,25 @@ public void OnPointerExit(PointerEventData eventData)
             // Set white text
             _menuInterface.SetWhiteText(transform);
         }
+        // Settings
+        if (name.Equals(MenuInterface.Settings))
+        {
+            // Show proper elements
+            _menuInterface.ActivateElement(_menuInterface.SettingsMenuImg.transform);
+            _menuInterface.ActivateElement(_menuInterface.SettingsBackImg.transform);
+            _menuInterface.ActivateElement(_menuInterface.SettingsTxt.transform);
+            // Hide proper elements
+            _menuInterface.DeactivateElement(_menuInterface.NewGameImg.transform);
+            _menuInterface.DeactivateElement(_menuInterface.LoadGameImg.transform);
+            _menuInterface.DeactivateElement(_menuInterface.SettingsImg.transform);
+            _menuInterface.DeactivateElement(_menuInterface.CreditsImg.transform);
+            _menuInterface.DeactivateElement(_menuInterface.ExitFemoraImg.transform);
+            _menuInterface.DeactivateElement(_menuInterface.FemoraTxt.transform);
+            // Set proper hint
+            _menuInterface.MenuHintTxt.text = MenuInterface.SettingsMenuDesc;
+            // Set white text
+            _menuInterface.SetWhiteText(transform);
+        }
         // Credits
         if (name.Equals(MenuInterface.Credits))
         {
@@ -159,6 +187,7 @@ public void OnPointerExit(PointerEventData eventData)
             _menuInterface.DeactivateElement(_menuInterface.NewGameImg.transform);
             _menuInterface.DeactivateElement(_menuInterface.LoadGameImg.transform);
             _menuInterface.DeactivateElement(_menuInterface.CreditsImg.transform);
+            _menuInterface.DeactivateElement(_menuInterface.SettingsImg.transform);
             _menuInterface.DeactivateElement(_menuInterface.ExitFemoraImg.transform);
             _menuInterface.DeactivateElement(_menuInterface.FemoraTxt.transform);
             _menuInterface.DeactivateElement(_menuInterface.MenuHintTxt.transform.parent);
@@ -173,6 +202,7 @@ public void OnPointerExit(PointerEventData eventData)
             // Show proper elements
             _menuInterface.ActivateElement(_menuInterface.NewGameImg.transform);
             _menuInterface.ActivateElement(_menuInterface.LoadGameImg.transform);
+            _menuInterface.ActivateElement(_menuInterface.SettingsImg.transform);
             _menuInterface.ActivateElement(_menuInterface.CreditsImg.transform);
             _menuInterface.ActivateElement(_menuInterface.ExitFemoraImg.transform);
             _menuInterface.ActivateElement(_menuInterface.FemoraTxt.transform);
@@ -193,6 +223,7 @@ public void OnPointerExit(PointerEventData eventData)
             // Show proper elements
             _menuInterface.ActivateElement(_menuInterface.NewGameImg.transform);
             _menuInterface.ActivateElement(_menuInterface.LoadGameImg.transform);
+            _menuInterface.ActivateElement(_menuInterface.SettingsImg.transform);
             _menuInterface.ActivateElement(_menuInterface.CreditsImg.transform);
             _menuInterface.ActivateElement(_menuInterface.ExitFemoraImg.transform);
             _menuInterface.ActivateElement(_menuInterface.FemoraTxt.transform);
@@ -215,12 +246,33 @@ public void OnPointerExit(PointerEventData eventData)
             // Set white text
             _menuInterface.SetWhiteText(transform);
         }
+        // Settings back
+        if (name.Equals(MenuInterface.SettingsBack))
+        {
+            // Show proper elements
+            _menuInterface.ActivateElement(_menuInterface.NewGameImg.transform);
+            _menuInterface.ActivateElement(_menuInterface.LoadGameImg.transform);
+            _menuInterface.ActivateElement(_menuInterface.SettingsImg.transform);
+            _menuInterface.ActivateElement(_menuInterface.CreditsImg.transform);
+            _menuInterface.ActivateElement(_menuInterface.ExitFemoraImg.transform);
+            _menuInterface.ActivateElement(_menuInterface.FemoraTxt.transform);
+            _menuInterface.ActivateElement(_menuInterface.MenuHintTxt.transform.parent);
+            // Hide proper elements
+            _menuInterface.DeactivateElement(_menuInterface.SettingsMenuImg.transform);
+            _menuInterface.DeactivateElement(_menuInterface.SettingsBackImg.transform);
+            _menuInterface.DeactivateElement(_menuInterface.SettingsTxt.transform);
+            // Set proper hint
+            _menuInterface.MenuHintTxt.text = MenuInterface.SelectSomeOption;
+            // Set white text
+            _menuInterface.SetWhiteText(transform);
+        }
         // Credits back
         if (name.Equals(MenuInterface.CreditsBack))
         {
             // Show proper elements
             _menuInterface.ActivateElement(_menuInterface.NewGameImg.transform);
             _menuInterface.ActivateElement(_menuInterface.LoadGameImg.transform);
+            _menuInterface.ActivateElement(_menuInterface.SettingsImg.transform);
             _menuInterface.ActivateElement(_menuInterface.CreditsImg.transform);
             _menuInterface.ActivateElement(_menuInterface.ExitFemoraImg.transform);
             _menuInterface.ActivateElement(_menuInterface.FemoraTxt.transform);
@@ -290,7 +342,7 @@ public void OnPointerExit(PointerEventData eventData)
             // Check if menu is active
             if (!_menuInterface.CreateMenuImg.IsActive())
                 // Play click sound
-                _menuMusicManager.AudioSrc.PlayOneShot(SoundDatabase
+                _menuMusicManager.AudioSources[0].PlayOneShot(SoundDatabase
                     .GetProperSound(SoundDatabase.Click, SoundDatabase.ItemSounds));
             // Show create menu
             _menuInterface.ActivateElement(_menuInterface.CreateMenuImg.transform);
@@ -316,7 +368,7 @@ public void OnPointerExit(PointerEventData eventData)
             _menuInterface.HideMenuCrosses(transform);
         }
         // Play click sound
-        _menuMusicManager.AudioSrc.PlayOneShot(SoundDatabase
+        _menuMusicManager.AudioSources[0].PlayOneShot(SoundDatabase
             .GetProperSound(SoundDatabase.Click, SoundDatabase.ItemSounds));
     }
 

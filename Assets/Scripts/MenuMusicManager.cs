@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuMusicManager : MonoBehaviour
 {
-    // Audio source
-    public AudioSource AudioSrc { get; set; }
+    // Audio sources (0 - sounds, 1 - music)
+    public AudioSource[] AudioSources { get; set; }
     // Menu interface
     private MenuInterface _menuInterface;
     // Check if menu is active
@@ -28,7 +29,7 @@ public class MenuMusicManager : MonoBehaviour
     {
         _isMenu = _isCredits = false;
         _menuInterface = GameObject.Find(MenuInterface.MenuInterfaceController).GetComponent<MenuInterface>();
-        AudioSrc = GetComponent<AudioSource>();
+        AudioSources = GetComponents<AudioSource>();
     }
 
     // Play proper song in menu
@@ -42,9 +43,9 @@ public class MenuMusicManager : MonoBehaviour
                 // Break action
                 return;
             // Set proper clip
-            AudioSrc.clip = MusicDatabase.GetProperSong(MusicDatabase.Credits, MusicDatabase.Songs);
+            AudioSources[1].clip = MusicDatabase.GetProperSong(MusicDatabase.Credits, MusicDatabase.Songs);
             // Play song
-            AudioSrc.Play();
+            AudioSources[1].Play();
             // Set that menu is active
             _isMenu = true;
             // Set that credits is inactive
@@ -58,13 +59,27 @@ public class MenuMusicManager : MonoBehaviour
                 // Break action
                 return;
             // Set proper clip
-            AudioSrc.clip = MusicDatabase.GetProperSong(MusicDatabase.MainMenu, MusicDatabase.Songs);
+            AudioSources[1].clip = MusicDatabase.GetProperSong(MusicDatabase.MainMenu, MusicDatabase.Songs);
             // Play song
-            AudioSrc.Play();
+            AudioSources[1].Play();
             // Set that credits is active
             _isCredits = true;
             // Set that menu is inactive
             _isMenu = false;
         }
+    }
+
+    // Change sound volume value
+    public void AdaptSoundVolume()
+    {
+        // Seach audio sources
+        AudioSources[0].volume = _menuInterface.SoundSliderSld.value;
+    }
+
+    // Change music volume value
+    public void AdaptMusicVolume()
+    {
+        // Change music volume
+        AudioSources[1].volume = _menuInterface.MusicSliderSld.value;
     }
 }

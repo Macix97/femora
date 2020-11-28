@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuInterface : MonoBehaviour
 {
+    // Menu music manager
+    private MenuMusicManager _menuMusicManager;
     // General
     public static readonly string MenuInterfaceController = "MenuInterfaceController";
     public static readonly string MenuController = "Menu Controller";
@@ -37,17 +39,21 @@ public class MenuInterface : MonoBehaviour
     public static readonly string CreditsText = "Informations about game";
     public static readonly string ExitFemoraText = "I'll be back!";
     public static readonly string PaladinDesc = "Holy warrior fighting with a sword";
+    public static readonly string SettingsDesc = "Check game settings";
+    public static readonly string SettingsMenuDesc = "Adjust game settings";
 
     // Panels
     public static readonly string ClassMenu = "ClassMenu";
     public static readonly string StatsMenu = "StatsMenu";
     public static readonly string CreateMenu = "CreateMenu";
+    public static readonly string SettingsMenu = "SettingsMenu";
     public static readonly string CreditsMenu = "CreditsMenu";
     public static readonly string ErrorMenu = "ErrorMenu";
     public static readonly string LoadMenu = "LoadMenu";
     public static readonly string NewGame = "NewGamePanel";
     public static readonly string LoadGame = "LoadGamePanel";
     public static readonly string Credits = "CreditsPanel";
+    public static readonly string Settings = "SettingsPanel";
     public static readonly string ExitFemora = "ExitFemoraPanel";
     public static readonly string AcceptHero = "AcceptHeroPanel";
     public static readonly string AnnulHero = "AnnulHeroPanel";
@@ -56,6 +62,7 @@ public class MenuInterface : MonoBehaviour
     public static readonly string LoadBack = "LoadBackPanel";
     public static readonly string ErrorBack = "ErrorBackPanel";
     public static readonly string CreditsBack = "CreditsBackPanel";
+    public static readonly string SettingsBack = "SettingsBackPanel";
 
     // Images
     public static readonly string HeroBackground = "HeroBackground";
@@ -64,7 +71,9 @@ public class MenuInterface : MonoBehaviour
 
     // Texts
     public static readonly string FemoraText = "FemoraText";
+
     public static readonly string LoadText = "LoadText";
+    public static readonly string SettingsLabel = "SettingsLabel";
     public static readonly string CreateText = "CreateText";
     public static readonly string MenuHintText = "MenuHintText";
     public static readonly string StartingLevel = "StartingLevelText";
@@ -80,6 +89,8 @@ public class MenuInterface : MonoBehaviour
 
     // Femora
     public Text FemoraTxt { get; set; }
+    // Settings
+    public Text SettingsTxt { get; set; }
     // Load
     public Text LoadTxt { get; set; }
     // Create hint
@@ -99,6 +110,11 @@ public class MenuInterface : MonoBehaviour
     // Saves
     public Text[] Saves { get; set; }
 
+    //--- Sliders ---//
+
+    public Slider SoundSliderSld { get; set; }
+    public Slider MusicSliderSld { get; set; }
+
     //--- Images ---//
 
     // Hero background
@@ -111,10 +127,14 @@ public class MenuInterface : MonoBehaviour
     public Image NewGameImg { get; set; }
     // Load game
     public Image LoadGameImg { get; set; }
+    // Settings
+    public Image SettingsImg { get; set; }
     // Credits
     public Image CreditsImg { get; set; }
     // Exit Femora
     public Image ExitFemoraImg { get; set; }
+    // Settings menu
+    public Image SettingsMenuImg { get; set; }
     // Class menu
     public Image ClassMenuImg { get; set; }
     // Load menu
@@ -139,6 +159,8 @@ public class MenuInterface : MonoBehaviour
     public Image LoadBackImg { get; set; }
     // Back button in credits menu
     public Image CreditsBackImg { get; set; }
+    // Back button in settings menu
+    public Image SettingsBackImg { get; set; }
 
     //--- Inputs fields ---//
 
@@ -159,6 +181,7 @@ public class MenuInterface : MonoBehaviour
         HeroImageImg = GameObject.Find(HeroImage).GetComponent<Image>();
         NewGameImg = GameObject.Find(NewGame).GetComponent<Image>();
         LoadGameImg = GameObject.Find(LoadGame).GetComponent<Image>();
+        SettingsImg = GameObject.Find(Settings).GetComponent<Image>();
         CreditsImg = GameObject.Find(Credits).GetComponent<Image>();
         ExitFemoraImg = GameObject.Find(ExitFemora).GetComponent<Image>();
         ClassMenuImg = GameObject.Find(ClassMenu).GetComponent<Image>();
@@ -166,6 +189,7 @@ public class MenuInterface : MonoBehaviour
         LoadMenuImg = GameObject.Find(LoadMenu).GetComponent<Image>();
         ErrorMenuImg = GameObject.Find(ErrorMenu).GetComponent<Image>();
         CreditsMenuImg = GameObject.Find(CreditsMenu).GetComponent<Image>();
+        SettingsMenuImg = GameObject.Find(SettingsMenu).GetComponent<Image>();
         CreateMenuImg = GameObject.Find(CreateMenu).GetComponent<Image>();
         NewBackImg = GameObject.Find(NewBack).GetComponent<Image>();
         LoadBackImg = GameObject.Find(LoadBack).GetComponent<Image>();
@@ -173,9 +197,11 @@ public class MenuInterface : MonoBehaviour
         AcceptHeroImg = GameObject.Find(AcceptHero).GetComponent<Image>();
         AnnulHeroImg = GameObject.Find(AnnulHero).GetComponent<Image>();
         CreateBackImg = GameObject.Find(CreateBack).GetComponent<Image>();
+        SettingsBackImg = GameObject.Find(SettingsBack).GetComponent<Image>();
         PaladinClassImg = GameObject.Find(PaladinClass).GetComponent<Image>();
         // Texts
         FemoraTxt = GameObject.Find(FemoraText).GetComponent<Text>();
+        SettingsTxt = GameObject.Find(SettingsLabel).GetComponent<Text>();
         LoadTxt = GameObject.Find(LoadText).GetComponent<Text>();
         CreateTxt = GameObject.Find(CreateText).GetComponent<Text>();
         MenuHintTxt = GameObject.Find(MenuHintText).GetComponent<Text>();
@@ -184,6 +210,14 @@ public class MenuInterface : MonoBehaviour
         StartingWisdomTxt = GameObject.Find(StartingWisdom).GetComponent<Text>();
         StartingStrengthTxt = GameObject.Find(StartingStrength).GetComponent<Text>();
         StartingAgilityTxt = GameObject.Find(StartingAgility).GetComponent<Text>();
+        // Menu music manager
+        _menuMusicManager = GameObject.Find(MenuController).GetComponent<MenuMusicManager>();
+        // Sliders
+        SoundSliderSld = GameObject.Find(GameInterface.SoundSlider).GetComponent<Slider>();
+        MusicSliderSld = GameObject.Find(GameInterface.MusicSlider).GetComponent<Slider>();
+        // Add event listeners
+        SoundSliderSld.onValueChanged.AddListener(delegate { _menuMusicManager.AdaptSoundVolume(); });
+        MusicSliderSld.onValueChanged.AddListener(delegate { _menuMusicManager.AdaptMusicVolume(); });
         // Set proper texts
         CreateTxt.text = TypeNameForHero;
         MenuHintTxt.text = SelectSomeOption;
@@ -205,6 +239,7 @@ public class MenuInterface : MonoBehaviour
         // Hide elements
         HideMenuCrosses(PaladinClassImg.transform);
         DeactivateElement(CreateBackImg.transform);
+        DeactivateElement(SettingsBackImg.transform);
         DeactivateElement(AcceptHeroImg.transform);
         DeactivateElement(PaladinClassImg.transform);
         DeactivateElement(LoadMenuImg.transform);
@@ -216,6 +251,7 @@ public class MenuInterface : MonoBehaviour
         DeactivateElement(HeroImageImg.transform);
         DeactivateElement(HeroBackgroundImg.transform);
         DeactivateElement(CreateMenuImg.transform);
+        DeactivateElement(SettingsMenuImg.transform);
         DeactivateElement(ErrorMenuImg.transform);
         DeactivateElement(CreditsMenuImg.transform);
         DeactivateElement(LoadTxt.transform);
