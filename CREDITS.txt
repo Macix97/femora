@@ -7,6 +7,9 @@ Game-icons: https://game-icons.net/
 The game also contains characters and animations from mixamo:
 Mixamo: https://www.mixamo.com/
 
+Some resources were obtained by Unity Asset Store:
+https://assetstore.unity.com/
+
 Fonts provides 1001 Fonts:
 1001 Fonts: https://www.1001fonts.com/
 
@@ -263,7 +266,7 @@ Changes: Texture changed
 Licence version: CC BY 4.0
 
 42. Lowpoly Sticks
-Author: Loïc Norgeot
+Author: LoÃ¯c Norgeot
 Link: https://sketchfab.com/3d-models/lowpoly-sticks-396f8957029e4440ba15efb0fe217d5f
 Changes: Texture changed
 Licence version: CC BY 4.0
