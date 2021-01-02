@@ -1,4 +1,6 @@
-![Logo](./Media/Logo/Logo.png)
+<p align="center">
+  <img src="Media/Logo/Logo.png" alt="Logo" />
+</p>
 
 ## Abstract
 
