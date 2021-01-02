@@ -63,6 +63,8 @@ public class MenuInterface : MonoBehaviour
     public static readonly string ErrorBack = "ErrorBackPanel";
     public static readonly string CreditsBack = "CreditsBackPanel";
     public static readonly string SettingsBack = "SettingsBackPanel";
+    public static readonly string WarningMenu = "WarningMenu";
+    public static readonly string WarningBackPanel = "WarningBackPanel";
 
     // Images
     public static readonly string HeroBackground = "HeroBackground";
@@ -81,6 +83,8 @@ public class MenuInterface : MonoBehaviour
     public static readonly string StartingWisdom = "StartingWisdomText";
     public static readonly string StartingStrength = "StartingStrengthText";
     public static readonly string StartingAgility = "StartingAgilityText";
+    public static readonly string CurSoundsText = "CurSoundsText";
+    public static readonly string CurMusicText = "CurMusicText";
 
     // Inputs
     public static readonly string NameInput = "NameInput";
@@ -109,6 +113,10 @@ public class MenuInterface : MonoBehaviour
     public Text StartingAgilityTxt { get; set; }
     // Saves
     public Text[] Saves { get; set; }
+    // Current sounds text
+    public Text CurSoundsTxt { get; set; }
+    // Current music text
+    public Text CurMusicTxt { get; set; }
 
     //--- Sliders ---//
 
@@ -161,6 +169,8 @@ public class MenuInterface : MonoBehaviour
     public Image CreditsBackImg { get; set; }
     // Back button in settings menu
     public Image SettingsBackImg { get; set; }
+    // Warning menu
+    public Image WarningMenuImg { get; set; }
 
     //--- Inputs fields ---//
 
@@ -199,6 +209,7 @@ public class MenuInterface : MonoBehaviour
         CreateBackImg = GameObject.Find(CreateBack).GetComponent<Image>();
         SettingsBackImg = GameObject.Find(SettingsBack).GetComponent<Image>();
         PaladinClassImg = GameObject.Find(PaladinClass).GetComponent<Image>();
+        WarningMenuImg = GameObject.Find(WarningMenu).GetComponent<Image>();
         // Texts
         FemoraTxt = GameObject.Find(FemoraText).GetComponent<Text>();
         SettingsTxt = GameObject.Find(SettingsLabel).GetComponent<Text>();
@@ -210,11 +221,43 @@ public class MenuInterface : MonoBehaviour
         StartingWisdomTxt = GameObject.Find(StartingWisdom).GetComponent<Text>();
         StartingStrengthTxt = GameObject.Find(StartingStrength).GetComponent<Text>();
         StartingAgilityTxt = GameObject.Find(StartingAgility).GetComponent<Text>();
+        CurSoundsTxt = GameObject.Find(CurSoundsText).GetComponent<Text>();
+        CurMusicTxt = GameObject.Find(CurMusicText).GetComponent<Text>();
         // Menu music manager
         _menuMusicManager = GameObject.Find(MenuController).GetComponent<MenuMusicManager>();
         // Sliders
         SoundSliderSld = GameObject.Find(GameInterface.SoundSlider).GetComponent<Slider>();
         MusicSliderSld = GameObject.Find(GameInterface.MusicSlider).GetComponent<Slider>();
+
+        //--- Data loading ---//
+
+        // Try load data
+        SettingsDatabase.ConfigState configState = SettingsDatabase
+            .TryLoadMenuFromFile(Application.persistentDataPath);
+        // There are no configuration file
+        if (configState.Equals(SettingsDatabase.ConfigState.NoFile))
+            // Set default parameters from database
+            SettingsDatabase.SetDefaultMenuSettings();
+        // Configuration file is damaged
+        else if (configState.Equals(SettingsDatabase.ConfigState.Error))
+        {
+            // Set default parameters from database
+            SettingsDatabase.SetDefaultMenuSettings();
+            // Hide main menu panels
+            DeactivateElement(NewGameImg.transform);
+            DeactivateElement(LoadGameImg.transform);
+            DeactivateElement(SettingsImg.transform);
+            DeactivateElement(CreditsImg.transform);
+            DeactivateElement(ExitFemoraImg.transform);
+            DeactivateElement(MenuHintTxt.transform.parent);
+        }
+
+        // Configuration load correctly!
+
+        // Set reference to this script (needed to apply changes)
+        MenuInterface menuInterface = this;
+        // Set parameters from configuration file (default or saved)
+        SettingsDatabase.ReadMenuFromConfig(ref menuInterface);
         // Add event listeners
         SoundSliderSld.onValueChanged.AddListener(delegate { _menuMusicManager.AdaptSoundVolume(); });
         MusicSliderSld.onValueChanged.AddListener(delegate { _menuMusicManager.AdaptMusicVolume(); });
@@ -225,10 +268,13 @@ public class MenuInterface : MonoBehaviour
         NameInputField = GameObject.Find(NameInput).GetComponent<InputField>();
         // Add event listener
         NameInputField.onValueChanged.AddListener(delegate { CheckNameChange(); });
+        // Update sliders labels
+        _menuMusicManager.AdaptSoundVolume();
+        _menuMusicManager.AdaptMusicVolume();
         // Initialize saves
-        Saves = new Text[GameProgressDatabase.HeroesLimit];
+        Saves = new Text[SettingsDatabase.HeroesLimit];
         // Saves
-        for (int cnt = 0; cnt < GameProgressDatabase.HeroesLimit; cnt++)
+        for (int cnt = 0; cnt < SettingsDatabase.HeroesLimit; cnt++)
         {
             Saves[cnt] = GameObject.Find(Save + cnt).GetComponentInChildren<Text>();
             // Change slot text
@@ -255,6 +301,9 @@ public class MenuInterface : MonoBehaviour
         DeactivateElement(ErrorMenuImg.transform);
         DeactivateElement(CreditsMenuImg.transform);
         DeactivateElement(LoadTxt.transform);
+        // There is no configuration file or is correct (hide warning)
+        if (!configState.Equals(SettingsDatabase.ConfigState.Error))
+            DeactivateElement(WarningMenuImg.transform);
         // Create saves folder
         CreateSavesFolder();
         // Set properties
@@ -311,9 +360,9 @@ public class MenuInterface : MonoBehaviour
     public void CreateSavesFolder()
     {
         // Check if folder exist
-        if (!Directory.Exists(Application.persistentDataPath + GameProgressDatabase.Saves))
+        if (!Directory.Exists(Application.persistentDataPath + SettingsDatabase.Saves))
             // Create directory
-            Directory.CreateDirectory(Application.persistentDataPath + GameProgressDatabase.Saves);
+            Directory.CreateDirectory(Application.persistentDataPath + SettingsDatabase.Saves);
     }
 
     // Check if hero name is changing
@@ -333,7 +382,7 @@ public class MenuInterface : MonoBehaviour
     public void CheckNameCorrectness(string name)
     {
         // Check if hero directory already axists in saves folder
-        if (Directory.Exists(Application.persistentDataPath + GameProgressDatabase.Saves + name))
+        if (Directory.Exists(Application.persistentDataPath + SettingsDatabase.Saves + name))
         {
             // Show back to create menu button
             ActivateElement(CreateBackImg.transform);
@@ -354,8 +403,8 @@ public class MenuInterface : MonoBehaviour
             return;
         }
         // Check if character limit is reached
-        else if (Directory.GetDirectories(Application.persistentDataPath + GameProgressDatabase.Saves)
-            .Length > GameProgressDatabase.HeroesLimit)
+        else if (Directory.GetDirectories(Application.persistentDataPath + SettingsDatabase.Saves)
+            .Length > SettingsDatabase.HeroesLimit)
         {
             // Show back to create menu button
             ActivateElement(CreateBackImg.transform);
@@ -385,9 +434,13 @@ public class MenuInterface : MonoBehaviour
         DeactivateElement(NewBackImg.transform);
         DeactivateElement(MenuHintTxt.transform.parent);
         // Create new character folder
-        Directory.CreateDirectory(Application.persistentDataPath + GameProgressDatabase.Saves + name);
+        Directory.CreateDirectory(Application.persistentDataPath + SettingsDatabase.Saves + name);
         // Save hero name to variable in database
-        GameProgressDatabase.HeroName = name;
+        SettingsDatabase.HeroName = name;
+        // Copy variables to configuration structure
+        SettingsDatabase.CopyMenuToConfig(_menuMusicManager);
+        // Save configuration
+        SettingsDatabase.TrySaveMenuToFile(Application.persistentDataPath);
         // Load game scene
         SceneManager.LoadScene(GameScene, UnityEngine.SceneManagement.LoadSceneMode.Single);
     }
@@ -401,12 +454,13 @@ public class MenuInterface : MonoBehaviour
         // Hide proper elements
         DeactivateElement(NewGameImg.transform);
         DeactivateElement(LoadGameImg.transform);
+        DeactivateElement(SettingsImg.transform);
         DeactivateElement(CreditsImg.transform);
         DeactivateElement(ExitFemoraImg.transform);
         DeactivateElement(FemoraTxt.transform);
         DeactivateElement(MenuHintTxt.transform.parent);
         // Get directories in save folder
-        string[] saveFolders = Directory.GetDirectories(Application.persistentDataPath + GameProgressDatabase.Saves);
+        string[] saveFolders = Directory.GetDirectories(Application.persistentDataPath + SettingsDatabase.Saves);
         // Check if some folder exists
         if (saveFolders.Equals(null))
             // Break action
@@ -421,9 +475,9 @@ public class MenuInterface : MonoBehaviour
     public void LoadGameProgress(string contents)
     {
         // Check if data is loaded
-        if (!GameProgressDatabase.TryLoadGameFromFile(Application.persistentDataPath
-            + GameProgressDatabase.Saves + contents + GameProgressDatabase.GameProgress
-            + GameProgressDatabase.DatFormat))
+        if (!SettingsDatabase.TryLoadGameFromFile(Application.persistentDataPath
+            + SettingsDatabase.Saves + contents + SettingsDatabase.GameProgress
+            + SettingsDatabase.DatFormat))
         {
             // Show proper elements
             ActivateElement(ErrorMenuImg.transform);
@@ -437,6 +491,10 @@ public class MenuInterface : MonoBehaviour
         // Hide proper elements
         DeactivateElement(LoadBackImg.transform);
         DeactivateElement(LoadMenuImg.transform);
+        // Copy variables to configuration structure
+        SettingsDatabase.CopyMenuToConfig(_menuMusicManager);
+        // Save configuration
+        SettingsDatabase.TrySaveMenuToFile(Application.persistentDataPath);
         // Load game scene
         SceneManager.LoadScene(GameScene, LoadSceneMode.Single);
     }

@@ -288,6 +288,10 @@ public class MenuMouseAction : MonoBehaviour, IPointerEnterHandler, IPointerExit
         // Exit Femora
         if (name.Equals(MenuInterface.ExitFemora))
         {
+            // Copy variables to configuration structure
+            SettingsDatabase.CopyMenuToConfig(_menuMusicManager);
+            // Save configuration
+            SettingsDatabase.TrySaveMenuToFile(Application.persistentDataPath);
             // Terminate program
             Application.Quit();
         }
@@ -342,7 +346,7 @@ public class MenuMouseAction : MonoBehaviour, IPointerEnterHandler, IPointerExit
             // Check if menu is active
             if (!_menuInterface.CreateMenuImg.IsActive())
                 // Play click sound
-                _menuMusicManager.AudioSources[0].PlayOneShot(SoundDatabase
+                _menuMusicManager.SoundsSrc.PlayOneShot(SoundDatabase
                     .GetProperSound(SoundDatabase.Click, SoundDatabase.ItemSounds));
             // Show create menu
             _menuInterface.ActivateElement(_menuInterface.CreateMenuImg.transform);
@@ -352,6 +356,19 @@ public class MenuMouseAction : MonoBehaviour, IPointerEnterHandler, IPointerExit
             _menuInterface.HideMenuCrosses(transform);
             // Break action
             return;
+        }
+        // Confirm configuration error
+        if (name.Equals(MenuInterface.WarningBackPanel))
+        {
+            // Show main menu panels
+            _menuInterface.ActivateElement(_menuInterface.NewGameImg.transform);
+            _menuInterface.ActivateElement(_menuInterface.LoadGameImg.transform);
+            _menuInterface.ActivateElement(_menuInterface.SettingsImg.transform);
+            _menuInterface.ActivateElement(_menuInterface.CreditsImg.transform);
+            _menuInterface.ActivateElement(_menuInterface.ExitFemoraImg.transform);
+            _menuInterface.ActivateElement(_menuInterface.MenuHintTxt.transform.parent);
+            // Hide warning window
+            _menuInterface.DeactivateElement(_menuInterface.WarningMenuImg.transform);
         }
         // Saves
         if (name.Contains(MenuInterface.Save))
@@ -368,7 +385,7 @@ public class MenuMouseAction : MonoBehaviour, IPointerEnterHandler, IPointerExit
             _menuInterface.HideMenuCrosses(transform);
         }
         // Play click sound
-        _menuMusicManager.AudioSources[0].PlayOneShot(SoundDatabase
+        _menuMusicManager.SoundsSrc.PlayOneShot(SoundDatabase
             .GetProperSound(SoundDatabase.Click, SoundDatabase.ItemSounds));
     }
 

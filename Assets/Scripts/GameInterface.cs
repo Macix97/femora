@@ -196,6 +196,8 @@ public class GameInterface : MonoBehaviour
     public static readonly string EnergyText = "EnergyText";
     public static readonly string LocationName = "LocationName";
     public static readonly string MainInfo = "MainInfo";
+    public static readonly string CurSoundsText = "CurSoundsText";
+    public static readonly string CurMusicText = "CurMusicText";
 
     //--- Texts ---//
 
@@ -275,6 +277,10 @@ public class GameInterface : MonoBehaviour
     public Text LocationNameTxt { get; set; }
     // Main info
     public Text MainInfoTxt { get; set; }
+    // Current sounds text
+    public Text CurSoundsTxt { get; set; }
+    // Current music text
+    public Text CurMusicTxt { get; set; }
 
     //--- Buttons ---//
 
@@ -519,6 +525,8 @@ public class GameInterface : MonoBehaviour
         SlotTxt = GameObject.Find(SlotText).GetComponent<Text>();
         LocationNameTxt = GameObject.Find(LocationName).GetComponent<Text>();
         MainInfoTxt = GameObject.Find(MainInfo).GetComponent<Text>();
+        CurSoundsTxt = GameObject.Find(CurSoundsText).GetComponent<Text>();
+        CurMusicTxt = GameObject.Find(CurMusicText).GetComponent<Text>();
         // Buttons
         AttrBtn = GameObject.Find(AttrButton).GetComponent<Button>();
         SkillButtonBtn = GameObject.Find(SkillButton).GetComponent<Button>();
@@ -533,7 +541,7 @@ public class GameInterface : MonoBehaviour
         for (int cnt = 0; cnt < _heroSkill.HeroSkills.Length; cnt++)
             SkillBtns[cnt] = GameObject.Find(SkillButtonId + cnt).GetComponent<Button>();
         // Add event listeners
-        SoundSliderSld.onValueChanged.AddListener(delegate { AdaptSoundVolume(); });
+        SoundSliderSld.onValueChanged.AddListener(delegate { AdaptSoundsVolume(); });
         MusicSliderSld.onValueChanged.AddListener(delegate { AdaptMusicVolume(); });
         // Mouse skills
         LeftSkill = RightSkill = HeroSkillDatabase.NormalAttack;
@@ -1835,8 +1843,8 @@ public class GameInterface : MonoBehaviour
         QualitySettings.SetQualityLevel(QualityLevel);
     }
 
-    // Change sound volume value
-    public void AdaptSoundVolume()
+    // Change sounds volume value
+    public void AdaptSoundsVolume()
     {
         // Seach audio sources
         foreach (AudioSource audioSource in Sounds)
@@ -1845,6 +1853,10 @@ public class GameInterface : MonoBehaviour
             if (audioSource.name.Equals(GameController))
                 // Continue
                 continue;
+            // Prepare volume label
+            int soundsValue = (int)Mathf.Round(SoundSliderSld.value * 100f);
+            // Set proper label
+            CurSoundsTxt.text = soundsValue + "%";
             // Change sound volume
             audioSource.volume = SoundSliderSld.value;
         }
@@ -1853,6 +1865,10 @@ public class GameInterface : MonoBehaviour
     // Change music volume value
     public void AdaptMusicVolume()
     {
+        // Prepare volume label
+        int musicValue = (int)Mathf.Round(MusicSliderSld.value * 100f);
+        // Set proper label
+        CurMusicTxt.text = musicValue + "%";
         // Change music volume
         Music.volume = MusicSliderSld.value;
     }
@@ -1886,17 +1902,17 @@ public class GameInterface : MonoBehaviour
         _heroParameter.ActivateAttack(ref RightSkill);
         _heroBehavior.DisableReleasableSkill();
         // Initialize game save variable
-        GameProgressDatabase.GameSave = new GameProgressDatabase.Save();
+        SettingsDatabase.GameSave = new SettingsDatabase.Save();
         // Copy all needed data
-        GameProgressDatabase.CopyClassToSave(_heroClass);
-        GameProgressDatabase.CopyCharactersToSave();
-        GameProgressDatabase.CopySkillsToSave(_heroSkill.HeroSkills);
-        GameProgressDatabase.CopyEquipmentToSave(_heroInventory);
-        GameProgressDatabase.CopyOtherParameters(_heroInventory, _heroParameter, this);
-        GameProgressDatabase.CopyInventoryToSave(_heroInventory.HeroInv);
-        GameProgressDatabase.CopyPotionsToSave(_heroInventory.HeroPotions);
+        SettingsDatabase.CopyClassToSave(_heroClass);
+        SettingsDatabase.CopyCharactersToSave();
+        SettingsDatabase.CopySkillsToSave(_heroSkill.HeroSkills);
+        SettingsDatabase.CopyEquipmentToSave(_heroInventory);
+        SettingsDatabase.CopyOtherParameters(_heroInventory, _heroParameter, this);
+        SettingsDatabase.CopyInventoryToSave(_heroInventory.HeroInv);
+        SettingsDatabase.CopyPotionsToSave(_heroInventory.HeroPotions);
         // Try save game progress to file
-        GameProgressDatabase.TrySaveGameToFile(Application.persistentDataPath, _heroClass.Name);
+        SettingsDatabase.TrySaveGameToFile(Application.persistentDataPath, _heroClass.Name);
     }
 
     // Quit game and go to main menu
@@ -1912,42 +1928,42 @@ public class GameInterface : MonoBehaviour
     public void PrepareGame()
     {
         // New game
-        if (GameProgressDatabase.HeroName != null)
+        if (SettingsDatabase.HeroName != null)
         {
             // Set proper hero name
-            _heroClass.Name = GameProgressDatabase.HeroName;
+            _heroClass.Name = SettingsDatabase.HeroName;
             // Reset hero name variable
-            GameProgressDatabase.HeroName = null;
+            SettingsDatabase.HeroName = null;
             // Reset game save variable
-            GameProgressDatabase.GameSave = new GameProgressDatabase.Save();
+            SettingsDatabase.GameSave = new SettingsDatabase.Save();
             // Break action
             return;
         }
         // Loaded game
-        if (GameProgressDatabase.GameSave.Name != null)
+        if (SettingsDatabase.GameSave.Name != null)
         {
             // Read hero class from file
-            GameProgressDatabase.ReadClassFromSave(ref _heroClass);
+            SettingsDatabase.ReadClassFromSave(ref _heroClass);
             // Read people classes from file
-            GameProgressDatabase.ReadCharactersFromSave();
+            SettingsDatabase.ReadCharactersFromSave();
             // Read hero skills from file
-            GameProgressDatabase.ReadSkillsFromSave(ref _heroSkill);
+            SettingsDatabase.ReadSkillsFromSave(ref _heroSkill);
             // Read hero inventory from file
-            GameProgressDatabase.ReadInventoryFromSave(ref _heroInventory);
+            SettingsDatabase.ReadInventoryFromSave(ref _heroInventory);
             // Read hero potions from file
-            GameProgressDatabase.ReadPotionsFromSave(ref _heroInventory);
+            SettingsDatabase.ReadPotionsFromSave(ref _heroInventory);
             // Read hero equipment fro file
-            GameProgressDatabase.ReadEquipmentFromSave(ref _heroInventory);
+            SettingsDatabase.ReadEquipmentFromSave(ref _heroInventory);
             // Read other parameters
-            GameProgressDatabase.ReadOtherParameters(ref _heroInventory, ref _heroParameter);
+            SettingsDatabase.ReadOtherParameters(ref _heroInventory, ref _heroParameter);
             // Adapt sliders
-            SoundSliderSld.value = GameProgressDatabase.GameSave.SoundVolume;
-            MusicSliderSld.value = GameProgressDatabase.GameSave.MusicVolume;
+            SoundSliderSld.value = SettingsDatabase.GameSave.SoundVolume;
+            MusicSliderSld.value = SettingsDatabase.GameSave.MusicVolume;
             // Adapt volume
-            AdaptSoundVolume();
+            AdaptSoundsVolume();
             AdaptMusicVolume();
             // Adapt graphics detail
-            QualityLevel = GameProgressDatabase.GameSave.QualityLevel;
+            QualityLevel = SettingsDatabase.GameSave.QualityLevel;
             // Get quality levels
             string[] qualityLevels = QualitySettings.names;
             // Change label
@@ -1956,9 +1972,9 @@ public class GameInterface : MonoBehaviour
             QualitySettings.SetQualityLevel(QualityLevel);
             _postProcessVolume.profile = PostProcessings[QualityLevel];
             // Reset hero name variable
-            GameProgressDatabase.HeroName = null;
+            SettingsDatabase.HeroName = null;
             // Reset game save variable
-            GameProgressDatabase.GameSave = new GameProgressDatabase.Save();
+            SettingsDatabase.GameSave = new SettingsDatabase.Save();
             // Break action
             return;
         }

@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class MenuMusicManager : MonoBehaviour
 {
-    // Audio sources (0 - sounds, 1 - music)
-    public AudioSource[] AudioSources { get; set; }
+    // Sounds source
+    public AudioSource SoundsSrc { get; set; }
+    // Music source
+    public AudioSource MusicSrc { get; set; }
     // Menu interface
     private MenuInterface _menuInterface;
     // Check if menu is active
@@ -29,7 +30,8 @@ public class MenuMusicManager : MonoBehaviour
     {
         _isMenu = _isCredits = false;
         _menuInterface = GameObject.Find(MenuInterface.MenuInterfaceController).GetComponent<MenuInterface>();
-        AudioSources = GetComponents<AudioSource>();
+        SoundsSrc = GameObject.Find("SoundsSource").GetComponent<AudioSource>();
+        MusicSrc = GameObject.Find("MusicSource").GetComponent<AudioSource>();
     }
 
     // Play proper song in menu
@@ -43,9 +45,9 @@ public class MenuMusicManager : MonoBehaviour
                 // Break action
                 return;
             // Set proper clip
-            AudioSources[1].clip = MusicDatabase.GetProperSong(MusicDatabase.Credits, MusicDatabase.Songs);
+            MusicSrc.clip = MusicDatabase.GetProperSong(MusicDatabase.Credits, MusicDatabase.Songs);
             // Play song
-            AudioSources[1].Play();
+            MusicSrc.Play();
             // Set that menu is active
             _isMenu = true;
             // Set that credits is inactive
@@ -59,9 +61,9 @@ public class MenuMusicManager : MonoBehaviour
                 // Break action
                 return;
             // Set proper clip
-            AudioSources[1].clip = MusicDatabase.GetProperSong(MusicDatabase.MainMenu, MusicDatabase.Songs);
+            MusicSrc.clip = MusicDatabase.GetProperSong(MusicDatabase.MainMenu, MusicDatabase.Songs);
             // Play song
-            AudioSources[1].Play();
+            MusicSrc.Play();
             // Set that credits is active
             _isCredits = true;
             // Set that menu is inactive
@@ -72,14 +74,22 @@ public class MenuMusicManager : MonoBehaviour
     // Change sound volume value
     public void AdaptSoundVolume()
     {
+        // Prepare volume label
+        int soundsValue = (int)Mathf.Round(_menuInterface.SoundSliderSld.value * 100f);
+        // Set proper label
+        _menuInterface.CurSoundsTxt.text = soundsValue + "%";
         // Seach audio sources
-        AudioSources[0].volume = _menuInterface.SoundSliderSld.value;
+        SoundsSrc.volume = _menuInterface.SoundSliderSld.value;
     }
 
     // Change music volume value
     public void AdaptMusicVolume()
     {
+        // Prepare volume label
+        int musicValue = (int)Mathf.Round(_menuInterface.MusicSliderSld.value * 100f);
+        // Set proper label
+        _menuInterface.CurMusicTxt.text = musicValue + "%";
         // Change music volume
-        AudioSources[1].volume = _menuInterface.MusicSliderSld.value;
+        MusicSrc.volume = _menuInterface.MusicSliderSld.value;
     }
 }
