@@ -1,7 +1,4 @@
-<p align="center">
-# Femora
-![Icon](./Media/Logo/Icon.png)
-</p>
+![Logo](./Media/Logo/Logo.png)
 
 ## Abstract
 
