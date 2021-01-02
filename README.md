@@ -1,4 +1,7 @@
+<p align="center">
 # Femora
+![Icon](./Media/Logo/Icon.png)
+</p>
 
 ## Abstract
 
@@ -55,21 +58,21 @@ The game has the following properties:
 ### The pictures below show the most important aspects of the game:
 
 #### Main Menu
-![Main Menu](https://user-images.githubusercontent.com/26011505/100525405-dad7f500-31c0-11eb-983b-b2018c5ddfc2.png)
+![Main Menu](./Media/Pictures/MainMenu.png)
 #### Hero Choice
-![Hero Choice](https://user-images.githubusercontent.com/26011505/97106127-15310c80-16c0-11eb-92b2-638bc0c13c17.png)
+![Hero Choice](./Media/Pictures/HeroChoice.png)
 #### Return to Refugee Camp
-![Return To Refugee Camp](https://user-images.githubusercontent.com/26011505/97106156-3f82ca00-16c0-11eb-847a-f47dbd5345a2.png)
+![Return To Refugee Camp](./Media/Pictures/ReturnToRefugeeCamp.png)
 #### Dialogue With Mirlanda
-![Dialogue With Mirlanda](https://user-images.githubusercontent.com/26011505/97106164-4ad5f580-16c0-11eb-9693-a0077d748961.png)
+![Dialogue With Mirlanda](./Media/Pictures/DialogueWithMirlanda.png)
 #### Trade
-![Trade](https://user-images.githubusercontent.com/26011505/97106201-7e188480-16c0-11eb-870e-0f162479df72.png)
+![Trade](./Media/Pictures/Trade.png)
 #### Hero Development
-![Hero Development](https://user-images.githubusercontent.com/26011505/97106183-5cb79880-16c0-11eb-8cb9-c191ad26635e.png)
+![Hero Development](./Media/Pictures/HeroDevelopment.png)
 #### Combat
-![Combat](https://user-images.githubusercontent.com/26011505/97106193-69d48780-16c0-11eb-834b-3842b3dd43bd.png)
+![Combat](./Media/Pictures/Combat.png)
 #### Game Over
-![Game Over](https://user-images.githubusercontent.com/26011505/97106220-8cff3700-16c0-11eb-8245-29ec213b2e34.png)
+![Game Over](./Media/Pictures/GameOver.png)
 
 ## Used technologies
 
