@@ -59,6 +59,8 @@ public class GameInterface : MonoBehaviour
     public static readonly string SellItem = "You sold item!";
     public static readonly string BuyItem = "You bought item!";
 
+    //--- Different ---//
+
     // Potion grid columns
     public static readonly int PotionGridCol = 4;
     // Potion grid column modifier
@@ -102,6 +104,17 @@ public class GameInterface : MonoBehaviour
     public bool IsGamePaused { get; set; }
     // Quality level
     public int QualityLevel { get; set; }
+    // List of black transition states
+    public enum TransitionState
+    {
+        BlackToTrans,
+        TransToBlack,
+        NoTrans
+    };
+    // Transition state
+    public TransitionState TransState { get; set; }
+    // Black screen alpha channel
+    private float _blackAlpha;
 
     // Sliders
     public static readonly string SoundSlider = "SoundSlider";
@@ -119,6 +132,7 @@ public class GameInterface : MonoBehaviour
     public static readonly string HealthBarVoid = "HealthBarVoid";
     public static readonly string CreatureType = "CreatureType";
     public static readonly string CreatureNature = "CreatureNature";
+    public static readonly string BlackScreen = "BlackScreen";
 
     // Buttons
     public static readonly string AttrButton = "AttrButton";
@@ -377,6 +391,8 @@ public class GameInterface : MonoBehaviour
     public Image ReturnAudioPanelImg { get; set; }
     // Return control panel
     public Image ReturnControlPanelImg { get; set; }
+    // Black screen
+    public Image BlackScreenImg { get; set; }
 
     //--- Sliders ---//
 
@@ -421,6 +437,7 @@ public class GameInterface : MonoBehaviour
         CheckExitButtonHit();
         if (IsGamePaused)
             return;
+        AnimateBlackTransition();
         AdaptMouseSkill();
         AdaptVitalityParameter();
         AdaptWisdomParameter();
@@ -483,6 +500,7 @@ public class GameInterface : MonoBehaviour
         ReturnVideoPanelImg = GameObject.Find(ReturnVideoPanel).GetComponent<Image>();
         ReturnAudioPanelImg = GameObject.Find(ReturnAudioPanel).GetComponent<Image>();
         ReturnControlPanelImg = GameObject.Find(ReturnControlPanel).GetComponent<Image>();
+        BlackScreenImg = GameObject.Find(BlackScreen).GetComponent<Image>();
         // Sliders
         SoundSliderSld = GameObject.Find(SoundSlider).GetComponent<Slider>();
         MusicSliderSld = GameObject.Find(MusicSlider).GetComponent<Slider>();
@@ -553,9 +571,11 @@ public class GameInterface : MonoBehaviour
         Music = GameObject.Find(GameController).GetComponent<AudioSource>();
         // Reset parameters
         IsExpHint = IsTradeHint = _isLeftWindow = _isRightWindow = IsGamePaused = IsDrag = false;
+        TransState = TransitionState.NoTrans;
         CurStatment = PersonDatabase.NoStatment;
         QualityPanelImg.GetComponentInChildren<Text>().text = QualitySettings.names[0];
         QualityLevel = 0;
+        _blackAlpha = 0f;
         // Post processing
         _postProcessVolume = gameObject.GetComponent<PostProcessVolume>();
         _postProcessVolume.profile = PostProcessings[0];
@@ -600,6 +620,55 @@ public class GameInterface : MonoBehaviour
         // Disable buttons
         IsAttrButtonClickable();
         IsSkillButtonClickable();
+    }
+
+    // Animate transition between specific states of game
+    public void AnimateBlackTransition()
+    {
+        // Transition is inactive
+        if (TransState.Equals(TransitionState.NoTrans))
+            // Break action
+            return;
+        // Is transparent to black transition
+        else if (TransState.Equals(TransitionState.TransToBlack))
+        {
+            // Increase alpha
+            _blackAlpha += Time.deltaTime * 10f;
+            // Check current alpha
+            if (_blackAlpha >= 1f)
+            {
+                // Correct alpha
+                _blackAlpha = 1f;
+                // Update black image
+                BlackScreenImg.color = new Color(0f, 0f, 0f, _blackAlpha);
+                // Change state
+                TransState = TransitionState.BlackToTrans;
+                // Break action
+                return;
+            }
+            // Update black image
+            BlackScreenImg.color = new Color(0f, 0f, 0f, _blackAlpha);
+        }
+        // Is black to transparent transition
+        else if (TransState.Equals(TransitionState.BlackToTrans))
+        {
+            // Decrease alpha
+            _blackAlpha -= Time.deltaTime * 10f;
+            // Check current alpha
+            if (_blackAlpha <= 0f)
+            {
+                // Correct alpha
+                _blackAlpha = 0f;
+                // Update black image
+                BlackScreenImg.color = new Color(0f, 0f, 0f, _blackAlpha);
+                // Change state
+                TransState = TransitionState.NoTrans;
+                // Break action
+                return;
+            }
+            // Update black image
+            BlackScreenImg.color = new Color(0f, 0f, 0f, _blackAlpha);
+        }
     }
 
     // Check if mouse hover specific object
@@ -700,6 +769,8 @@ public class GameInterface : MonoBehaviour
         // Check if hero is dead
         if (_heroParameter.IsHeroDead())
         {
+            // Activate black transition
+            TransState = TransitionState.TransToBlack;
             // Set rise animation
             _heroClass.gameObject.GetComponent<Animator>().SetTrigger(HeroClass.RiseMotion);
             // Set proper camera postion
