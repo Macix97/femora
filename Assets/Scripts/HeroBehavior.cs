@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// Describes the behavior of the main hero.
+/// </summary>
 public class HeroBehavior : MonoBehaviour
 {
     // Maximal click distance
@@ -30,8 +33,8 @@ public class HeroBehavior : MonoBehaviour
     // Check if hero uses skill
     private bool _isSkillUse;
     // Hero AI
-    private NavMeshAgent _navMeshAgent;
-    private NavMeshPath _navMeshPath;
+    private NavMeshAgent _agent;
+    private NavMeshPath _path;
     // Raycast hit
     private RaycastHit _raycastHit;
     // Hero target
@@ -86,8 +89,8 @@ public class HeroBehavior : MonoBehaviour
         _heroSkill = GetComponent<HeroSkill>();
         _heroParameter = GetComponent<HeroParameter>();
         _heroSound = GetComponent<HeroSound>();
-        _navMeshAgent = GetComponent<NavMeshAgent>();
-        _navMeshPath = new NavMeshPath();
+        _agent = GetComponent<NavMeshAgent>();
+        _path = new NavMeshPath();
         _gameInterface = GameObject.Find(GameInterface.GameInterfaceController).GetComponent<GameInterface>();
         _gameMouseAction = GetComponent<GameMouseAction>();
         _isoCam = Camera.main.GetComponent<CameraManager>();
@@ -105,7 +108,11 @@ public class HeroBehavior : MonoBehaviour
         }
     }
 
-    // Check if some mouse button is clicked
+    /// <summary>
+    /// Checks if mouse button is clicking.
+    /// </summary>
+    /// <param name="mouseButton">A text that represents the key code of the left mouse button.</param>
+    /// <param name="mouseSkill">A structure that represents an active skill.</param>
     public void CheckMouseClick(string mouseButton, HeroSkillDatabase.Skill mouseSkill)
     {
         // Check mouse click (disable action for specific skills)
@@ -126,7 +133,9 @@ public class HeroBehavior : MonoBehaviour
         CheckHeroBehave();
     }
 
-    // Check hero action
+    /// <summary>
+    /// Checks what hero is doing now depending on recognized object.
+    /// </summary>
     private void CheckHeroAction()
     {
         // Reset cast animation
@@ -170,7 +179,9 @@ public class HeroBehavior : MonoBehaviour
             MoveToPosition();
     }
 
-    // Switch move mode between walking and running
+    /// <summary>
+    /// Switches current moving mode (walk or run).
+    /// </summary>
     private void SwitchMovingMode()
     {
         // Check if hero is talking with person
@@ -183,14 +194,16 @@ public class HeroBehavior : MonoBehaviour
             _isRunningMode = !_isRunningMode;
     }
 
-    // Set proper animation to current situation
+    /// <summary>
+    /// Sets proper move animation depending on moving mode.
+    /// </summary>
     private void SetProperMoveAnimation()
     {
         // Hero is running
         if (_isRunningMode)
         {
             // Set run mode
-            _navMeshAgent.speed = _heroClass.RunSpeed;
+            _agent.speed = _heroClass.RunSpeed;
             _heroAnimator.SetBool(HeroClass.RunMotion, _isMoving);
             _heroAnimator.SetBool(HeroClass.WalkMotion, false);
         }
@@ -198,13 +211,15 @@ public class HeroBehavior : MonoBehaviour
         else
         {
             // Set walk mode
-            _navMeshAgent.speed = _heroClass.WalkSpeed;
+            _agent.speed = _heroClass.WalkSpeed;
             _heroAnimator.SetBool(HeroClass.RunMotion, false);
             _heroAnimator.SetBool(HeroClass.WalkMotion, _isMoving);
         }
     }
 
-    // Target selected enemy
+    /// <summary>
+    /// Targets specific enemy.
+    /// </summary>
     private void TargetEnemy()
     {
         // Enemy is target
@@ -217,7 +232,9 @@ public class HeroBehavior : MonoBehaviour
         _isEnemy = true;
     }
 
-    // Target selected container
+    /// <summary>
+    /// Targets specific container.
+    /// </summary>
     private void TargetContainer()
     {
         // Container is target
@@ -230,7 +247,9 @@ public class HeroBehavior : MonoBehaviour
         _isContainer = true;
     }
 
-    // Target selected item
+    /// <summary>
+    /// Targets specific item.
+    /// </summary>
     private void TargetItem()
     {
         // Container is target
@@ -243,7 +262,9 @@ public class HeroBehavior : MonoBehaviour
         _isItem = true;
     }
 
-    // Target selected person
+    /// <summary>
+    /// Targets specific person.
+    /// </summary>
     private void TargetPerson()
     {
         // Container is target
@@ -256,7 +277,9 @@ public class HeroBehavior : MonoBehaviour
         _isPerson = true;
     }
 
-    // Move hero to selected position
+    /// <summary>
+    /// Targets specific position.
+    /// </summary>
     private void MoveHero()
     {
         // Set logic variables
@@ -267,24 +290,26 @@ public class HeroBehavior : MonoBehaviour
         _isTerrain = true;
     }
 
-    // Attack selected enemy
+    /// <summary>
+    /// Attacks specific enemy marked as target.
+    /// </summary>
     private void AttackEnemy()
     {
         // Set target
-        _navMeshAgent.destination = _target.position;
+        _agent.destination = _target.position;
         // Check distance
-        if (!_navMeshAgent.pathPending && _navMeshAgent.remainingDistance > _heroClass.AttackDist)
+        if (!_agent.pathPending && _agent.remainingDistance > _heroClass.AttackDist)
         {
             // Move hero
             _isMoving = true;
-            _navMeshAgent.isStopped = false;
+            _agent.isStopped = false;
         }
         // Target is reachable
-        else if (!_navMeshAgent.pathPending && _navMeshAgent.remainingDistance <= _heroClass.AttackDist)
+        else if (!_agent.pathPending && _agent.remainingDistance <= _heroClass.AttackDist)
         {
             // Stop hero
             _isMoving = false;
-            _navMeshAgent.isStopped = true;
+            _agent.isStopped = true;
             // Set proper rotation
             transform.LookAt(_target);
             // Enable attack animation
@@ -299,23 +324,25 @@ public class HeroBehavior : MonoBehaviour
         }
     }
 
-    // Open selected container
+    /// <summary>
+    /// Opens specific container marked as target.
+    /// </summary>
     private void OpenContainer()
     {
         // Set target
-        _navMeshAgent.destination = _target.position;
+        _agent.destination = _target.position;
         // Check distance
-        if (!_navMeshAgent.pathPending && _navMeshAgent.remainingDistance > _heroClass.InteractDist)
+        if (!_agent.pathPending && _agent.remainingDistance > _heroClass.InteractDist)
         {
             // Move hero
             _isMoving = true;
-            _navMeshAgent.isStopped = false;
+            _agent.isStopped = false;
         }
-        else if (!_navMeshAgent.pathPending && _navMeshAgent.remainingDistance <= _heroClass.InteractDist)
+        else if (!_agent.pathPending && _agent.remainingDistance <= _heroClass.InteractDist)
         {
             // Stop hero
             _isMoving = false;
-            _navMeshAgent.isStopped = true;
+            _agent.isStopped = true;
             // Set proper rotation
             transform.LookAt(_target);
             // Get container animator
@@ -351,7 +378,9 @@ public class HeroBehavior : MonoBehaviour
         }
     }
 
-    // Pick up selected item
+    /// <summary>
+    /// Picks up specific item marked as target.
+    /// </summary>
     private void PickUpItem()
     {
         // Check if hero clicked hint
@@ -359,19 +388,19 @@ public class HeroBehavior : MonoBehaviour
             // Set new target
             _target = _target.parent;
         // Set target
-        _navMeshAgent.destination = _target.position;
+        _agent.destination = _target.position;
         // Check distance
-        if (!_navMeshAgent.pathPending && _navMeshAgent.remainingDistance > _heroClass.InteractDist)
+        if (!_agent.pathPending && _agent.remainingDistance > _heroClass.InteractDist)
         {
             // Move hero
             _isMoving = true;
-            _navMeshAgent.isStopped = false;
+            _agent.isStopped = false;
         }
-        else if (!_navMeshAgent.pathPending && _navMeshAgent.remainingDistance <= _heroClass.InteractDist)
+        else if (!_agent.pathPending && _agent.remainingDistance <= _heroClass.InteractDist)
         {
             // Stop hero
             _isMoving = false;
-            _navMeshAgent.isStopped = true;
+            _agent.isStopped = true;
             // Set proper rotation
             transform.LookAt(_target);
             // Check if hero can pick up item
@@ -381,23 +410,26 @@ public class HeroBehavior : MonoBehaviour
         }
     }
 
-    // Go to talk with selected person
+    /// <summary>
+    /// Moves the hero to specific person marked as target.
+    /// </summary>
     private void GoToPerson()
     {
         // Set target
-        _navMeshAgent.destination = _target.position;
-        // Check distance
-        if (!_navMeshAgent.pathPending && _navMeshAgent.remainingDistance > _heroClass.InteractDist)
+        _agent.destination = _target.position;
+        // Destination is not reached
+        if (!_agent.pathPending && _agent.remainingDistance > _heroClass.InteractDist)
         {
             // Move hero
             _isMoving = true;
-            _navMeshAgent.isStopped = false;
+            _agent.isStopped = false;
         }
-        else if (!_navMeshAgent.pathPending && _navMeshAgent.remainingDistance <= _heroClass.InteractDist)
+        // Destination is reached
+        else if (!_agent.pathPending && _agent.remainingDistance <= _heroClass.InteractDist)
         {
             // Stop hero
             _isMoving = false;
-            _navMeshAgent.isStopped = true;
+            _agent.isStopped = true;
             // Set that hero looks at person
             transform.LookAt(_target);
             // Set that person looks at hero
@@ -406,6 +438,13 @@ public class HeroBehavior : MonoBehaviour
             _heroClass.IsTalking = true;
             // Remember last met person
             PersonClass = _target.GetComponent<PersonClass>();
+            // She is Mirlanda
+            if (PersonClass.name.Equals("Mirlanda"))
+            {
+                // Renew hero vitality and energy
+                _heroParameter.AdaptHealth(_heroClass.MaxHealth);
+                _heroParameter.AdaptEnergy(_heroClass.MaxEnergy);
+            }
             // Prepare user interface to talk
             _gameInterface.PrepareUIToTalk();
             // Toogle camera
@@ -415,41 +454,47 @@ public class HeroBehavior : MonoBehaviour
         }
     }
 
-    // Move hero to clicked position
+    /// <summary>
+    /// Moves the hero to specific position marked as target.
+    /// </summary>
     private void MoveToPosition()
     {
         // Calculate new path
-        _navMeshAgent.CalculatePath(_raycastHit.point, _navMeshPath);
+        _agent.CalculatePath(_raycastHit.point, _path);
         // Check if path is reachable
-        if (_navMeshPath.status.Equals(NavMeshPathStatus.PathPartial)
-            || _navMeshPath.status.Equals(NavMeshPathStatus.PathInvalid))
+        if (_path.status.Equals(NavMeshPathStatus.PathPartial)
+            || _path.status.Equals(NavMeshPathStatus.PathInvalid))
         {
             // Stop hero
             _isMoving = false;
-            _navMeshAgent.isStopped = true;
+            _agent.isStopped = true;
             _isTerrain = false;
             // Break action
             return;
         }
         // Set target
-        _navMeshAgent.destination = _raycastHit.point;
-        // Check distance
-        if (!_navMeshAgent.pathPending && _navMeshAgent.remainingDistance > _navMeshAgent.stoppingDistance)
+        _agent.destination = _raycastHit.point;
+        // Destination is not reached
+        if (!_agent.pathPending && _agent.remainingDistance > _agent.stoppingDistance)
         {
             // Move hero
             _isMoving = true;
-            _navMeshAgent.isStopped = false;
+            _agent.isStopped = false;
         }
-        else if (!_navMeshAgent.pathPending && _navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
+        // Destination is reached
+        else if (!_agent.pathPending && _agent.remainingDistance <= _agent.stoppingDistance)
         {
             // Stop hero
             _isMoving = false;
-            _navMeshAgent.isStopped = true;
+            _agent.isStopped = true;
             _isTerrain = false;
         }
     }
 
-    // Check if hero uses skill when mouse button is clicked
+    /// <summary>
+    /// Checks if some skill is active and if mouse button is clicked.
+    /// </summary>
+    /// <param name="mouseSkill">A structure that represents an active skill.</param>
     private void CheckSkillUse(HeroSkillDatabase.Skill mouseSkill)
     {
         // Hero is not using skill
@@ -474,7 +519,9 @@ public class HeroBehavior : MonoBehaviour
             }
     }
 
-    // Deactivate skill when its time is over
+    /// <summary>
+    /// Counts down until the activated skill expires.
+    /// </summary>
     private void CheckSkillTimer()
     {
         // Search proper skill
@@ -499,11 +546,13 @@ public class HeroBehavior : MonoBehaviour
         }
     }
 
-    // Check what hero is doing now
+    /// <summary>
+    /// Checks what hero is doing now depending on clicked object.
+    /// </summary>
     private void CheckHeroBehave()
     {
         // Reset navigation path
-        _navMeshAgent.ResetPath();
+        ResetHeroPath();
         // Check hit
         if (!Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out _raycastHit, MaxDist))
             // Break action
@@ -525,17 +574,24 @@ public class HeroBehavior : MonoBehaviour
             MoveHero();
     }
 
-    // Check if use releasable skill is possible
-    private void UseReleasableSkill(HeroSkillDatabase.Skill skill, ref float nextSkillUse, ref float skillDuration,
-        ref bool isSkillActive)
+    /// <summary>
+    /// Activates the effect of the selected releasable skill.
+    /// </summary>
+    /// <param name="skill">A structure that represents an skill.</param>
+    /// <param name="nextSkillUse">A number that contains time to next use in seconds.</param>
+    /// <param name="skillDuration">A number that contains skill duration in seconds.</param>
+    /// <param name="isSkillActive">A boolean that determines if a skill is active</param>
+    private void UseReleasableSkill(HeroSkillDatabase.Skill skill, ref float nextSkillUse,
+        ref float skillDuration, ref bool isSkillActive)
     {
         // Check use skill possibility
-        if (Time.time < nextSkillUse || isSkillActive || _heroClass.CurEnergy < skill.EnergyCost)
+        if (Time.time < nextSkillUse || isSkillActive
+            || _heroClass.CurEnergy < skill.EnergyCost)
             // Break action
             return;
         // Stop hero
         _isMoving = false;
-        _navMeshAgent.isStopped = true;
+        _agent.isStopped = true;
         _isTerrain = false;
         // Set casting animation
         _heroAnimator.SetBool(HeroClass.SkillMotion, true);
@@ -557,7 +613,9 @@ public class HeroBehavior : MonoBehaviour
         _heroSound.AudioSrc.PlayOneShot(SoundDatabase.GetProperSound(kind, _heroSound.HeroSounds));
     }
 
-    // Disable releasable skill before game save
+    /// <summary>
+    /// Disables releasable skills before saving the game.
+    /// </summary>
     public void DisableReleasableSkill()
     {
         // Search proper skill
@@ -576,7 +634,9 @@ public class HeroBehavior : MonoBehaviour
         }
     }
 
-    // Calculate proper damage and hurt enemy
+    /// <summary>
+    /// Deals damage to the enemy.
+    /// </summary>
     public void DealDamage()
     {
         // Check if it is enemy
@@ -611,7 +671,8 @@ public class HeroBehavior : MonoBehaviour
             && _heroClass.CurEnergy >= _gameInterface.LeftSkill.EnergyCost)
         {
             // Set new skill kind
-            string kind = _gameInterface.LeftSkill.Kind.Replace(ItemClass.WhiteSpace, ItemClass.EmptySpace);
+            string kind = _gameInterface.LeftSkill.Kind.Replace(ItemClass.WhiteSpace,
+                ItemClass.EmptySpace);
             // Calculate damage with bonus
             _enemyParameter.AdaptHealth(damage - (int)_gameInterface.LeftSkill.Effect);
             // Calculate current energy
@@ -619,9 +680,10 @@ public class HeroBehavior : MonoBehaviour
             // Play extra sound during deal damage
             _heroSound.AudioSrc.PlayOneShot(SoundDatabase.GetProperSound(kind, _heroSound.HeroSounds));
             // Display skill effect
-            GameObject skillEffect = Instantiate(Resources.Load(ItemDatabase.Prefabs + _gameInterface.LeftSkill.Kind),
-                new Vector3(_target.position.x, _target.position.y + ItemClass.SkillEffectPoint, _target.position.z),
-                Quaternion.identity) as GameObject;
+            GameObject skillEffect =
+                Instantiate(Resources.Load(ItemDatabase.Prefabs + _gameInterface.LeftSkill.Kind),
+                new Vector3(_target.position.x, _target.position.y + ItemClass.SkillEffectPoint,
+                _target.position.z), Quaternion.identity) as GameObject;
             // Destroy skill effect
             Destroy(skillEffect, ItemClass.SkillEffectTime);
         }
@@ -631,7 +693,8 @@ public class HeroBehavior : MonoBehaviour
                  && _heroClass.CurEnergy >= _gameInterface.RightSkill.EnergyCost)
         {
             // Set new skill kind
-            string kind = _gameInterface.RightSkill.Kind.Replace(ItemClass.WhiteSpace, ItemClass.EmptySpace);
+            string kind = _gameInterface.RightSkill.Kind
+                .Replace(ItemClass.WhiteSpace, ItemClass.EmptySpace);
             // Calculate damage with bonus
             _enemyParameter.AdaptHealth(damage - (int)_gameInterface.RightSkill.Effect);
             // Calculate current energy
@@ -639,9 +702,10 @@ public class HeroBehavior : MonoBehaviour
             // Play extra sound during deal damage
             _heroSound.AudioSrc.PlayOneShot(SoundDatabase.GetProperSound(kind, _heroSound.HeroSounds));
             // Display skill effect
-            GameObject skillEffect = Instantiate(Resources.Load(ItemDatabase.Prefabs + _gameInterface.RightSkill.Kind),
-                new Vector3(_target.position.x, _target.position.y + ItemClass.SkillEffectPoint, _target.position.z),
-                Quaternion.identity) as GameObject;
+            GameObject skillEffect =
+                Instantiate(Resources.Load(ItemDatabase.Prefabs + _gameInterface.RightSkill.Kind),
+                new Vector3(_target.position.x, _target.position.y + ItemClass.SkillEffectPoint,
+                _target.position.z), Quaternion.identity) as GameObject;
             // Destroy skill effect
             Destroy(skillEffect, ItemClass.SkillEffectTime);
         }
@@ -655,9 +719,10 @@ public class HeroBehavior : MonoBehaviour
                     .GetProperSound(SoundDatabase.Hit, _heroSound.HeroSounds));
         }
         // Generate gush
-        GameObject gush = Instantiate(Resources.Load(ItemDatabase.Prefabs + ItemClass.Gush),
-            new Vector3(_target.position.x, _target.position.y + ItemClass.GushPoint, _target.position.z),
-            Quaternion.identity) as GameObject;
+        GameObject gush =
+            Instantiate(Resources.Load(ItemDatabase.Prefabs + ItemClass.Gush),
+            new Vector3(_target.position.x, _target.position.y + ItemClass.GushPoint,
+            _target.position.z), Quaternion.identity) as GameObject;
         // Destroy gush with delay
         Destroy(gush, ItemClass.GushTime);
         // Enemy is alive
@@ -665,7 +730,8 @@ public class HeroBehavior : MonoBehaviour
         {
             // Play some random grunt sound
             enemySound.AudioSrc.PlayOneShot(SoundDatabase.GetProperSound(SoundDatabase.Grunt0
-                + Random.Range(0, SoundDatabase.GetGruntsAmt(enemySound.EnemySounds)), enemySound.EnemySounds));
+                + Random.Range(0, SoundDatabase.GetGruntsAmt(enemySound.EnemySounds)),
+                enemySound.EnemySounds));
             // Play impact animation
             _target.GetComponent<Animator>().SetTrigger(EnemyClass.ImpactMotion);
         }
@@ -674,5 +740,16 @@ public class HeroBehavior : MonoBehaviour
             // Play death sound
             enemySound.AudioSrc.PlayOneShot(SoundDatabase
                 .GetProperSound(SoundDatabase.Death, enemySound.EnemySounds));
+    }
+
+    /// <summary>
+    /// Resets hero path in specific situation.
+    /// </summary>
+    public void ResetHeroPath()
+    {
+        // Reset raycast hit
+        _raycastHit = new RaycastHit();
+        // Reset current path
+        _agent.ResetPath();
     }
 }

@@ -4,6 +4,9 @@ using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Rendering.PostProcessing;
 
+/// <summary>
+/// Controls actions related to the game graphics interface and initialize GUI.
+/// </summary>
 public class GameInterface : MonoBehaviour
 {
     // General
@@ -115,6 +118,8 @@ public class GameInterface : MonoBehaviour
     public TransitionState TransState { get; set; }
     // Black screen alpha channel
     private float _blackAlpha;
+    // Alpha channel modifier
+    private const float _alphaMod = 7.5f;
 
     // Sliders
     public static readonly string SoundSlider = "SoundSlider";
@@ -421,6 +426,7 @@ public class GameInterface : MonoBehaviour
     internal HeroSkillDatabase.Skill RightSkill;
 
     //--- Post processing ---//
+
     [SerializeField]
     public PostProcessProfile[] PostProcessings;
     private PostProcessVolume _postProcessVolume;
@@ -622,7 +628,9 @@ public class GameInterface : MonoBehaviour
         IsSkillButtonClickable();
     }
 
-    // Animate transition between specific states of game
+    /// <summary>
+    /// Controls displaying and hiding the dark fade.
+    /// </summary>
     public void AnimateBlackTransition()
     {
         // Transition is inactive
@@ -633,7 +641,7 @@ public class GameInterface : MonoBehaviour
         else if (TransState.Equals(TransitionState.TransToBlack))
         {
             // Increase alpha
-            _blackAlpha += Time.deltaTime * 10f;
+            _blackAlpha += Time.deltaTime * _alphaMod;
             // Check current alpha
             if (_blackAlpha >= 1f)
             {
@@ -653,7 +661,7 @@ public class GameInterface : MonoBehaviour
         else if (TransState.Equals(TransitionState.BlackToTrans))
         {
             // Decrease alpha
-            _blackAlpha -= Time.deltaTime * 10f;
+            _blackAlpha -= Time.deltaTime * _alphaMod;
             // Check current alpha
             if (_blackAlpha <= 0f)
             {
@@ -671,7 +679,9 @@ public class GameInterface : MonoBehaviour
         }
     }
 
-    // Check if mouse hover specific object
+    /// <summary>
+    /// Checks if mouse hover some specific UI element.
+    /// </summary>
     private void CheckMouseHover()
     {
         // Check if do action is possible
@@ -696,7 +706,9 @@ public class GameInterface : MonoBehaviour
             HideHealthBar();
     }
 
-    // Check if left button is clicking on talk with some person
+    /// <summary>
+    /// Checks if some button is hit during conversation.
+    /// </summary>
     public void CheckButtonHitOnTalk()
     {
         // Check current statment
@@ -759,7 +771,9 @@ public class GameInterface : MonoBehaviour
         }
     }
 
-    // Check if exit button is hit
+    /// <summary>
+    /// Checks if exit button is hit.
+    /// </summary>
     public void CheckExitButtonHit()
     {
         // Check action possibility
@@ -779,6 +793,8 @@ public class GameInterface : MonoBehaviour
             _heroClass.transform.position = _heroClass.StartPos;
             // Set proper hero rotation
             _heroClass.transform.eulerAngles = _heroClass.StartRot;
+            // Ignite particle systems
+            _heroParameter.IgniteParticleSystems();
             // Resurrect hero
             _heroClass.CurHealth = _heroClass.MaxHealth;
             _heroClass.CurEnergy = _heroClass.MaxEnergy;
@@ -786,6 +802,8 @@ public class GameInterface : MonoBehaviour
             _heroClass.gameObject.GetComponent<HeroBehavior>().enabled = true;
             _heroClass.gameObject.GetComponent<HeroInventory>().enabled = true;
             _heroClass.gameObject.GetComponent<NavMeshAgent>().enabled = true;
+            // Reset hero path
+            _heroBehavior.ResetHeroPath();
             // Break action
             return;
         }
@@ -854,7 +872,9 @@ public class GameInterface : MonoBehaviour
         }
     }
 
-    // Check if some button is hit
+    /// <summary>
+    /// Checks if any button is hit during the game.
+    /// </summary>
     public void CheckButtonHit()
     {
         // Check if hero is talking with person
@@ -943,7 +963,12 @@ public class GameInterface : MonoBehaviour
                 _heroInventory.UsePotionQuick(PotionBtn, cnt);
     }
 
-    // Check if skill button is clickable
+    /// <summary>
+    /// Checks if main button for skills is interactable.
+    /// </summary>
+    /// <returns>
+    /// The state of the button.
+    /// </returns>
     public bool IsSkillButtonClickable()
     {
         // Check if hero is talking
@@ -978,12 +1003,14 @@ public class GameInterface : MonoBehaviour
                                 // Skip action
                                 continue;
                             // Check if proper skill need specific skill and hero knows this skill
-                            if (_heroSkill.HeroSkills[cnt1].ReqSkill.Equals(_heroSkill.HeroSkills[cnt2].Kind)
+                            if (_heroSkill.HeroSkills[cnt1].ReqSkill
+                                .Equals(_heroSkill.HeroSkills[cnt2].Kind)
                                 && _heroSkill.HeroSkills[cnt2].Level > 0)
                                 // Enable proper skill
                                 SkillBtns[cnt1].interactable = true;
                             // Hero do not meet requirements
-                            else if (_heroSkill.HeroSkills[cnt1].ReqSkill.Equals(_heroSkill.HeroSkills[cnt2].Kind)
+                            else if (_heroSkill.HeroSkills[cnt1].ReqSkill
+                                    .Equals(_heroSkill.HeroSkills[cnt2].Kind)
                                     && _heroSkill.HeroSkills[cnt2].Level.Equals(0))
                                 // Disable proper skill
                                 SkillBtns[cnt1].interactable = false;
@@ -999,10 +1026,16 @@ public class GameInterface : MonoBehaviour
             // Reset buttons
             for (int cnt = 0; cnt < _heroSkill.HeroSkills.Length; cnt++)
                 SkillBtns[cnt].interactable = SkillButtonBtn.interactable = false;
+        // Return button state
         return SkillButtonBtn.interactable;
     }
 
-    // Check if attribute button is clickable
+    /// <summary>
+    /// Checks if main button for skills is interactable.
+    /// </summary>
+    /// <returns>
+    /// The state of the button.
+    /// </returns>
     public bool IsAttrButtonClickable()
     {
         // Check if hero is talking
@@ -1022,10 +1055,13 @@ public class GameInterface : MonoBehaviour
             // Reset buttons
             AttrBtn.interactable = VitalityBtn.interactable = WisdomBtn.interactable
                 = StrengthBtn.interactable = AgilityBtn.interactable = false;
+        // Return button state
         return AttrBtn.interactable;
     }
 
-    // Show character window
+    /// <summary>
+    /// Shows character window.
+    /// </summary>
     public void ShowCharWindow()
     {
         // Set visibility
@@ -1036,7 +1072,9 @@ public class GameInterface : MonoBehaviour
         SetIsoCameraView();
     }
 
-    // Show skill window
+    /// <summary>
+    /// Shows skill window.
+    /// </summary>
     public void ShowSkillWindow()
     {
         // Set visibility
@@ -1046,7 +1084,10 @@ public class GameInterface : MonoBehaviour
         // Set proper camera view
         SetIsoCameraView();
     }
-    // Show inventory window
+
+    /// <summary>
+    /// Shows inventory window.
+    /// </summary>
     public void ShowInventoryWindow()
     {
         // Set visibility
@@ -1057,14 +1098,20 @@ public class GameInterface : MonoBehaviour
         SetIsoCameraView();
     }
 
-    // Activate some GUI element
+    /// <summary>
+    /// Activates selected UI element.
+    /// </summary>
+    /// <param name="trans">A transform from selected UI object.</param>
     public void ActivateElement(Transform trans)
     {
         // Set visibility
         trans.gameObject.SetActive(true);
     }
 
-    // Show hint panel located in bottom panel
+    /// <summary>
+    /// Shows specific hint panel.
+    /// </summary>
+    /// <param name="trans">A transform from the selected UI object.</param>
     public void ShowHintPanel(Transform transform)
     {
         // Change pivot position of hint panel
@@ -1083,11 +1130,14 @@ public class GameInterface : MonoBehaviour
         HintPanelImg.gameObject.SetActive(true);
     }
 
-    // Show enemy health bar
-    public void ShowHealthBar(string creatureTag)
+    /// <summary>
+    /// Shows health bar at the top of the screen.
+    /// </summary>
+    /// <param name="tag">A tag from the selected object.</param>
+    public void ShowHealthBar(string tag)
     {
         // Check if it is enemy
-        if (creatureTag.Equals(EnemyClass.EnemyTag))
+        if (tag.Equals(EnemyClass.EnemyTag))
         {
             // Set enemy properties
             EnemyClass enemyClass = _hit.transform.GetComponent<EnemyClass>();
@@ -1098,7 +1148,7 @@ public class GameInterface : MonoBehaviour
             CreatureNatureTxt.text = enemyClass.Nature;
         }
         // Check if it is person
-        if (creatureTag.Equals(PersonClass.PersonTag))
+        if (tag.Equals(PersonClass.PersonTag))
         {
             // Set person properties
             PersonClass personClass = _hit.transform.GetComponent<PersonClass>();
@@ -1121,7 +1171,9 @@ public class GameInterface : MonoBehaviour
         CreatureNatureTxt.gameObject.SetActive(true);
     }
 
-    // Hide character window
+    /// <summary>
+    /// Hides character window.
+    /// </summary>
     public void HideCharWindow()
     {
         // Check hint panel parent
@@ -1136,7 +1188,9 @@ public class GameInterface : MonoBehaviour
         SetIsoCameraView();
     }
 
-    // Hide skill window
+    /// <summary>
+    /// Hides skill window.
+    /// </summary>
     public void HideSkillWindow()
     {
         // Check hint panel parent
@@ -1153,7 +1207,9 @@ public class GameInterface : MonoBehaviour
         SetIsoCameraView();
     }
 
-    // Hide inventory window
+    /// <summary>
+    /// Hides inventory window.
+    /// </summary>
     public void HideInventoryWindow()
     {
         // Check slot panel parent
@@ -1172,14 +1228,19 @@ public class GameInterface : MonoBehaviour
         SetIsoCameraView();
     }
 
-    // Deactivate some GUI element
+    /// <summary>
+    /// Deactivates selected UI element.
+    /// </summary>
+    /// <param name="trans">A transform from selected UI object.</param>
     public void DeactivateElement(Transform trans)
     {
         // Set visibility
         trans.gameObject.SetActive(false);
     }
 
-    // Hide creature health bar
+    /// <summary>
+    /// Hides health bar at the top of the screen.
+    /// </summary>
     public void HideHealthBar()
     {
         // Set visibility
@@ -1189,7 +1250,9 @@ public class GameInterface : MonoBehaviour
         CreatureNatureTxt.gameObject.SetActive(false);
     }
 
-    // Set hero class in character window
+    /// <summary>
+    /// Sets the proper labels in the character window.
+    /// </summary>
     public void AdaptHeroClass()
     {
         TypeTxt.text = _heroClass.Type;
@@ -1197,7 +1260,9 @@ public class GameInterface : MonoBehaviour
         NameTxt.text = _heroClass.Name;
     }
 
-    // Calculate hero vitality parameter
+    /// <summary>
+    /// Updates the graphics and labels that show info about hero vitality.
+    /// </summary>
     public void AdaptVitalityParameter()
     {
         // Set health orb
@@ -1210,7 +1275,9 @@ public class GameInterface : MonoBehaviour
         LifeTxt.text = _heroClass.CurHealth + "/" + _heroClass.MaxHealth;
     }
 
-    // Calculate hero wisdom parameter
+    /// <summary>
+    /// Updates the graphics and labels that show info about hero wisdom.
+    /// </summary>
     public void AdaptWisdomParameter()
     {
         // Set energy orb
@@ -1225,7 +1292,9 @@ public class GameInterface : MonoBehaviour
         ResistMagicTxt.text = _heroClass.ResistMagic.ToString();
     }
 
-    // Calculate hero strength parameter
+    /// <summary>
+    /// Updates the graphics and labels that show info about hero strength.
+    /// </summary>
     public void AdaptStrengthParameter()
     {
         // Set strength text in character window
@@ -1251,7 +1320,9 @@ public class GameInterface : MonoBehaviour
             DamageTxt.text = _heroClass.MinDamage + "-" + _heroClass.MaxDamage;
     }
 
-    // Calculate hero agility parameter
+    /// <summary>
+    /// Updates the graphics and labels that show info about hero agility.
+    /// </summary>
     public void AdaptAgilityParameter()
     {
         // Set agility text in character window
@@ -1283,7 +1354,9 @@ public class GameInterface : MonoBehaviour
         }
     }
 
-    // Calculate hero experience parameter
+    /// <summary>
+    /// Updates the graphics and labels that show info about hero experience.
+    /// </summary>
     public void AdaptExpParameter()
     {
         // Set experience bar
@@ -1312,24 +1385,33 @@ public class GameInterface : MonoBehaviour
         SkillPtsTxt.text = _heroClass.SkillPts.ToString();
     }
 
-    // Calculate hero gold amount
+    /// <summary>
+    /// Updates the label that show info about hero gold.
+    /// </summary>
     public void AdaptHeroGoldAmount()
     {
+        // Set proper value
         HeroGoldTxt.text = _heroInventory.Gold.ToString();
     }
 
-    // Calculate person gold amount()
+    /// <summary>
+    /// Updates the label that show info about person gold.
+    /// </summary>
     public void AdaptPeronGoldAmount()
     {
         // Set proper value
         PersonGoldTxt.text = _heroBehavior.PersonClass.Gold.ToString();
     }
 
-    // Calculate creature health bar
-    public void AdaptHealthBar(Transform target, string creatureTag)
+    /// <summary>
+    /// Updates health bar at the top of the screen.
+    /// </summary>
+    /// <param name="target">A transform that represents human or enemy.</param>
+    /// <param name="tag">A tag from the selected object.</param>
+    public void AdaptHealthBar(Transform target, string tag)
     {
         // Check if it is enemy
-        if (creatureTag.Equals(EnemyClass.EnemyTag))
+        if (tag.Equals(EnemyClass.EnemyTag))
         {
             // Set creature parameters
             EnemyClass enemyClass = target.GetComponent<EnemyClass>();
@@ -1337,16 +1419,20 @@ public class GameInterface : MonoBehaviour
             HealthBarFillImg.fillAmount = enemyClass.CurHealth / (float)enemyClass.MaxHealth;
         }
         // Check if it is person
-        if (creatureTag.Equals(PersonClass.PersonTag))
+        if (tag.Equals(PersonClass.PersonTag))
         {
-            // Set creature parameters
+            // Set person parameters
             PersonClass personClass = target.GetComponent<PersonClass>();
             // Set health bar
             HealthBarFillImg.fillAmount = personClass.CurHealth / (float)personClass.MaxHealth;
         }
     }
 
-    // Set skill info in skill window
+    /// <summary>
+    /// Updates info about selected skill in the skill window.
+    /// </summary>
+    /// <param name="skillTxt">A text with proper a description.</param>
+    /// <param name="skill">A structure that represents a selected skill.</param>
     public void AdaptSkillInfo(Text skillTxt, HeroSkillDatabase.Skill skill)
     {
         // Change text color
@@ -1358,7 +1444,11 @@ public class GameInterface : MonoBehaviour
                         + (int)skill.EnergyCost;
     }
 
-    // Set skill info in mouse skill panel
+    /// <summary>
+    /// Updates info about skill that is active at time.
+    /// </summary>
+    /// <param name="mouseSkillTxt">A text with proper a description.</param>
+    /// <param name="mouseSkill">A structure that represents an active skill.</param>
     public void AdaptMouseSkillInfo(Text mouseSkillTxt, HeroSkillDatabase.Skill mouseSkill)
     {
         // Check mouse skill type - left click
@@ -1394,15 +1484,21 @@ public class GameInterface : MonoBehaviour
                                 + "\n" + "Energy cost: " + (int)mouseSkill.EnergyCost;
     }
 
-    // Set info about current selected element
+    /// <summary>
+    /// Updates hint that appears in UI interface.
+    /// </summary>
+    /// <param name="objName">A name of object that mouse is hovering.</param>
     public void AdaptHintInfo(string objName)
     {
+        // It is attribute button
         if (objName.Equals(AttrButton))
             // Update text
             HintTxt.text = CharacterText;
+        // It is skill button
         if (objName.Equals(SkillButton))
             // Update text
             HintTxt.text = SkillsText;
+        // It is experience bar
         if (objName.Equals(ExpBarFill))
             // Set text above experience bar
             HintTxt.text = "Experience\n" + _heroClass.TotalExp + "/" + _heroClass.NextLvLExp;
@@ -1455,7 +1551,10 @@ public class GameInterface : MonoBehaviour
             (RectTransform.Axis.Horizontal, HintTxt.preferredWidth + PanelMargin);
     }
 
-    // Set info about slot in inventory window
+    /// <summary>
+    /// Updates info about selected item in the inventory slot.
+    /// </summary>
+    /// <param name="itemClass">An object that represents a specific item.</param>
     public void AdaptSlotInfo(ItemClass itemClass)
     {
         // Create new label
@@ -1488,16 +1587,22 @@ public class GameInterface : MonoBehaviour
             SlotTxt.text += "\n" + ItemClass.ItemVal + itemClass.Value;
     }
 
-    // Set info about current event when hero is trading
+    /// <summary>
+    /// Updates info about events in the trade window.
+    /// </summary>
+    /// <param name="eventText">A text that should be display.</param>
     public void AdaptTradeInfo(string eventText)
     {
         // Set proper info
         TradeInfoTxt.text = eventText;
     }
 
-    // Check which skill is selected
+    /// <summary>
+    /// Checks current selected skills and activate them.
+    /// </summary>
     public void CheckMouseSkill()
     {
+        // Search skills
         for (int cnt = 0; cnt < _heroSkill.HeroSkills.Length; cnt++)
         {
             // Check left button skill
@@ -1511,7 +1616,9 @@ public class GameInterface : MonoBehaviour
         }
     }
 
-    // Set proper mouse skill image
+    /// <summary>
+    /// Updates graphics that represent current active skills.
+    /// </summary>
     public void AdaptMouseSkill()
     {
         // Attack - left button
@@ -1536,7 +1643,9 @@ public class GameInterface : MonoBehaviour
         }
     }
 
-    // Set proper isometric camera view
+    /// <summary>
+    /// Sets proper camera view depending on active UI windows.
+    /// </summary>
     public void SetIsoCameraView()
     {
         // Check if hero is talking
@@ -1588,7 +1697,9 @@ public class GameInterface : MonoBehaviour
         }
     }
 
-    // Prepare user interface when hero is talking with some person
+    /// <summary>
+    /// Prepares graphical elements before beginning the conversation.
+    /// </summary>
     public void PrepareUIToTalk()
     {
         // Hide health bar for person
@@ -1609,7 +1720,8 @@ public class GameInterface : MonoBehaviour
             // Search conversation panels
             for (int cnt = 0; cnt < HeroTextCount; cnt++)
                 // Hide conversation panel
-                DialogueWindowImg.transform.GetChild(cnt).GetComponent<Transform>().gameObject.SetActive(false);
+                DialogueWindowImg.transform.GetChild(cnt).GetComponent<Transform>()
+                .gameObject.SetActive(false);
             // Show press button text
             ButtonPressTxt.gameObject.SetActive(true);
         }
@@ -1636,6 +1748,9 @@ public class GameInterface : MonoBehaviour
         HideMainInfo();
     }
 
+    /// <summary>
+    /// Prepares graphical elements after ending the trading.
+    /// </summary>
     public void PrepareUIAfterTrade()
     {
         // Hide trade window
@@ -1649,14 +1764,17 @@ public class GameInterface : MonoBehaviour
         // Search conversation panels
         for (int cnt = 0; cnt < HeroTextCount; cnt++)
             // Show conversation panel
-            DialogueWindowImg.transform.GetChild(cnt).GetComponent<Transform>().gameObject.SetActive(true);
+            DialogueWindowImg.transform.GetChild(cnt).GetComponent<Transform>()
+            .gameObject.SetActive(true);
         // Hide press button text
         ButtonPressTxt.gameObject.SetActive(false);
         // Adapt person text
         PersonSpeechTxt.text = _heroBehavior.PersonClass.EnterText;
     }
 
-    // Prepare user interface when hero ended conversation
+    /// <summary>
+    /// Prepares graphical elements after ending the conversation.
+    /// </summary>
     public void PrepareUIToAction()
     {
         // Destroy random items in trade window (if it is possible)
@@ -1681,16 +1799,20 @@ public class GameInterface : MonoBehaviour
         LocationNameTxt.gameObject.SetActive(true);
     }
 
-    // Set visible or invisible active items when hero is talking
+    /// <summary>
+    /// Sets the visibility of active items when the hero begins or ends conversation.
+    /// </summary>
+    /// <param name="visibility">A boolean that specifies whether the item is visible or not.</param>
     public void SetActiveItems(bool visibility)
     {
         // Check if hero wears head item
         if (!_heroInventory.HeadSlot.IsSlotActive)
         {
             // Get item renderer
-            MeshRenderer meshRenderer = GameObject.Find(_heroInventory.name + ItemClass.HeadItemHolder)
+            MeshRenderer meshRenderer = GameObject
+                .Find(_heroInventory.name + ItemClass.HeadItemHolder)
                 .transform.GetChild(0).GetComponentInChildren<MeshRenderer>();
-            // Check if item is visible
+            // Item is visible
             if (visibility.Equals(true))
                 // Disable item
                 meshRenderer.enabled = false;
@@ -1703,9 +1825,10 @@ public class GameInterface : MonoBehaviour
         if (!_heroInventory.RightHandSlot.IsSlotActive)
         {
             // Get item renderer
-            MeshRenderer meshRenderer = GameObject.Find(_heroInventory.name + ItemClass.RightItemHolder)
+            MeshRenderer meshRenderer = GameObject
+                .Find(_heroInventory.name + ItemClass.RightItemHolder)
                 .transform.GetChild(0).GetComponentInChildren<MeshRenderer>();
-            // Check if item is visible
+            // Item is visible
             if (visibility.Equals(true))
                 // Disable item
                 meshRenderer.enabled = false;
@@ -1718,9 +1841,10 @@ public class GameInterface : MonoBehaviour
         if (!_heroInventory.LeftHandSlot.IsSlotActive)
         {
             // Get item renderer
-            MeshRenderer meshRenderer = GameObject.Find(_heroInventory.name + ItemClass.LeftItemHolder)
+            MeshRenderer meshRenderer = GameObject
+                .Find(_heroInventory.name + ItemClass.LeftItemHolder)
                 .transform.GetChild(0).GetComponentInChildren<MeshRenderer>();
-            // Check if item is visible
+            // Item is visible
             if (visibility.Equals(true))
                 // Disable item
                 meshRenderer.enabled = false;
@@ -1731,7 +1855,10 @@ public class GameInterface : MonoBehaviour
         }
     }
 
-    // Create conversation panel for dialogue menu
+    /// <summary>
+    /// Creates proper conversation panel before start the conversation.
+    /// </summary>
+    /// <param name="personClass">An object specifies the type of the person.</param>
     public void CreateConversationPanel(PersonClass personClass)
     {
         // Hide press button text
@@ -1742,7 +1869,8 @@ public class GameInterface : MonoBehaviour
         for (int cnt = 0; cnt < personClass.HeroTexts.Length; cnt++)
         {
             // Create new 3D object
-            GameObject convPanel = Instantiate(Resources.Load(ItemDatabase.Prefabs + ItemClass.ConvPanelId),
+            GameObject convPanel =
+                Instantiate(Resources.Load(ItemDatabase.Prefabs + ItemClass.ConvPanelId),
                 new Vector3(transform.position.x, transform.position.y, transform.position.z),
                     Quaternion.identity) as GameObject;
             // Change panel name
@@ -1765,7 +1893,11 @@ public class GameInterface : MonoBehaviour
         HeroTextCount = personClass.HeroTexts.Length;
     }
 
-    // Change conversation panel color for white
+    /// <summary>
+    /// Creates proper conversation panel before start the conversation.
+    /// </summary>
+    /// <param name="objName">A name of the UI element.</param>
+    /// <param name="panel">A transform that represents a panel.</param>
     public void WhiteConvPanel(string objName, Transform panel)
     {
         // Check if hero is talking
@@ -1780,7 +1912,11 @@ public class GameInterface : MonoBehaviour
                 panel.GetComponentInChildren<Text>().color = White;
     }
 
-    // Change trade hint color for white
+    /// <summary>
+    /// Sets white text for the selected trade hint.
+    /// </summary>
+    /// <param name="objName">A name of the UI element.</param>
+    /// <param name="panel">A transform that represents a panel.</param>
     public void WhiteTradeHint(string objName, Transform panel)
     {
         // Check if hero is talking
@@ -1793,7 +1929,11 @@ public class GameInterface : MonoBehaviour
             panel.GetComponentInChildren<Text>().color = White;
     }
 
-    // Change conversation panel color for gold
+    /// <summary>
+    /// Sets gold text for the selected conversation panel.
+    /// </summary>
+    /// <param name="objName">A name of the UI element.</param>
+    /// <param name="panel">A transform that represents a panel.</param>
     public void GoldConvPanel(string objName, Transform panel)
     {
         // Check if hero is talking
@@ -1808,7 +1948,11 @@ public class GameInterface : MonoBehaviour
                 panel.GetComponentInChildren<Text>().color = Gold;
     }
 
-    // Change trade hint color for gold
+    /// <summary>
+    /// Sets gold text for the selected trade hint.
+    /// </summary>
+    /// <param name="objName">A name of the UI element.</param>
+    /// <param name="panel">A transform that represents a panel.</param>
     public void GoldTradeHint(string objName, Transform panel)
     {
         // Check if hero is talking
@@ -1821,6 +1965,10 @@ public class GameInterface : MonoBehaviour
             panel.GetComponentInChildren<Text>().color = Gold;
     }
 
+    /// <summary>
+    /// Sets proper dialogue text after clicking selected conversation option.
+    /// </summary>
+    /// <param name="index">An ID that identifies proper text to display.</param>
     public void SetPersonSpeech(int index)
     {
         // Set current statment index
@@ -1828,36 +1976,47 @@ public class GameInterface : MonoBehaviour
         // Set proper speech
         PersonSpeechTxt.text = _heroBehavior.PersonClass.PersonTexts[index];
         // Check statment type
-        if (_heroBehavior.PersonClass.StatmentTypes[index].Equals(PersonDatabase.InfoStatment))
+        if (_heroBehavior.PersonClass.StatmentTypes[index]
+            .Equals(PersonDatabase.InfoStatment))
             // Break action
             return;
         // Search conversation panels
         for (int cnt = 0; cnt < HeroTextCount; cnt++)
         {
             // Change text color
-            DialogueWindowImg.transform.GetChild(cnt).GetComponentInChildren<Text>().color = White;
+            DialogueWindowImg.transform.GetChild(cnt).GetComponentInChildren<Text>()
+                .color = White;
             // Hide conversation panel
-            DialogueWindowImg.transform.GetChild(cnt).GetComponent<Transform>().gameObject.SetActive(false);
+            DialogueWindowImg.transform.GetChild(cnt).GetComponent<Transform>()
+                .gameObject.SetActive(false);
         }
         // Show press button text
         ButtonPressTxt.gameObject.SetActive(true);
     }
 
-    // Set proper location name
+    /// <summary>
+    /// Sets current location name at the left-up corner of the screen.
+    /// </summary>
+    /// <param name="locationName">A name of current location.</param>
     public void SetLocationName(string locationName)
     {
         // Set location name
         LocationNameTxt.text = locationName;
     }
 
-    // Activate main info
+    /// <summary>
+    /// Shows the main info that occurs e.g. after changing location.
+    /// </summary>
     public void ShowMainInfo()
     {
         // Set visibility
         MainInfoTxt.gameObject.SetActive(true);
     }
 
-    // Show proper crosses in main menu
+    /// <summary>
+    /// Shows crosses next to the selected label in the menu.
+    /// </summary>
+    /// <param name="panel">A transform that represents a panel.</param>
     public void ShowMenuCrosses(Transform panel)
     {
         // Show left cross
@@ -1866,21 +2025,29 @@ public class GameInterface : MonoBehaviour
         panel.GetChild(1).gameObject.SetActive(true);
     }
 
-    // Deactivate main info
+    /// <summary>
+    /// Hides the main info that occurs e.g. after changing location.
+    /// </summary>
     public void HideMainInfo()
     {
         // Set visibility
         MainInfoTxt.gameObject.SetActive(false);
     }
 
-    // Deactivate main info with delay
+    /// <summary>
+    /// Hides the main info that occurs e.g. after changing location with some delay.
+    /// </summary>
+    /// <param name="time">A delay time in seconds.</param>
     public void DelayedHideMainInfo(float time)
     {
         // Invoke method with delay
         Invoke("HideMainInfo", time);
     }
 
-    // Hide proper crosses in main menu
+    /// <summary>
+    /// Hides crosses next to the selected label in the menu.
+    /// </summary>
+    /// <param name="panel">A transform that represents a panel.</param>
     public void HideMenuCrosses(Transform panel)
     {
         // Hide left cross
@@ -1889,8 +2056,10 @@ public class GameInterface : MonoBehaviour
         panel.GetChild(1).gameObject.SetActive(false);
     }
 
-    // Increase or decrease graphics detail
-    public void AdaptGraphicsDetail(int quality)
+    /// <summary>
+    /// Changes current quality settings.
+    /// </summary>
+    public void AdaptGraphicsDetail()
     {
         // Get quality levels
         string[] qualityLevels = QualitySettings.names;
@@ -1914,7 +2083,9 @@ public class GameInterface : MonoBehaviour
         QualitySettings.SetQualityLevel(QualityLevel);
     }
 
-    // Change sounds volume value
+    /// <summary>
+    /// Changes sounds volume in the game.
+    /// </summary>
     public void AdaptSoundsVolume()
     {
         // Seach audio sources
@@ -1924,48 +2095,31 @@ public class GameInterface : MonoBehaviour
             if (audioSource.name.Equals(GameController))
                 // Continue
                 continue;
-            // Prepare volume label
-            int soundsValue = (int)Mathf.Round(SoundSliderSld.value * 100f);
-            // Set proper label
-            CurSoundsTxt.text = soundsValue + "%";
             // Change sound volume
             audioSource.volume = SoundSliderSld.value;
         }
+        // Prepare volume label
+        int soundsValue = (int)Mathf.Round(SoundSliderSld.value * 100f);
+        // Set proper label
+        CurSoundsTxt.text = soundsValue + "%";
     }
 
-    // Change music volume value
+    /// <summary>
+    /// Changes music volume in the game
+    /// </summary>
     public void AdaptMusicVolume()
     {
+        // Change music volume
+        Music.volume = MusicSliderSld.value;
         // Prepare volume label
         int musicValue = (int)Mathf.Round(MusicSliderSld.value * 100f);
         // Set proper label
         CurMusicTxt.text = musicValue + "%";
-        // Change music volume
-        Music.volume = MusicSliderSld.value;
     }
 
-    // Adapt hero visualization
-    public void AdaptHeroVisualization()
-    {
-        // Check if hair is active
-        if (_heroInventory.IsHair.Equals(false))
-            // Hide hair
-            transform.Find(ItemClass.Hair).GetComponent<SkinnedMeshRenderer>().enabled = false;
-        // Check if hero has ordinary armor
-        if (_heroInventory.IsOrdinary.Equals(true))
-            // Show ordinary part
-            transform.Find(ItemClass.Ordinary).GetComponent<SkinnedMeshRenderer>().enabled = true;
-        // Check if hero has elite armor
-        if (_heroInventory.IsElite.Equals(true))
-            // Show elite part
-            transform.Find(ItemClass.Elite).GetComponent<SkinnedMeshRenderer>().enabled = true;
-        // Check if hero has legendary armor
-        if (_heroInventory.IsLegendary.Equals(true))
-            // Show legendary part
-            transform.Find(ItemClass.Legendary).GetComponent<SkinnedMeshRenderer>().enabled = true;
-    }
-
-    // Save game progress before exit application
+    /// <summary>
+    /// Saves game progress before exit the application.
+    /// </summary>
     public void SaveGameProgress()
     {
         // Deactivate hero skills
@@ -1986,7 +2140,9 @@ public class GameInterface : MonoBehaviour
         SettingsDatabase.TrySaveGameToFile(Application.persistentDataPath, _heroClass.Name);
     }
 
-    // Quit game and go to main menu
+    /// <summary>
+    /// Quits the game to the main menu.
+    /// </summary>
     public void QuitGame()
     {
         // Resume action
@@ -1995,7 +2151,9 @@ public class GameInterface : MonoBehaviour
         SceneManager.LoadScene(MenuScene, LoadSceneMode.Single);
     }
 
-    // Load saved game progress or begin new game
+    /// <summary>
+    /// Prepares the game state before running the scene.
+    /// </summary>
     public void PrepareGame()
     {
         // New game
@@ -2046,8 +2204,6 @@ public class GameInterface : MonoBehaviour
             SettingsDatabase.HeroName = null;
             // Reset game save variable
             SettingsDatabase.GameSave = new SettingsDatabase.Save();
-            // Break action
-            return;
         }
     }
 }

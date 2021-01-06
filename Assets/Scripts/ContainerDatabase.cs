@@ -1,5 +1,6 @@
-﻿using UnityEngine;
-
+﻿/// <summary>
+/// Stores information about individual containers and their parameters.
+/// </summary>
 public static class ContainerDatabase
 {
     // Item ranks

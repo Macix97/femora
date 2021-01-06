@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Describes the basic parameters of the hero.
+/// </summary>
 public class HeroClass : MonoBehaviour
 {
     // Hero tag
@@ -104,7 +107,10 @@ public class HeroClass : MonoBehaviour
             }
     }
 
-    // Set hero class
+    /// <summary>
+    /// Initiates hero parameters according to appropriate criteria.
+    /// </summary>
+    /// <param name="hero">A Type of hero from database.</param>
     public void InitHero(HeroDatabase.Hero hero)
     {
         Type = hero.Type;

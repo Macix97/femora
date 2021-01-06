@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Controls the sounds made by heroes.
+/// </summary>
 public class HeroSound : MonoBehaviour
 {
     // Audio source
@@ -23,7 +26,9 @@ public class HeroSound : MonoBehaviour
         AudioSrc = GetComponent<AudioSource>();
     }
 
-    // Play attack sound during attack
+    /// <summary>
+    /// Plays proper hero sound during an attack.
+    /// </summary>
     private void PlayAttackSound()
     {
         // Play audio

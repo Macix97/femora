@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Describes the basic parameters of the item.
+/// </summary>
 public class ItemClass : MonoBehaviour
 {
     // White space
@@ -158,7 +161,10 @@ public class ItemClass : MonoBehaviour
             }
     }
 
-    // Initialize proper item
+    /// <summary>
+    /// Initiates item parameters according to appropriate criteria.
+    /// </summary>
+    /// <param name="item">A Type of item from database.</param>
     public void InitItem(ItemDatabase.Item item)
     {
         Rank = item.Rank;

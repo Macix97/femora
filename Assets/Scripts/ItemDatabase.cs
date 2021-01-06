@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Stores information about individual items and their parameters.
+/// </summary>
 public static class ItemDatabase
 {
     // Sprites path
@@ -842,7 +845,13 @@ public static class ItemDatabase
         }
     };
 
-    // Get proper indexes by gold rank
+    /// <summary>
+    /// Gets proper indexes by the rank of the gold.
+    /// </summary>
+    /// <param name="itemRank">A label that identifies the rank of the item.</param>
+    /// <returns>
+    /// The array of the obtained indexes.
+    /// </returns>
     public static int[] GetMoneyIndex(string itemRank)
     {
         // Prepare list

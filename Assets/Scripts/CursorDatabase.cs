@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Stores information about individual cursors and their parameters.
+/// </summary>
 public static class CursorDatabase
 {
     // Cursors path

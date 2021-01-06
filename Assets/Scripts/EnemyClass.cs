@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Describes the basic parameters of the enemy.
+/// </summary>
 public class EnemyClass : MonoBehaviour
 {
     // Enemy tag
@@ -49,7 +52,7 @@ public class EnemyClass : MonoBehaviour
     }
 
     // Set basic parameters
-    public void Init(string name)
+    private void Init(string name)
     {
         // Search proper enemy
         for (int cnt = 0; cnt < EnemyDatabase.Enemies.Length; cnt++)
@@ -63,8 +66,11 @@ public class EnemyClass : MonoBehaviour
             }
     }
 
-    // Initialize proper enemy
-    public void InitEnemy(EnemyDatabase.Enemy enemy)
+    /// <summary>
+    /// Initiates enemy parameters according to appropriate criteria.
+    /// </summary>
+    /// <param name="enemy">A Type of enemy from database.</param>
+    private void InitEnemy(EnemyDatabase.Enemy enemy)
     {
         // Set enemy parameters
         Nature = enemy.Nature;

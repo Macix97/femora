@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Manages the events that occur in the locations.
+/// </summary>
 public class LocationManager : MonoBehaviour
 {
     // New location text
@@ -71,7 +74,9 @@ public class LocationManager : MonoBehaviour
         }
     }
 
-    // Check current location name
+    /// <summary>
+    /// Checks the name of the current location.
+    /// </summary>
     private void CheckLocationName()
     {
         // Search locations
@@ -86,7 +91,10 @@ public class LocationManager : MonoBehaviour
             }
     }
 
-    // Change current location name
+    /// <summary>
+    /// Checks the name of the current location.
+    /// </summary>
+    /// <param name="locationName">A label that represents the name of the location.</param>
     private void ChangeLocationName(string locationName)
     {
         // Check if hero go to new location
@@ -105,7 +113,13 @@ public class LocationManager : MonoBehaviour
         _gameInterface.SetLocationName(_heroClass.CurLocation);
     }
 
-    // Check if hero is in protected area
+    /// <summary>
+    /// Checks if the hero is in the protected area.
+    /// </summary>
+    /// <param name="hero">A transform that represents the hero.</param>
+    /// <returns>
+    /// The boolean that is true if the hero is safe or false if not.
+    /// </returns>
     public bool IsHeroInProtectedArea(Transform hero)
     {
         // Search protected areas
@@ -118,7 +132,6 @@ public class LocationManager : MonoBehaviour
         return false;
     }
 
-    // Draw auxiliary mesh
     private void OnDrawGizmos()
     {
         // Search protected areas

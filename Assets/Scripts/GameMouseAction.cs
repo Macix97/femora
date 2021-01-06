@@ -2,7 +2,11 @@
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class GameMouseAction : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+/// <summary>
+/// Intercepts actions performed with the mouse pointer during the game.
+/// </summary>
+public class GameMouseAction : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
+    IPointerClickHandler
 {
     // Bar label
     public static readonly string Bar = "Bar";
@@ -39,13 +43,17 @@ public class GameMouseAction : MonoBehaviour, IPointerEnterHandler, IPointerExit
         _gameInterface = GameObject.Find(GameInterface.GameInterfaceController).GetComponent<GameInterface>();
     }
 
-    // Check if mouse is over graphical interface elements
+    /// <summary>
+    /// Checks if the mouse is over some game UI element.
+    /// </summary>
+    /// <returns>
+    /// The boolean that is true if mouse is over UI or false if not.
+    /// </returns>
     public static bool IsMouseOverUI()
     {
         return EventSystem.current.IsPointerOverGameObject();
     }
 
-    // Set action when mouse is over graphical interface elements
     public void OnPointerEnter(PointerEventData eventData)
     {
         // Check if trade hint is active
@@ -162,7 +170,6 @@ public class GameMouseAction : MonoBehaviour, IPointerEnterHandler, IPointerExit
             _gameInterface.ShowMenuCrosses(transform);
     }
 
-    // Set action when mouse is outside graphical interface elements
     public void OnPointerExit(PointerEventData eventData)
     {
         // Check if trade hint is active
@@ -184,7 +191,6 @@ public class GameMouseAction : MonoBehaviour, IPointerEnterHandler, IPointerExit
             _gameInterface.HideMenuCrosses(transform);
     }
 
-    // Set action when mouse is clicked graphical interface elements
     public void OnPointerClick(PointerEventData eventData)
     {
         // Exit panel in main menu
@@ -245,10 +251,8 @@ public class GameMouseAction : MonoBehaviour, IPointerEnterHandler, IPointerExit
         }
         // Quality panel in video menu
         if (name.Equals(GameInterface.QualityPanel))
-        {
             // Adjust graphics
-            _gameInterface.AdaptGraphicsDetail(_gameInterface.QualityLevel);
-        }
+            _gameInterface.AdaptGraphicsDetail();
         // Return panel in main menu
         if (name.Equals(GameInterface.ReturnMenuPanel))
         {
@@ -386,7 +390,7 @@ public class GameMouseAction : MonoBehaviour, IPointerEnterHandler, IPointerExit
                     _gameInterface.DeactivateElement(_gameInterface.InventoryWindowImg.transform);
                 // Show skill window
                 _gameInterface.ShowSkillWindow();
-            } 
+            }
             // Skills
             for (int cnt = 0; cnt < _heroSkill.HeroSkills.Length; cnt++)
             {
@@ -439,7 +443,10 @@ public class GameMouseAction : MonoBehaviour, IPointerEnterHandler, IPointerExit
                 .GetProperSound(SoundDatabase.Click, SoundDatabase.ItemSounds));
     }
 
-    // Disable old skill bonus when it is updated
+    /// <summary>
+    /// Disables outdated bonuses after improving the selected skill.
+    /// </summary>
+    /// <param name="skill">A structure that represents a proper skill.</param>
     private void DisableOldSkill(HeroSkillDatabase.Skill skill)
     {
         // Left click
@@ -452,7 +459,10 @@ public class GameMouseAction : MonoBehaviour, IPointerEnterHandler, IPointerExit
             _heroParameter.DeactivateSkill(skill, _gameInterface.RightSkill);
     }
 
-    // Enable new skill bonus when it is updated
+    /// <summary>
+    /// Enables new bonuses after improving the selected skill.
+    /// </summary>
+    /// <param name="skill">A structure that represents a proper skill.</param>
     private void EnableNewSkill(HeroSkillDatabase.Skill skill)
     {
         // Left click
@@ -465,7 +475,11 @@ public class GameMouseAction : MonoBehaviour, IPointerEnterHandler, IPointerExit
             _heroParameter.ActivateSkill(skill, _gameInterface.RightSkill);
     }
 
-    // Update and show skill panel
+    /// <summary>
+    /// Shows skill panel with proper text and in the specific position.
+    /// </summary>
+    /// <param name="panel">An image that represents a skill panel.</param>
+    /// <param name="image">An image that represents a specific skill button.</param>
     private void ShowSkillPanel(Image panel, Image image)
     {
         // Set new parent of activity panel

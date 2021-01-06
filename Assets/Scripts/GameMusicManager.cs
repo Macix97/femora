@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Manages sounds that are playing during the game.
+/// </summary>
 public class GameMusicManager : MonoBehaviour
 {
     // Audio source
@@ -13,7 +16,7 @@ public class GameMusicManager : MonoBehaviour
     // Game interface
     private GameInterface _gameInterface;
     // Check if death song is playing
-    private bool _isDeath;
+    private bool _isDead;
 
     // Awake is called when the script instance is being loaded
     private void Awake()
@@ -37,10 +40,12 @@ public class GameMusicManager : MonoBehaviour
         _audioSrc = GetComponent<AudioSource>();
         _audioSrc.clip = MusicDatabase.GetProperSong(MusicDatabase.RefugeeCamp, MusicDatabase.Songs);
         _audioSrc.PlayDelayed(1f);
-        _isDeath = false;
+        _isDead = false;
     }
 
-    // Set proper song
+    /// <summary>
+    /// Sets the proper song that is playing in the game locations.
+    /// </summary>
     public void SetProperSong()
     {
         // Get current hero location
@@ -49,9 +54,11 @@ public class GameMusicManager : MonoBehaviour
         if (_heroParameter.IsHeroDead())
         {
             // Check if death song is already playing
-            if (_isDeath)
+            if (_isDead)
                 // Break action
                 return;
+            // Expire particle systems
+            _heroParameter.ExpireParticleSystems();
             // Adapt main text
             _gameInterface.MainInfoTxt.text =
                 string.Format(GameInterface.Dead + "You have lost {0} gold.", _heroInventory.StealHeroGold());
@@ -66,14 +73,14 @@ public class GameMusicManager : MonoBehaviour
             // Start playing music
             _audioSrc.PlayDelayed(1f);
             // Set that death song is playing
-            _isDeath = true;
+            _isDead = true;
             // Break action
             return;
         }
         // turn on loop
         _audioSrc.loop = true;
         // Set that death song is not playing
-        _isDeath = false;
+        _isDead = false;
         // Check if current music is correct
         if (location.Equals(_audioSrc.clip.name))
             // Break action

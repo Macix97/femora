@@ -2,7 +2,11 @@
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class MenuMouseAction : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+/// <summary>
+/// Intercepts actions performed with the mouse pointer in the main menu.
+/// </summary>
+public class MenuMouseAction : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
+    IPointerClickHandler
 {
     // Menu interface
     private MenuInterface _menuInterface;
@@ -28,7 +32,6 @@ public class MenuMouseAction : MonoBehaviour, IPointerEnterHandler, IPointerExit
         _menuMusicManager = GameObject.Find(MenuInterface.MenuController).GetComponent<MenuMusicManager>();
     }
 
-    // Set action when mouse is over graphical interface elements
     public void OnPointerEnter(PointerEventData eventData)
     {
         // Check if it is panel
@@ -98,7 +101,6 @@ public class MenuMouseAction : MonoBehaviour, IPointerEnterHandler, IPointerExit
             }
     }
 
-    // Set action when mouse is outside graphical interface elements
     public void OnPointerExit(PointerEventData eventData)
     {
         // Hide paladin image
@@ -127,7 +129,6 @@ public class MenuMouseAction : MonoBehaviour, IPointerEnterHandler, IPointerExit
             _menuInterface.MenuHintTxt.text = MenuInterface.SettingsMenuDesc;
     }
 
-    // Set action when mouse is clicked graphical interface elements
     public void OnPointerClick(PointerEventData eventData)
     {
         // New game
@@ -389,7 +390,9 @@ public class MenuMouseAction : MonoBehaviour, IPointerEnterHandler, IPointerExit
             .GetProperSound(SoundDatabase.Click, SoundDatabase.ItemSounds));
     }
 
-    // Show class stats and image when user is creating character
+    /// <summary>
+    /// Shows statistics of the selected hero when the user is creating a character.
+    /// </summary>
     public void ShowClassInfo()
     {
         // Check if create menu is active

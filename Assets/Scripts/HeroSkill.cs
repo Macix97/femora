@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Describes the basic parameters of the skill.
+/// </summary>
 public class HeroSkill : MonoBehaviour
 {
     // Hero skills

@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Manages actions performed with the use of the cursor.
+/// </summary>
 public class CursorHover : MonoBehaviour
 {
     // Check if object is inactive
@@ -34,11 +37,14 @@ public class CursorHover : MonoBehaviour
         IsObjectInactive = _isShowPanel = _isPanelExist = false;
     }
 
-    // Check if mouse hover object
+    /// <summary>
+    /// Checks if the cursor hover the object.
+    /// </summary>
     private void OnMouseOver()
     {
         // Check if mouse is over UI
-        if ((GameMouseAction.IsMouseOverUI() || _gameInterface.IsGamePaused) && !_isShowPanel)
+        if ((GameMouseAction.IsMouseOverUI() || _gameInterface.IsGamePaused)
+            && !_isShowPanel)
         {
             // Destroy panel
             DestroyPanel();
@@ -46,25 +52,31 @@ public class CursorHover : MonoBehaviour
             return;
         }
         // Check if show panel is possible
-        if (_isPanelExist || IsObjectInactive || tag.Equals(PersonClass.PersonTag) || _heroClass.IsTalking)
+        if (_isPanelExist || IsObjectInactive || tag.Equals(PersonClass.PersonTag)
+            || _heroClass.IsTalking)
             // Break action
             return;
         // Generate panel
         GeneratePanel();
     }
 
-    // Check if mouse leave object
+    /// <summary>
+    /// Checks if the cursor has left the object.
+    /// </summary>
     private void OnMouseExit()
     {
         // Check if destroy panel is possible
-        if (!_isPanelExist || _isShowPanel || IsObjectInactive || tag.Equals(PersonClass.PersonTag))
+        if (!_isPanelExist || _isShowPanel || IsObjectInactive
+            || tag.Equals(PersonClass.PersonTag))
             // Break action
             return;
         // Destroy panel
         DestroyPanel();
     }
 
-    // Switch panel activity by button press
+    /// <summary>
+    /// Shows or hides hints about objects on the ground.
+    /// </summary>
     private void SwitchPanel()
     {
         // Check if hero is talking
@@ -76,7 +88,8 @@ public class CursorHover : MonoBehaviour
             return;
         }
         // Check if showing panel is possible
-        if (IsObjectInactive || tag.Equals(ItemClass.ContainerTag) || tag.Equals(PersonClass.PersonTag))
+        if (IsObjectInactive || tag.Equals(ItemClass.ContainerTag)
+            || tag.Equals(PersonClass.PersonTag))
             // break action
             return;
         // Check if button is pressed
@@ -105,7 +118,9 @@ public class CursorHover : MonoBehaviour
         }
     }
 
-    // Generate panel with object description
+    /// <summary>
+    /// Generates interactable panel with some hint.
+    /// </summary>
     public void GeneratePanel()
     {
         // Check if panel is exist
@@ -171,13 +186,13 @@ public class CursorHover : MonoBehaviour
         // Get sprite renderer
         SpriteRenderer spriteRenderer = panel.GetComponent<SpriteRenderer>();
         // Change panel size
-        spriteRenderer.size = new Vector2(ItemClass.TextCharWidth * ItemClass.PanelWidthMod * textMesh.text.Length,
-            spriteRenderer.size.y);
+        spriteRenderer.size = new Vector2(ItemClass.TextCharWidth * ItemClass.PanelWidthMod
+            * textMesh.text.Length, spriteRenderer.size.y);
         // Get box collider
         BoxCollider boxCollider = panel.GetComponent<BoxCollider>();
         // Change panel collider
-        boxCollider.size = new Vector3(ItemClass.TextCharWidth * ItemClass.PanelWidthMod * textMesh.text.Length,
-            boxCollider.size.y, boxCollider.size.z);
+        boxCollider.size = new Vector3(ItemClass.TextCharWidth * ItemClass.PanelWidthMod
+            * textMesh.text.Length, boxCollider.size.y, boxCollider.size.z);
         // Check if it is container
         if (tag.Equals(ItemClass.ContainerTag))
             // Destroy box collider
@@ -186,7 +201,9 @@ public class CursorHover : MonoBehaviour
         _isPanelExist = true;
     }
 
-    // Destroy selected panel
+    /// <summary>
+    /// Destroys created panel with some hint.
+    /// </summary>
     public void DestroyPanel()
     {
         // Check if panel is exist
@@ -199,7 +216,9 @@ public class CursorHover : MonoBehaviour
         _isPanelExist = false;
     }
 
-    // Disable dropped item during animation
+    /// <summary>
+    /// Disables some item and hides the hint when it is falling on the ground.
+    /// </summary>
     public void DisableDroppedItem()
     {
         // Inactivate object (destroy panel)
@@ -208,7 +227,9 @@ public class CursorHover : MonoBehaviour
         DestroyPanel();
     }
 
-    // Enable dropped item after animation
+    /// <summary>
+    /// Enables some object after playing the falling animation.
+    /// </summary>
     public void EnableDroppedItem()
     {
         // Activate object (generate panel)

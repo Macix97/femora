@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Describes the object that represents the container.
+/// </summary>
 public class ContainerClass : MonoBehaviour
 {
     // Container structure
@@ -16,7 +19,7 @@ public class ContainerClass : MonoBehaviour
     }
 
     // Set basic parameters
-    public void Init(string name)
+    private void Init(string name)
     {
         // Search proper container
         for (int cnt = 0; cnt < ContainerDatabase.Containers.Length; cnt++)
@@ -30,8 +33,11 @@ public class ContainerClass : MonoBehaviour
             }
     }
 
-    // Initialize proper container
-    public void InitContainer(ContainerDatabase.Container container)
+    /// <summary>
+    /// Sets the basic parameters of the container for example kind or items amount inside.
+    /// </summary>
+    /// <param name="container">A type of container from database.</param>
+    private void InitContainer(ContainerDatabase.Container container)
     {
         Kind = container.Kind;
         MinItemAmt = container.MinItemAmt;
@@ -40,7 +46,9 @@ public class ContainerClass : MonoBehaviour
         ItemChancePercent = container.ItemChancePercent;
     }
 
-    // Generate items after open container
+    /// <summary>
+    /// Generates specific items when the hero is opening some container.
+    /// </summary>
     public void GenerateContainerItems()
     {
         // Generated item amount

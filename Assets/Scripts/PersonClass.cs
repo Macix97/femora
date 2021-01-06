@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Describes the basic parameters of the person.
+/// </summary>
 public class PersonClass : MonoBehaviour
 {
     // Person tag
@@ -47,7 +50,10 @@ public class PersonClass : MonoBehaviour
             }
     }
 
-    // Initialize proper person
+    /// <summary>
+    /// Initiates person parameters according to appropriate criteria.
+    /// </summary>
+    /// <param name="person">A Type of person from database.</param>
     public void InitPerson(PersonDatabase.Person person)
     {
         // Set person parameters

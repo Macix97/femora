@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Stores information about individual skills and their parameters.
+/// </summary>
 public static class HeroSkillDatabase
 {
     // Skill types

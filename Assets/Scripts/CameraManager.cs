@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Controls the isometric camera movement.
+/// </summary>
 public class CameraManager : MonoBehaviour
 {
     // Camera parameters
@@ -35,7 +38,9 @@ public class CameraManager : MonoBehaviour
         StartPos = transform.position;
     }
 
-    // Move isometric camera to target position
+    /// <summary>
+    /// Moves the camera smoothly when the hero is walking.
+    /// </summary>
     private void MoveIsometricCamera()
     {
         // Calculate position
@@ -46,7 +51,9 @@ public class CameraManager : MonoBehaviour
         transform.position = Vector3.Slerp(transform.position, _camPos, SmoothSpeed * Time.deltaTime);
     }
 
-    // Change camera view
+    /// <summary>
+    /// Switches the view from the isometric camera to the first person camera or vice versa
+    /// </summary>
     public void ToggleCameraView()
     {
         // toggle cameras

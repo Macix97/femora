@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// Describes the behavior of the items in the game.
+/// </summary>
 public class ItemBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -33,7 +36,6 @@ public class ItemBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         _gameInterface = GameObject.Find(GameInterface.GameInterfaceController).GetComponent<GameInterface>();
     }
 
-    // Show info about item in slot
     public void OnPointerEnter(PointerEventData eventData)
     {
         // Check if trade hint is active
@@ -44,7 +46,6 @@ public class ItemBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         _heroInventory.ShowItemSlotInfo(eventData.pointerCurrentRaycast.gameObject);
     }
 
-    // Use, sell or buy item (if it is possible)
     public void OnPointerClick(PointerEventData eventData)
     {
         // Check if clicking is possible
@@ -75,7 +76,6 @@ public class ItemBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             _gameInterface.DeactivateElement(_gameInterface.SlotPanelImg.transform);
     }
 
-    // Hide info about item in slot
     public void OnPointerExit(PointerEventData eventData)
     {
         // Check if trade hint is active
@@ -86,7 +86,6 @@ public class ItemBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         _gameInterface.DeactivateElement(_gameInterface.SlotPanelImg.transform);
     }
 
-    // Start dragging selected item
     public void OnBeginDrag(PointerEventData eventData)
     {
         // Set that some item is dragging
@@ -103,7 +102,6 @@ public class ItemBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         _slotTrans = transform.parent.GetComponent<Transform>();
     }
 
-    // Drag selected item
     public void OnDrag(PointerEventData eventData)
     {
         // Check if trade hint is active
@@ -124,7 +122,6 @@ public class ItemBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         transform.position = Input.mousePosition;
     }
 
-    // End dragging item
     public void OnEndDrag(PointerEventData eventData)
     {
         // Set that any item is not dragging
@@ -198,7 +195,9 @@ public class ItemBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
                 .GetProperSound(SoundDatabase.Swoosh, SoundDatabase.ItemSounds));
     }
 
-    // Play proper sound after action
+    /// <summary>
+    /// Plays proper item sound during an action.
+    /// </summary>
     public void PlayProperSound()
     {
         // Get item type

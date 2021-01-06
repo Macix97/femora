@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Describes the functioning of the hero inventory.
+/// </summary>
 public class HeroInventory : MonoBehaviour
 {
     // Action types
@@ -179,6 +182,10 @@ public class HeroInventory : MonoBehaviour
         transform.Find(ItemClass.Legendary).GetComponent<SkinnedMeshRenderer>().enabled = false;
     }
 
+    /// <summary>
+    /// Checks current state of the hero inventory.
+    /// </summary>
+    /// <param name="target">A transform that represents the clicked object.</param>
     public void CheckHeroInventory(ref Transform target)
     {
         // Get item parameters
@@ -194,7 +201,7 @@ public class HeroInventory : MonoBehaviour
                     .GetProperSound(SoundDatabase.Swoosh, SoundDatabase.ItemSounds));
                 // Play leave animation
                 itemClass.GetComponent<Animator>().SetTrigger(ItemClass.LeaveGoldMotion);
-                // Play I can't carry anymore sound
+                // Play "I can't carry anymore" sound
                 _heroSound.AudioSrc.PlayOneShot(SoundDatabase
                     .GetProperSound(SoundDatabase.ICantCarryAnymore, _heroSound.HeroSounds));
                 // Break action
@@ -257,19 +264,25 @@ public class HeroInventory : MonoBehaviour
             .GetProperSound(SoundDatabase.Swoosh, SoundDatabase.ItemSounds));
         // Play leave animation
         itemClass.GetComponent<Animator>().SetTrigger(ItemClass.LeaveItemMotion);
-        // Play I can't carry anymore sound
+        // Play "I can't carry anymore" sound
         _heroSound.AudioSrc.PlayOneShot(SoundDatabase
             .GetProperSound(SoundDatabase.ICantCarryAnymore, _heroSound.HeroSounds));
     }
 
-    // Adapt hero gold
+    /// <summary>
+    /// Updates prosperity of the hero.
+    /// </summary>
+    /// <param name="amount">A number that represents gold amount.</param>
     public void AdaptHeroGold(int amount)
     {
         // Change hero gold
         Gold += amount;
     }
 
-    // Adapt person gold
+    /// <summary>
+    /// Updates prosperity of the proper person.
+    /// </summary>
+    /// <param name="amount">A number that represents gold amount.</param>
     public void AdaptPersonGold(int amount)
     {
         // Change hero gold
@@ -278,7 +291,16 @@ public class HeroInventory : MonoBehaviour
         _gameInterface.AdaptPeronGoldAmount();
     }
 
-    // Check if item is picked up
+    /// <summary>
+    /// Checks if the item can be picked up.
+    /// </summary>
+    /// <param name="cnt">A number that represents available slot in inventory.</param>
+    /// <param name="itemClass">An object that represents a specific item.</param>
+    /// <param name="slots">The structures that represent proper inventory slots.</param>
+    /// <param name="target">A transform that represents an item in the scene.</param>
+    /// <returns>
+    /// The boolean that is true if the item might be picked up or false if not.
+    /// </returns>
     public bool IsItemPickup(int cnt, ref ItemClass itemClass, Slot[] slots, ref Transform target)
     {
         // Check hero capacity
@@ -315,7 +337,17 @@ public class HeroInventory : MonoBehaviour
         return true;
     }
 
-    // Check if item is moved
+    /// <summary>
+    /// Checks if the item is dragging between the hero inventory slots.
+    /// </summary>
+    /// <param name="gridId">A label that identifies a specific grid.</param>
+    /// <param name="cnt1">A number that identifies a specific slot in the slots array.</param>
+    /// <param name="objSlot">A label that identifies a single slot.</param>
+    /// <param name="itemClass">An object that represents a specific item.</param>
+    /// <param name="slots">A structure that represents proper inventory slots.</param>
+    /// <returns>
+    /// The number that represents the state of doing action.
+    /// </returns>
     public int IsItemMove(string gridId, int cnt1, string objSlot, ref ItemClass itemClass, Slot[] slots)
     {
         // Check if cursor hover slot and its active
@@ -410,7 +442,13 @@ public class HeroInventory : MonoBehaviour
         return ResetItem;
     }
 
-    // Move item from slot to other slot
+    /// <summary>
+    /// Checks if some item is moving in hero inventory.
+    /// </summary>
+    /// <param name="objSlot">A label that identifies the proper slot.</param>
+    /// <returns>
+    /// The number that represents the state of doing action.
+    /// </returns>
     public int CheckItemMove(string objSlot)
     {
         // Check if item is moving from equipment slot to another equipment slot (it is impossible)
@@ -455,7 +493,13 @@ public class HeroInventory : MonoBehaviour
         return DropItem;
     }
 
-    // Drop item to ground
+    /// <summary>
+    /// Checks if some item is dropping from hero inventory.
+    /// </summary>
+    /// <param name="objName">A label that identifies the proper item.</param>
+    /// <returns>
+    /// The number that represents the state of doing action.
+    /// </returns>
     public int CheckItemDrop(string objName)
     {
         // Check mouse position while item is dragging
@@ -466,7 +510,7 @@ public class HeroInventory : MonoBehaviour
         // Get item parameters (item slot)
         ItemClass itemSlotClass = GetProperGameObject(objName).GetComponentInChildren<ItemClass>();
         // Generate item position
-        Vector3 itemPosition = RandomItemPosition();
+        Vector3 itemPosition = DrawItemPosition();
         // Spawn item
         GameObject droppedItem = Instantiate(Resources.Load(ItemDatabase.Prefabs + itemSlotClass.Kind),
             itemPosition, Quaternion.identity) as GameObject;
@@ -528,7 +572,10 @@ public class HeroInventory : MonoBehaviour
         return DropItem;
     }
 
-    // Show info about item in slot
+    /// <summary>
+    /// Shows info about the item in the slot.
+    /// </summary>
+    /// <param name="itemSlot">An object that represents an item slot.</param>
     public void ShowItemSlotInfo(GameObject itemSlot)
     {
         // Get slot ID
@@ -595,7 +642,11 @@ public class HeroInventory : MonoBehaviour
         _gameInterface.ActivateElement(_gameInterface.SlotPanelImg.transform);
     }
 
-    // Use potion by click hotkey
+    /// <summary>
+    /// Uses some potion by clicking hotkey.
+    /// </summary>
+    /// <param name="objName">A label that identifies the proper potion button.</param>
+    /// <param name="index">A number that identifies the potion in the array.</param>
     public void UsePotionQuick(string objName, int index)
     {
         // Set start index
@@ -641,7 +692,13 @@ public class HeroInventory : MonoBehaviour
         // There is no potion
     }
 
-    // Use clicked item in inventory window
+    /// <summary>
+    /// Checks if some potion in the hero inventory might be used.
+    /// </summary>
+    /// <param name="objName">A label that identifies the proper potion.</param>
+    /// <returns>
+    /// The boolean that is true if the potion is used or false if not.
+    /// </returns>
     public bool IsItemUse(string objName)
     {
         // Check if item is in trade slot
@@ -705,7 +762,13 @@ public class HeroInventory : MonoBehaviour
         return true;
     }
 
-    // Equip selected item from hero inventory
+    /// <summary>
+    /// Checks if some item in the hero inventory might be equipped.
+    /// </summary>
+    /// <param name="objName">A label that identifies the proper item.</param>
+    /// <returns>
+    /// The number that represents the state of doing action.
+    /// </returns>
     public int CheckItemEquip(string objName)
     {
         // Get item parameters
@@ -744,7 +807,13 @@ public class HeroInventory : MonoBehaviour
         return MoveItem;
     }
 
-    // Get proper inventory slot index
+    /// <summary>
+    /// Gets proper hero inventory slot identifier.
+    /// </summary>
+    /// <param name="objName">A label that identifies the proper slot.</param>
+    /// <returns>
+    /// The number that represents the index of the slot in the array.
+    /// </returns>
     public int GetInvSlotIndex(string objName)
     {
         // Set start index
@@ -759,7 +828,13 @@ public class HeroInventory : MonoBehaviour
         return cnt;
     }
 
-    // Get proper potion slot index
+    /// <summary>
+    /// Gets proper hero potion slot identifier.
+    /// </summary>
+    /// <param name="objName">A label that identifies the proper slot.</param>
+    /// <returns>
+    /// The number that represents the index of the slot in the array.
+    /// </returns>
     public int GetPotionSlotIndex(string objName)
     {
         // Set start index
@@ -774,7 +849,13 @@ public class HeroInventory : MonoBehaviour
         return cnt;
     }
 
-    // Get proper trade slot index
+    /// <summary>
+    /// Gets proper trade slot identifier.
+    /// </summary>
+    /// <param name="objName">A label that identifies the proper slot.</param>
+    /// <returns>
+    /// The number that represents the index of the slot in the array.
+    /// </returns>
     public int GetTradeSlotIndex(string objName)
     {
         // Set start index
@@ -789,6 +870,11 @@ public class HeroInventory : MonoBehaviour
         return cnt;
     }
 
+    /// <summary>
+    /// Activates selected equipment slot.
+    /// </summary>
+    /// <param name="objName">A label that identifies the proper slot.</param>
+    /// <param name="itemClass">An object that represents a specific item.</param>
     public void EnableEquipmentSlot(string objName, ItemClass itemClass)
     {
         // Check if it is head slot
@@ -873,7 +959,13 @@ public class HeroInventory : MonoBehaviour
         }
     }
 
-    // Get proper object in game
+    /// <summary>
+    /// Gets game object with specific identifier.
+    /// </summary>
+    /// <param name="objName">A label that identifies the proper game object.</param>
+    /// <returns>
+    /// The entity that represents the object in the engine.
+    /// </returns>
     public GameObject GetProperGameObject(string objName)
     {
         // Get all objects
@@ -890,7 +982,14 @@ public class HeroInventory : MonoBehaviour
         return null;
     }
 
-    // Check if active item is moving from slot to another equipment slot
+    /// <summary>
+    /// Validates moving items between the equipment slots.
+    /// </summary>
+    /// <param name="objName">A label that identifies the proper equipment slot.</param>
+    /// <param name="equipmentSlot">A structure that represents equipment slot.</param>
+    /// <returns>
+    /// The boolean that is true if the item leave in the slot or false if not.
+    /// </returns>
     public bool ValidateItemMove(string objName, Slot equipmentSlot)
     {
         // Check if item is moving from equipment slot to another equipment slot (it is impossible)
@@ -903,7 +1002,17 @@ public class HeroInventory : MonoBehaviour
         return false;
     }
 
-    // Check if selected item can by use
+    /// <summary>
+    /// Validates equipping the item by the hero.
+    /// </summary>
+    /// <param name="objName">A label that identifies the proper item slot.</param>
+    /// <param name="itemTypeId">A label that identifies the type of the item.</param>
+    /// <param name="equipmentSlotId">A label that identifies the new equipment slot.</param>
+    /// <param name="itemClass">An object that represents a specific item.</param>
+    /// <param name="slot">A structure that represents proper inventory slot.</param>
+    /// <returns>
+    /// The number that represents the state of doing action.
+    /// </returns>
     public int ValidateItemEquip(string objName, string itemTypeId, string equiopmentSlotId,
         ItemClass itemClass, ref Slot slot)
     {
@@ -933,10 +1042,20 @@ public class HeroInventory : MonoBehaviour
         return MoveItem;
     }
 
-    // Check if active item is moving to inventory slot or dropping to ground
+    /// <summary>
+    /// Checks if active item is moving to the inventory slot or dropping to the ground.
+    /// </summary>
+    /// <param name="objName">A label that identifies the proper item slot.</param>
+    /// <param name="equipmentSlotId">A label that identifies the equipment slot.</param>
+    /// <param name="equipmentSlot">A structure that represents proper inventory slot.</param>
+    /// <param name="itemClass">An object that represents a specific item.</param>
+    /// <returns>
+    /// The boolean that is true if the item leave in the slot or drop from the slot or false if not.
+    /// </returns>
     public bool CheckActiveItemMoveDrop(string objName, string equipmentSlotId, ref Slot equipmentSlot,
         ItemClass itemClass)
     {
+        // Check if it is equipment slot
         if (objName.Equals(equipmentSlotId))
         {
             // Check if this item is for right hand
@@ -1005,7 +1124,9 @@ public class HeroInventory : MonoBehaviour
         return false;
     }
 
-    // Check if hero tries move item to trade slot while trading
+    /// <summary>
+    /// Checks if some item is moving from the hero inventory slot to some trade slot while trading.
+    /// </summary>
     public void CheckTradeGridCollision()
     {
         // Check mouse position while item is dragging
@@ -1020,7 +1141,11 @@ public class HeroInventory : MonoBehaviour
         }
     }
 
-    // Check if hero wants to buy some item
+    /// <summary>
+    /// Checks if the hero wants to buy some item.
+    /// </summary>
+    /// <param name="objName">A label that identifies the proper item slot.</param>
+    /// <param name="itemClass">An object that represents a specific item.</param>
     public void CheckItemBuying(string objName, ItemClass itemClass)
     {
         // Check if hero has gold
@@ -1070,7 +1195,11 @@ public class HeroInventory : MonoBehaviour
             }
     }
 
-    // Check if hero wants to sell some item
+    /// <summary>
+    /// Checks if the hero wants to sell some item.
+    /// </summary>
+    /// <param name="objName">A label that identifies the proper item slot.</param>
+    /// <param name="itemClass">An object that represents a specific item.</param>
     public void CheckItemSelling(string objName, ItemClass itemClass)
     {
         // Check if person has gold
@@ -1101,7 +1230,13 @@ public class HeroInventory : MonoBehaviour
             }
     }
 
-    // Buy some item
+    /// <summary>
+    /// finalizes the purchase of the item.
+    /// </summary>
+    /// <param name="objName">A label that identifies the proper item slot.</param>
+    /// <param name="cnt">A number that identifies a specific slot in the slots array.</param>
+    /// <param name="slots">The structures that represent proper inventory slots.</param>
+    /// <param name="itemClass">An object that represents a specific item.</param>
     public void BuyItem(string objName, int cnt, Slot[] slots, ref ItemClass itemClass)
     {
         // Create new item slot
@@ -1150,7 +1285,12 @@ public class HeroInventory : MonoBehaviour
         PlayProperSound(itemClass.Type);
     }
 
-    // Sell some item
+    /// <summary>
+    /// finalizes the sale of the item.
+    /// </summary>
+    /// <param name="objName">A label that identifies the proper item slot.</param>
+    /// <param name="cnt1">A number that identifies a specific slot in the slots array.</param>
+    /// <param name="itemClass">An object that represents a specific item.</param>
     public void SellItem(string objName, int cnt1, ref ItemClass itemClass)
     {
         // Create new item slot
@@ -1229,7 +1369,10 @@ public class HeroInventory : MonoBehaviour
         PlayProperSound(itemClass.Type);
     }
 
-    // Set proper mesh for hero item
+    /// <summary>
+    /// Sets proper appearance of the hero.
+    /// </summary>
+    /// <param name="itemClass">An object that represents a specific item.</param>
     public void SetItemMesh(ItemClass itemClass)
     {
         // Check if item has mesh
@@ -1321,8 +1464,12 @@ public class HeroInventory : MonoBehaviour
         activatedItem.transform.localRotation = Quaternion.Euler(itemClass.Rot);
     }
 
-    // Initialize proper equipment slot
-    public void InitEquipmentSlot(ref Slot slot, string slotId)
+    /// <summary>
+    /// Sets proper appearance of the hero.
+    /// </summary>
+    /// <param name="slot">A structure that represents proper equipment slot.</param>
+    /// <param name="slotId">A label that identifies the proper slot.</param>
+    private void InitEquipmentSlot(ref Slot slot, string slotId)
     {
         slot.SlotId = slotId;
         slot.IsSlotActive = true;
@@ -1330,8 +1477,10 @@ public class HeroInventory : MonoBehaviour
         slot.SlotRect = GameObject.Find(slotId).GetComponent<RectTransform>();
     }
 
-    // Random position during dropping item
-    public Vector3 RandomItemPosition()
+    /// <summary>
+    /// Draws some position when the item is dropping.
+    /// </summary>
+    public Vector3 DrawItemPosition()
     {
         // Random coordinates
         int xPos = Random.Range(MinDropDist, MaxDropDist);
@@ -1350,7 +1499,9 @@ public class HeroInventory : MonoBehaviour
         return new Vector3(transform.position.x + xPos, transform.position.y, transform.position.z + zPos);
     }
 
-    // Generate some items to sell when hero is trading
+    /// <summary>
+    /// Generates the items when the hero is trading.
+    /// </summary>
     public void GenerateTradeItems()
     {
         // Check if person can sell hero some item
@@ -1392,7 +1543,9 @@ public class HeroInventory : MonoBehaviour
         }
     }
 
-    // Destroy trade items after talk
+    /// <summary>
+    /// Destroys the item after trading.
+    /// </summary>
     public void DestroyTradeItems()
     {
         // Destroy items
@@ -1411,7 +1564,10 @@ public class HeroInventory : MonoBehaviour
             }
     }
 
-    // Initialize proper item slot
+    /// <summary>
+    /// Initializes the item slot before beginning the game.
+    /// <param name="slot">A structure that represents proper equipment slot.</param>
+    /// </summary>
     public void InitSlotItem(Slot slot)
     {
         // Create new item slot
@@ -1440,7 +1596,12 @@ public class HeroInventory : MonoBehaviour
         SetItemMesh(itemSlotClass);
     }
 
-    // Steal hero gold after death
+    /// <summary>
+    /// Steals the hero gold after their death.
+    /// </summary>
+    /// <returns>
+    /// The number that represents the stolen gold.
+    /// </returns>
     public int StealHeroGold()
     {
         // Copy hero gold
@@ -1459,7 +1620,10 @@ public class HeroInventory : MonoBehaviour
         return 0;
     }
 
-    // Play proper sound after action
+    /// <summary>
+    /// Steals the hero gold after their death.
+    /// </summary>
+    /// <param name="name">A label that identifies proper sound.</param>
     public void PlayProperSound(string name)
     {
         // Search proper sound

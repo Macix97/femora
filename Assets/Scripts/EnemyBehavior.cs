@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// Describes the behavior of individual opponents.
+/// </summary>
 public class EnemyBehavior : MonoBehaviour
 {
     // Enemy AI
@@ -67,7 +70,9 @@ public class EnemyBehavior : MonoBehaviour
         _nextAttack = Time.time;
     }
 
-    // Check actual distance between enemy and hero
+    /// <summary>
+    /// Checks distance between the hero and the enemy.
+    /// </summary>
     private void CheckDist()
     {
         // Disable attack animation
@@ -85,22 +90,25 @@ public class EnemyBehavior : MonoBehaviour
             StopEnemy();
     }
 
-    // Play proper animation
+    /// <summary>
+    /// Plays moving animation of the enemy.
+    /// </summary>
     private void SetProperAnimation()
     {
         // Play proper animation
         _animator.SetBool(EnemyClass.MoveMotion, _isMoving);
     }
 
-    // Attack target in range
+    /// <summary>
+    /// Checks if the hero is near and tries to attack the target.
+    /// </summary>
     private void AttackHero()
     {
         // Set position
         _navMeshAgent.destination = _target.position;
         // Check distance
         if (!_navMeshAgent.pathPending
-            && _navMeshAgent.remainingDistance
-            > _enemyClass.AttackRay)
+            && _navMeshAgent.remainingDistance > _enemyClass.AttackRay)
         {
             // Check if hero is in save area
             if (_locationManager.IsHeroInProtectedArea(_target))
@@ -115,8 +123,7 @@ public class EnemyBehavior : MonoBehaviour
             _isMoving = true;
             _navMeshAgent.isStopped = false;
         }
-        else if (!_navMeshAgent.pathPending
-                && _navMeshAgent.remainingDistance
+        else if (!_navMeshAgent.pathPending && _navMeshAgent.remainingDistance
                 <= _enemyClass.AttackRay)
         {
             // Stop enemy
@@ -128,12 +135,15 @@ public class EnemyBehavior : MonoBehaviour
             _animator.SetBool(EnemyClass.AttackMotion, true);
             // Set next attack time
             _nextAttack = Time.time + _enemyClass.AttackRate;
-            //--- Decrement hero health ---//
-            // (function invoking during animation)
+
+            //--- Decrement hero health (function invoking during animation) ---//
+
         }
     }
 
-    // Stop enemy in actual position
+    /// <summary>
+    /// Stops enemy in some place.
+    /// </summary>
     private void StopEnemy()
     {
         // Reset navigation path
@@ -143,7 +153,9 @@ public class EnemyBehavior : MonoBehaviour
         _navMeshAgent.isStopped = true;
     }
 
-    // Calculate proper damage and hurt hero
+    /// <summary>
+    /// Deals damage to the hero.
+    /// </summary>
     public void DealDamage()
     {
         // Check if it is hero
@@ -181,6 +193,7 @@ public class EnemyBehavior : MonoBehaviour
             _heroSound.AudioSrc.PlayOneShot(SoundDatabase
                 .GetProperSound(SoundDatabase.Death, _heroSound.HeroSounds));
         // Play hit sound during deal damage
-        _enemySound.AudioSrc.PlayOneShot(SoundDatabase.GetProperSound(SoundDatabase.Hit, _enemySound.EnemySounds));
+        _enemySound.AudioSrc.PlayOneShot(SoundDatabase
+            .GetProperSound(SoundDatabase.Hit, _enemySound.EnemySounds));
     }
 }

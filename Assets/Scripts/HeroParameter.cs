@@ -1,6 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Text;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// Executes additional actions related to the hero.
+/// </summary>
 public class HeroParameter : MonoBehaviour
 {
     // Methods IDs
@@ -71,7 +76,10 @@ public class HeroParameter : MonoBehaviour
         _animator.SetFloat(HeroClass.AttackRateFloat, AttackAnimSpeed);
     }
 
-    // Calculate actual experience
+    /// <summary>
+    /// Updates current experience of the hero.
+    /// </summary>
+    /// <param name="experience">The experience points to add.</param>
     public void AdaptExp(int experience)
     {
         // Add experience
@@ -92,7 +100,7 @@ public class HeroParameter : MonoBehaviour
         if (_heroClass.Level < 10)
             // Set new level modifier
             ExpMod *= LevelMod01;
-        // Hero is veak
+        // Hero is weak
         else if (_heroClass.Level >= 10 && _heroClass.Level < 25)
             // Set new level modifier
             ExpMod *= LevelMod02;
@@ -123,7 +131,12 @@ public class HeroParameter : MonoBehaviour
             .GetProperSound(SoundDatabase.Level, SoundDatabase.ItemSounds));
     }
 
-    // Calculate actual attributes
+    /// <summary>
+    /// Updates proper attribute of the hero.
+    /// </summary>
+    /// <param name="attributeId">The label that represents the identifier of the attribute.</param>
+    /// <param name="methodId">The label that represents the identifier of the used method.</param>
+    /// <param name="attrValue">The number that represents the value of the attribute.</param>
     public void AdaptAttr(string attributeId, string methodId, float attrValue)
     {
         // Set proper attribute
@@ -162,7 +175,13 @@ public class HeroParameter : MonoBehaviour
             _heroClass.AttributePts -= (int)attrValue;
     }
 
-    // Calculate actual skills
+    /// <summary>
+    /// Updates proper skill of the hero.
+    /// </summary>
+    /// <param name="skill">A structure that represents a hero skill.</param>
+    /// <param name="skillValue">The number that represents the value of the skill.</param>
+    /// <param name="effect">The number that represents the effect of the skill.</param>
+    /// <param name="energyCost">The number that represents the energy cost of the skill.</param>
     public void AdaptSkill(ref HeroSkillDatabase.Skill skill, int skillValue, float effect,
         float energyCost)
     {
@@ -207,7 +226,11 @@ public class HeroParameter : MonoBehaviour
         _gameInterface.AdaptSkillInfo(_gameInterface.SkillTxt, skill);
     }
 
-    // Calculate actual statistics
+    /// <summary>
+    /// Updates current statistics of the hero
+    /// </summary>
+    /// <param name="statsId">The label that represents the identifier of the statistic.</param>
+    /// <param name="statsValue">The number that represents the value of the statistic.</param>
     public void AdaptStats(string statsId, float statsValue)
     {
         // Set proper statistics
@@ -243,7 +266,10 @@ public class HeroParameter : MonoBehaviour
             _heroClass.Capacity += statsValue;
     }
 
-    // Calculate actual health
+    /// <summary>
+    /// Calculates current health of the hero.
+    /// </summary>
+    /// <param name="health">The health points to add or subtract.</param>
     public void AdaptHealth(int health)
     {
         // Calculate health
@@ -278,7 +304,10 @@ public class HeroParameter : MonoBehaviour
             _heroClass.MaxHealth = 1;
     }
 
-    // Calculate actual energy
+    /// <summary>
+    /// Calculates current energy of the hero.
+    /// </summary>
+    /// <param name="energy">The energy points to add or subtract.</param>
     public void AdaptEnergy(int energy)
     {
         // Calculate energy
@@ -294,7 +323,13 @@ public class HeroParameter : MonoBehaviour
             _heroClass.MaxEnergy = 1;
     }
 
-    // Check if hero knows selected skill
+    /// <summary>
+    /// Checks if hero knows selected skill.
+    /// </summary>
+    /// <param name="skill">A structure that represents a hero skill.</param>
+    /// <returns>
+    /// The boolean that is true if the hero knows the skill or false if not.
+    /// </returns>
     public bool IsSkill(HeroSkillDatabase.Skill skill)
     {
         // Check if hero knows skill
@@ -305,7 +340,10 @@ public class HeroParameter : MonoBehaviour
         return false;
     }
 
-    // Activate normal attack
+    /// <summary>
+    /// Activates normal attack.
+    /// </summary>
+    /// <param name="mouseSkill">A structure that represents an active skill.</param>
     public void ActivateAttack(ref HeroSkillDatabase.Skill mouseSkill)
     {
         // Check if attack is active
@@ -337,7 +375,11 @@ public class HeroParameter : MonoBehaviour
             _gameInterface.AdaptMouseSkillInfo(_gameInterface.MouseSkillTxt, mouseSkill);
     }
 
-    // Check if skill may it be activate
+    /// <summary>
+    /// Checks if selected skill may be activated at this time.
+    /// </summary>
+    /// <param name="skill">A structure that represents a skill to activate.</param>
+    /// <param name="mouseSkill">A structure that represents a current chosen skill.</param>
     public void CheckSkill(HeroSkillDatabase.Skill skill, ref HeroSkillDatabase.Skill mouseSkill)
     {
         // Check if skill is already use
@@ -398,7 +440,11 @@ public class HeroParameter : MonoBehaviour
         _heroSound.AudioSrc.PlayOneShot(SoundDatabase.GetProperSound(kind, _heroSound.HeroSounds));
     }
 
-    // Activate selected skill
+    /// <summary>
+    /// Activates selected skill.
+    /// </summary>
+    /// <param name="skill">A structure that represents a skill to activate.</param>
+    /// <param name="mouseSkill">A structure that represents a current chosen skill.</param>
     public void ActivateSkill(HeroSkillDatabase.Skill skill, HeroSkillDatabase.Skill mouseSkill)
     {
         // Check if skill is active - left click
@@ -440,7 +486,11 @@ public class HeroParameter : MonoBehaviour
         SetActiveSkill(skill, mouseSkill);
     }
 
-    // Deactivate selected skill
+    /// <summary>
+    /// Deactivates selected skill.
+    /// </summary>
+    /// <param name="skill">A structure that represents a skill to deactivate.</param>
+    /// <param name="mouseSkill">A structure that represents a current chosen skill.</param>
     public void DeactivateSkill(HeroSkillDatabase.Skill skill, HeroSkillDatabase.Skill mouseSkill)
     {
         // Check if skill is support
@@ -459,7 +509,10 @@ public class HeroParameter : MonoBehaviour
         ResetActiveSkill(skill, mouseSkill);
     }
 
-    // Set new aura
+    /// <summary>
+    /// Sets proper aura around the hero.
+    /// </summary>
+    /// <param name="skill">A structure that represents a hero skill.</param>
     public void SetAura(HeroSkillDatabase.Skill skill)
     {
         // Check if it is regenerative skill and aura is active
@@ -486,7 +539,10 @@ public class HeroParameter : MonoBehaviour
         skillAura.transform.SetAsLastSibling();
     }
 
-    // Set new statistics
+    /// <summary>
+    /// Sets proper statistics that improving the hero.
+    /// </summary>
+    /// <param name="skill">A structure that represents a hero skill.</param>
     public void SetStats(HeroSkillDatabase.Skill skill)
     {
         // Search stats modifiers
@@ -533,7 +589,10 @@ public class HeroParameter : MonoBehaviour
         }
     }
 
-    // Reset aura
+    /// <summary>
+    /// Resets the aura around the hero.
+    /// </summary>
+    /// <param name="skill">A structure that represents a hero skill.</param>
     public void ResetAura(HeroSkillDatabase.Skill skill)
     {
         // Check if it is regenerative skill
@@ -544,7 +603,10 @@ public class HeroParameter : MonoBehaviour
         Destroy(GameObject.Find(gameObject.name + "/" + skill.Kind));
     }
 
-    // Reset statistics
+    /// <summary>
+    /// Resets the statistics that improving the hero.
+    /// </summary>
+    /// <param name="skill">A structure that represents a hero skill.</param>
     public void ResetStats(HeroSkillDatabase.Skill skill)
     {
         // Check if active skill is regenerative
@@ -580,7 +642,11 @@ public class HeroParameter : MonoBehaviour
         }
     }
 
-    // Set when active skill is using
+    /// <summary>
+    /// Sets the appropriate logical variables that activate skill.
+    /// </summary>
+    /// <param name="skill">A structure that represents a skill to activate.</param>
+    /// <param name="mouseSkill">A structure that represents a current chosen skill.</param>
     private void SetActiveSkill(HeroSkillDatabase.Skill skill, HeroSkillDatabase.Skill mouseSkill)
     {
         // Set that active skill is using - left click
@@ -593,7 +659,11 @@ public class HeroParameter : MonoBehaviour
             _isRightSkillActive = true;
     }
 
-    // Reset when active skill is using
+    /// <summary>
+    /// Sets the appropriate logical variables that deactivate skill.
+    /// </summary>
+    /// <param name="skill">A structure that represents a skill to activate.</param>
+    /// <param name="mouseSkill">A structure that represents a current chosen skill.</param>
     private void ResetActiveSkill(HeroSkillDatabase.Skill skill, HeroSkillDatabase.Skill mouseSkill)
     {
         // Set that active skill is not using - left click
@@ -606,7 +676,9 @@ public class HeroParameter : MonoBehaviour
             _isRightSkillActive = false;
     }
 
-    // Adapt hero dodge chance
+    /// <summary>
+    /// Updates info about the hero dodge chance.
+    /// </summary>
     private void AdaptDodgeChance()
     {
         // Set new dodge chance
@@ -622,7 +694,9 @@ public class HeroParameter : MonoBehaviour
             _heroClass.DodgeChance = HeroClass.MaxActionChance;
     }
 
-    // Adapt hero attack chance
+    /// <summary>
+    /// Updates info about the hero attack chance.
+    /// </summary>
     private void AdaptAttackChance()
     {
         // Set new dodge chacne
@@ -638,27 +712,39 @@ public class HeroParameter : MonoBehaviour
             _heroClass.AttackChance = HeroClass.MaxActionChance;
     }
 
-    // Set proper animation speed in animation controller
+    /// <summary>
+    /// Updates speed of the hero animations.
+    /// </summary>
     private void AdaptAnimationSpeed()
     {
         // Set change in animator
         _animator.SetFloat(HeroClass.AttackRateFloat, AttackAnimSpeed);
     }
 
-    // Calculate actual damage
+    /// <summary>
+    /// Calculates the attack power of the hero.
+    /// </summary>
+    /// <returns>
+    /// The damage as a negative number.
+    /// </returns>
     public int CalcDamage()
     {
         // Random some number
-        int randomPercent = Random.Range(0, 100);
+        int randomPercent = UnityEngine.Random.Range(0, 100);
         // Check drawn number
         if (_heroClass.AttackChance > randomPercent)
             // hit enemy
-            return -Random.Range(_heroClass.MinDamage, _heroClass.MaxDamage);
+            return -UnityEngine.Random.Range(_heroClass.MinDamage, _heroClass.MaxDamage);
         // Hero missed enemy
         return 0;
     }
 
-    // Check if hero is dying
+    /// <summary>
+    /// Checks if the hero is dead.
+    /// </summary>
+    /// <returns>
+    /// The boolean that is true if the hero is dead or false if not.
+    /// </returns>
     public bool IsHeroDead()
     {
         // Check if hero is alive
@@ -669,8 +755,10 @@ public class HeroParameter : MonoBehaviour
         return true;
     }
 
-    // Generate Stain after hero death
-    private void GenerateStain()
+    /// <summary>
+    /// Generates blood stain after the hero death.
+    /// </summary>
+    public void GenerateStain()
     {
         // Generate stain
         GameObject stain = Instantiate(Resources.Load(ItemDatabase.Prefabs + ItemClass.Stain),
@@ -680,9 +768,81 @@ public class HeroParameter : MonoBehaviour
         Destroy(stain, ItemClass.StainTime);
     }
 
-    // Hide particle systems
+    /// <summary>
+    /// Expires the aura effects after the hero death.
+    /// </summary>
     public void ExpireParticleSystems()
     {
-        // Is require to avoid error (Hero doesn't need this)
+        // Get all hero particle systems
+        ParticleSystem[] particleSystems = gameObject.GetComponentsInChildren<ParticleSystem>();
+        // Search hero particle systems
+        foreach (ParticleSystem particleSystem in particleSystems)
+        {
+            // Get main module
+            ParticleSystem.MainModule main = particleSystem.main;
+            // Disable looping
+            main.loop = false;
+        }
+    }
+
+    /// <summary>
+    /// Ignite the aura effects after the hero resurrection.
+    /// </summary>
+    public void IgniteParticleSystems()
+    {
+        // Prepare list for skill names
+        List<string> skillNamesList = new List<string>();
+        // Get all hero particle systems
+        ParticleSystem[] particleSystems = gameObject.GetComponentsInChildren<ParticleSystem>();
+        // Search hero particle systems
+        foreach (ParticleSystem particleSystem in particleSystems)
+        {
+            // Get name of skill
+            string skillName = particleSystem.transform.parent.name;
+            // Set proper name of skill
+            string newSkillName = RemoveSpacesFromString(skillName);
+            // Current skill name is not in list
+            if (skillNamesList.Find(n => n.Equals(newSkillName)) == null)
+                // Add skill name to list
+                skillNamesList.Add(newSkillName);
+            // Get main module
+            ParticleSystem.MainModule main = particleSystem.main;
+            // Enable looping
+            main.loop = true;
+            // Start particle system
+            particleSystem.Play();
+        }
+        // Convert list to array
+        string[] skillNames = skillNamesList.ToArray();
+        // Search skill names
+        foreach (string skillName in skillNames)
+        {
+            // Play proper skill sound
+            _heroSound.AudioSrc.PlayOneShot(SoundDatabase
+                .GetProperSound(skillName, SoundDatabase.PaladinSounds));
+        }
+    }
+
+    /// <summary>
+    /// Removes white spaces from the selected string.
+    /// </summary>
+    /// <param name="oldString">A label that represents string to convert.</param>
+    /// <returns>
+    /// The converted string.
+    /// </returns>
+    private string RemoveSpacesFromString(string oldString)
+    {
+        // Create new string builder
+        StringBuilder stringBuilder = new StringBuilder();
+        // Search old string
+        foreach (char c in oldString)
+        {
+            // Check if it is not space
+            if (!c.Equals(' '))
+                // Add character to string builder
+                stringBuilder.Append(c);
+        }
+        // Return new string
+        return stringBuilder.ToString();
     }
 }

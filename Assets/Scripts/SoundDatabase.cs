@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Stores information about individual sounds and their parameters.
+/// </summary>
 public static class SoundDatabase
 {
     // Sounds path
@@ -383,7 +386,14 @@ public static class SoundDatabase
         }
     };
 
-    // Get proper sound from sounds
+    /// <summary>
+    /// Gets proper sound from the database.
+    /// </summary>
+    /// <param name="name">A label that represents the name of the sound.</param>
+    /// <param name="sounds">A structure that represents the sounds.</param>
+    /// <returns>
+    /// The obtained audio clip.
+    /// </returns>
     public static AudioClip GetProperSound(string name, Sound[] sounds)
     {
         // Reset counter
@@ -398,7 +408,13 @@ public static class SoundDatabase
         return sounds[cnt].Audio;
     }
 
-    // Get grunts amount
+    /// <summary>
+    /// Gets the number of the grunts from the sounds.
+    /// </summary>
+    /// <param name="sounds">The structures that represent the sounds.</param>
+    /// <returns>
+    /// The number of the grunts.
+    /// </returns>
     public static int GetGruntsAmt(Sound[] sounds)
     {
         // Reset amount

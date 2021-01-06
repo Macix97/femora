@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Stores information about individual songs and their parameters.
+/// </summary>
 public static class MusicDatabase
 {
     // Music path
@@ -73,7 +76,14 @@ public static class MusicDatabase
         }
     };
 
-    // Get proper song from songs
+    /// <summary>
+    /// Gets proper song from the database.
+    /// </summary>
+    /// <param name="name">A label that represents the name of the song.</param>
+    /// <param name="songs">The structures that represent the songs.</param>
+    /// <returns>
+    /// The obtained audio clip.
+    /// </returns>
     public static AudioClip GetProperSong(string name, Song[] songs)
     {
         // Reset counter

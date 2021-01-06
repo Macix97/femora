@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Stores information about individual enemies and their parameters.
+/// </summary>
 public static class EnemyDatabase
 {
     // Enemy attack type

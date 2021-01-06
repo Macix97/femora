@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
+/// <summary>
+/// Manages time of the day in the game.
+/// </summary>
 public class PeriodManager : MonoBehaviour
 {
     // Day color
@@ -82,7 +85,9 @@ public class PeriodManager : MonoBehaviour
         _isDay = true;
     }
 
-    // Adapt period to time
+    /// <summary>
+    /// Updates time of the day in the game.
+    /// </summary>
     private void AdaptPeriod()
     {
         // Get current sky color

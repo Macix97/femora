@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// Describes the behavior of the people.
+/// </summary>
 public class PersonBehavior : MonoBehaviour
 {
     // Person AI
@@ -43,7 +46,9 @@ public class PersonBehavior : MonoBehaviour
         _nextTour = Time.time;
     }
 
-    // Generate some path
+    /// <summary>
+    /// Generates some random destination for the person.
+    /// </summary>
     private void GetSomeRandomPosition()
     {
         // Check if person is talking
@@ -68,7 +73,9 @@ public class PersonBehavior : MonoBehaviour
         _isOnTour = true;
     }
 
-    // Go to some position
+    /// <summary>
+    /// Moves the person to the selected position.
+    /// </summary>
     private void GoToPosition()
     {
         // Get hero distance
@@ -104,7 +111,9 @@ public class PersonBehavior : MonoBehaviour
         _animator.SetBool(PersonClass.PersonMove, _isMoving);
     }
 
-    // Generate some gold when hero meets person
+    /// <summary>
+    /// Generates some gold for the person when the hero starts trading.
+    /// </summary>
     public void GeneratePersonGold()
     {
         _personClass.Gold = Random.Range(PersonClass.MinGold, PersonClass.MaxGold);

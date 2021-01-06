@@ -1,10 +1,15 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Stores information about individual people and their parameters.
+/// </summary>
 public static class PersonDatabase
 {
     // Person nature
     public static readonly string PersonHuman = "Human";
-    // Statment types
+
+    //--- Statment types ---//
+
     // No statment (Reset conversation)
     public static readonly int NoStatment = -1;
     // Information (No needed click, only text)
@@ -79,28 +84,35 @@ public static class PersonDatabase
             CurHealth = 200,
             Interval = 2f,
             FirstMeetText = "Ah! A fresh face. I don't think I saw you here before. My name is Orik, " +
-                "member of Wolf Clan, a great warrior and skillful blacksmith. I could tell you something " +
-                "about fighting or sell some equipment. I also know hunting. I think you will need some tips " +
-                "before you go to fight.",
+                "member of Wolf Clan, a great warrior and skillful blacksmith. " +
+                "I could tell you something about fighting or sell some equipment. " +
+                "I also know hunting. I think you will need some tips before you go to fight.",
             EnterText = "What do you want?",
-            HeroTexts = new string[] { "Let's trade.", "Tell me something about creatures.", "Teach me how to fight.",
+            HeroTexts = new string[] { "Let's trade.",
+                "Tell me something about creatures.",
+                "Teach me how to fight.",
                 "Farewell." },
             PersonTexts = new string[] { "Let's see what I have to sell.",
                 "During your journey you will come across different types of enemies. " +
                 "You will probably meet many undead. They are slow and weak, at least most of them. " +
                 "Demons are much stronger. You'd better be prepared before you face them. " +
                 "If you ever see a Efreeti, run as fast as you can. He will turn you into human torch!",
-                "There are a few things you should know about. Try to use your advantages. You look agile. " +
-                "Attack your opponent and dodge. Use the area to limit the number of enemies. " +
-                "If there are too many creatures, try to kill them one by one. Get some good equipment, " +
-                "buy some potions and use many skills at the same time.",
+                "There are a few things you should know about. Try to use your advantages. " +
+                "You look agile. " + "Attack your opponent and dodge. " +
+                "Use the area to limit the number of enemies. " +
+                "If there are too many creatures, try to kill them one by one. " +
+                "Get some good equipment, buy some potions and use many skills at the same time.",
                 "See you later." },
             StatmentTypes = new int[] { TradeStatment, InfoStatment, InfoStatment, ExitStatment },
             Route = new Vector3[] { new Vector3(31f, 100, 64f), new Vector3(27f, 100, 66f),
                 new Vector3(29f, 100, 60f), new Vector3(38f, 100, 60f) },
             IsVisited = false,
             Gold = 0,
-            Items = new string[] { "Heavy Boots", "Steel Sword", "Wooden Shield", "Banded Armor", "Bascinet" } 
+            Items = new string[] { "Heavy Boots",
+                "Steel Sword",
+                "Wooden Shield",
+                "Banded Armor",
+                "Bascinet" }
         }
     };
 }

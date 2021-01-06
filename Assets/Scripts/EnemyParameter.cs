@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// Executes additional actions related to the enemy.
+/// </summary>
 public class EnemyParameter : MonoBehaviour
 {
     // Enemy damage
@@ -61,7 +64,10 @@ public class EnemyParameter : MonoBehaviour
         _isParticle = true;
     }
 
-    // Calculate actual health
+    /// <summary>
+    /// Calculates current health of the enemy and updates the health bar.
+    /// </summary>
+    /// <param name="health">The health points to add or subtract.</param>
     public void AdaptHealth(int health)
     {
         // Calculate health
@@ -94,7 +100,12 @@ public class EnemyParameter : MonoBehaviour
         _gameInterface.AdaptHealthBar(_enemyClass.transform, EnemyClass.EnemyTag);
     }
 
-    // Calculate actual damage
+    /// <summary>
+    /// Calculates the attack power of the enemy.
+    /// </summary>
+    /// <returns>
+    /// The damage as a negative number or -1 when the hero is too mighty.
+    /// </returns>
     public int CalcDamage()
     {
         // Random some number
@@ -103,20 +114,16 @@ public class EnemyParameter : MonoBehaviour
         if (_heroClass.DodgeChance <= randomPercent)
         {
             // Calculate physical damage
-            if (_enemyClass.AttackType
-                .Equals(EnemyDatabase.PhysicalAttack))
-                _damage = -Random.Range(_enemyClass.MinDamage
-                    - _heroClass.Defence, _enemyClass.MaxDamage
-                    - _heroClass.Defence);
+            if (_enemyClass.AttackType.Equals(EnemyDatabase.PhysicalAttack))
+                _damage = -Random.Range(_enemyClass.MinDamage - _heroClass.Defence,
+                _enemyClass.MaxDamage - _heroClass.Defence);
             // Calculate magical damage
-            if (_enemyClass.AttackType
-                .Equals(EnemyDatabase.MagicalAttack))
-                _damage = -Random.Range(_enemyClass.MinDamage
-                    - _heroClass.ResistMagic, _enemyClass.MaxDamage
-                    - _heroClass.ResistMagic);
+            if (_enemyClass.AttackType.Equals(EnemyDatabase.MagicalAttack))
+                _damage = -Random.Range(_enemyClass.MinDamage - _heroClass.ResistMagic,
+                _enemyClass.MaxDamage - _heroClass.ResistMagic);
         }
         else
-            // enemy missed hero
+            // Enemy missed hero
             return 0;
         // Check final damage
         if (_damage >= 0)
@@ -124,7 +131,9 @@ public class EnemyParameter : MonoBehaviour
         return _damage;
     }
 
-    // Generate items after kill enemy
+    /// <summary>
+    /// Generates some items and drops them to the ground after enemy death.
+    /// </summary>
     public void GenerateEnemyItem()
     {
         // Generated item amount
@@ -216,7 +225,9 @@ public class EnemyParameter : MonoBehaviour
         }
     }
 
-    // Check if enemy is dying
+    /// <summary>
+    /// Checks if the enemy is dead.
+    /// </summary>
     public bool IsEnemyDead()
     {
         // Check if enemy is alive
@@ -237,6 +248,9 @@ public class EnemyParameter : MonoBehaviour
         return true;
     }
 
+    /// <summary>
+    /// Counts time needed to resurrect the enemy.
+    /// </summary>
     public void CheckRespawn()
     {
         // Check if enemy is spawning
@@ -281,7 +295,9 @@ public class EnemyParameter : MonoBehaviour
         }
     }
 
-    // Generate stain after enemy death
+    /// <summary>
+    /// Generates blood stain after enemy death.
+    /// </summary>
     private void GenerateStain()
     {
         // Generate stain
@@ -292,7 +308,9 @@ public class EnemyParameter : MonoBehaviour
         Destroy(stain, ItemClass.StainTime);
     }
 
-    // Decay enemy after his death
+    /// <summary>
+    /// Counts time needed to decay the enemy.
+    /// </summary>
     private void DecayEnemy()
     {
         // Check decay time
@@ -313,7 +331,9 @@ public class EnemyParameter : MonoBehaviour
         GetComponent<SkinnedMeshRenderer>().SetPropertyBlock(materialPropertyBlock);
     }
 
-    // Spawn and show enemy
+    /// <summary>
+    /// Resurrects enemy after some time.
+    /// </summary>
     private void SpawnEnemy()
     {
         // Check if particle systems are disabled
@@ -367,7 +387,9 @@ public class EnemyParameter : MonoBehaviour
         }
     }
 
-    // Hide particle systems
+    /// <summary>
+    /// Disables the particle systems after enemy death.
+    /// </summary>
     public void ExpireParticleSystems()
     {
         // Search enemy particle systems

@@ -3,6 +3,9 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
+/// <summary>
+/// Stores information about configuration files and their parameters.
+/// </summary>
 public static class SettingsDatabase
 {
     // Saves path
@@ -125,7 +128,10 @@ public static class SettingsDatabase
         public bool IsSpotActive;
     }
 
-    // Copy proper info about hero class to save
+    /// <summary>
+    /// Copies information about the hero class to the game save structure.
+    /// </summary>
+    /// <param name="heroClass">An object that represents the hero.</param>
     public static void CopyClassToSave(HeroClass heroClass)
     {
         // Copy properties to save
@@ -157,7 +163,10 @@ public static class SettingsDatabase
         GameSave.LastEnemyLvl = heroClass.LastEnemyLvl;
     }
 
-    // Set hero properties from data file
+    /// <summary>
+    /// Reads information about the hero class from the game save structure.
+    /// </summary>
+    /// <param name="heroClass">An object that represents the hero.</param>
     public static void ReadClassFromSave(ref HeroClass heroClass)
     {
         // Set properties from file
@@ -189,20 +198,28 @@ public static class SettingsDatabase
         heroClass.LastEnemyLvl = GameSave.LastEnemyLvl;
     }
 
-    // Set default menu settings (first start, damaged configuration file)
+    /// <summary>
+    /// Sets default values for the components in the main menu.
+    /// </summary>
     public static void SetDefaultMenuSettings()
     {
         MenuConfig.SoundVolume = MenuConfig.MusicVolume = 1f;
     }
 
-    // Copy menu settings values to configuration structure
+    /// <summary>
+    /// Copies the menu configuration to the menu save structure.
+    /// </summary>
+    /// <param name="musicManager">An object that represents the music manager.</param>
     public static void CopyMenuToConfig(MenuMusicManager musicManager)
     {
         MenuConfig.SoundVolume = musicManager.SoundsSrc.volume;
         MenuConfig.MusicVolume = musicManager.MusicSrc.volume;
     }
 
-    // Set menu settings from configuration structure
+    /// <summary>
+    /// Reads information about the menu configuration from the menu save structure.
+    /// </summary>
+    /// <param name="menuInterface">An object that represents the menu interface.</param>
     public static void ReadMenuFromConfig(ref MenuInterface menuInterface)
     {
         menuInterface.SoundSliderSld.value = MenuConfig.SoundVolume;
@@ -211,7 +228,9 @@ public static class SettingsDatabase
         MenuConfig = new MenuConfiguration();
     }
 
-    // Copy proper info about people classes to save
+    /// <summary>
+    /// Copies information about people to the game save structure.
+    /// </summary>
     public static void CopyCharactersToSave()
     {
         // Find all characters
@@ -230,7 +249,9 @@ public static class SettingsDatabase
         }
     }
 
-    // Set people properties from data file
+    /// <summary>
+    /// Reads information about people from the game save structure.
+    /// </summary>
     public static void ReadCharactersFromSave()
     {
         // Find all characters
@@ -241,7 +262,10 @@ public static class SettingsDatabase
             characters[cnt].GetComponent<PersonClass>().IsVisited = GameSave.Characters[cnt].IsVisited;
     }
 
-    // Copy hero skills to save
+    /// <summary>
+    /// Copies information about the hero skills to the game save structure.
+    /// </summary>
+    /// <param name="skills">The structures that represent the hero skills.</param>
     public static void CopySkillsToSave(HeroSkillDatabase.Skill[] skills)
     {
         // Initialize abilities
@@ -258,7 +282,10 @@ public static class SettingsDatabase
             };
     }
 
-    // Set hero skills from data file
+    /// <summary>
+    /// Reads information about the hero skills from the game save structure.
+    /// </summary>
+    /// <param name="skill">An object that represents the hero skill.</param>
     public static void ReadSkillsFromSave(ref HeroSkill heroSkill)
     {
         // Search skills
@@ -272,7 +299,10 @@ public static class SettingsDatabase
         }
     }
 
-    // Copy hero inventory slots to save
+    /// <summary>
+    /// Copies information about the hero inventory to the game save structure.
+    /// </summary>
+    /// <param name="invSlots">The structures that represent the hero inventory slots.</param>
     public static void CopyInventoryToSave(HeroInventory.Slot[] invSlots)
     {
         // Initialize spots
@@ -289,7 +319,10 @@ public static class SettingsDatabase
         }
     }
 
-    // Set hero inventory from data file
+    /// <summary>
+    /// Reads information about the hero inventory from the game save structure.
+    /// </summary>
+    /// <param name="heroInventory">An object that represents the hero inventory.</param>
     public static void ReadInventoryFromSave(ref HeroInventory heroInventory)
     {
         // Search inventory slots
@@ -305,7 +338,10 @@ public static class SettingsDatabase
         }
     }
 
-    // Copy hero potion slots to save
+    /// <summary>
+    /// Copies information about the hero potion slots to the game save structure.
+    /// </summary>
+    /// <param name="potionSlots">The structures that represent the hero potion slots.</param>
     public static void CopyPotionsToSave(HeroInventory.Slot[] potionSlots)
     {
         // Initialize spots
@@ -320,7 +356,10 @@ public static class SettingsDatabase
             };
     }
 
-    // Set hero potions from data file
+    /// <summary>
+    /// Reads information about the hero potion slots from the game save structure.
+    /// </summary>
+    /// <param name="heroInventory">An object that represents the hero inventory.</param>
     public static void ReadPotionsFromSave(ref HeroInventory heroInventory)
     {
         // Search potion slots
@@ -336,7 +375,10 @@ public static class SettingsDatabase
         }
     }
 
-    // Copy hero equipment to save
+    /// <summary>
+    /// Copies information about the hero equipment slots to the game save structure.
+    /// </summary>
+    /// <param name="heroInventory">An object that represents the hero inventory.</param>
     public static void CopyEquipmentToSave(HeroInventory heroInventory)
     {
         // Head
@@ -371,7 +413,10 @@ public static class SettingsDatabase
         };
     }
 
-    // Set hero equipment from data file
+    /// <summary>
+    /// Reads information about the hero equipment slots from the game save structure.
+    /// </summary>
+    /// <param name="heroInventory">An object that represents the hero inventory.</param>
     public static void ReadEquipmentFromSave(ref HeroInventory heroInventory)
     {
         // Head
@@ -411,7 +456,12 @@ public static class SettingsDatabase
             heroInventory.InitSlotItem(heroInventory.FeetSlot);
     }
 
-    // Copy other parameters
+    /// <summary>
+    /// Copies information about the other hero parameters to the game save structure.
+    /// </summary>
+    /// <param name="heroInventory">An object that represents the hero inventory.</param>
+    /// <param name="heroParameter">An object that represents the hero parameters.</param>
+    /// <param name="gameInterface">An object that represents the game interface.</param>
     public static void CopyOtherParameters(HeroInventory heroInventory, HeroParameter heroParameter,
         GameInterface gameInterface)
     {
@@ -430,7 +480,11 @@ public static class SettingsDatabase
         GameSave.IsLegendary = heroInventory.IsLegendary;
     }
 
-    // Set other parameters from file
+    /// <summary>
+    /// Reads information about the other hero parameters from the game save structure.
+    /// </summary>
+    /// <param name="heroInventory">An object that represents the hero inventory.</param>
+    /// <param name="heroParameter">An object that represents the hero parameters.</param>
     public static void ReadOtherParameters(ref HeroInventory heroInventory, ref HeroParameter heroParameter)
     {
         // Set proper values
@@ -445,11 +499,17 @@ public static class SettingsDatabase
         heroInventory.IsLegendary = GameSave.IsLegendary;
     }
 
-    // Try keep menu settings in file
+    /// <summary>
+    /// Tries save the information about main menu to the file.
+    /// </summary>
+    /// <param name="savePath">A label that represents the path to the save file.</param>
+    /// <returns>
+    /// The boolean that is true if the operation is succeeded or false if not.
+    /// </returns>
     public static bool TrySaveMenuToFile(string savePath)
     {
         // Check operation result
-        bool isSucceed;
+        bool isSuccess;
         // Create new binary formater
         BinaryFormatter binary = new BinaryFormatter();
         // Check if menu configuration already exists
@@ -464,12 +524,12 @@ public static class SettingsDatabase
             // Save menu configuration to file
             binary.Serialize(configFile, MenuConfig);
             // Operation succeeded
-            isSucceed = true;
+            isSuccess = true;
         }
         catch
         {
             // Operation failed
-            isSucceed = false;
+            isSuccess = false;
         }
         // End action
         finally
@@ -480,10 +540,16 @@ public static class SettingsDatabase
             MenuConfig = new MenuConfiguration();
         }
         // Return operation result
-        return isSucceed;
+        return isSuccess;
     }
 
-    // Try load menu configuration from file
+    /// <summary>
+    /// Tries load the information about main menu from the file.
+    /// </summary>
+    /// <param name="savePath">A label that represents the path to the save file.</param>
+    /// <returns>
+    /// The state of the operation.
+    /// </returns>
     public static ConfigState TryLoadMenuFromFile(string savePath)
     {
         // Check operation result
@@ -522,11 +588,18 @@ public static class SettingsDatabase
         return configState;
     }
 
-    // Try keep game progress in file
+    /// <summary>
+    /// Tries save the information about game progress to the file.
+    /// </summary>
+    /// <param name="savePath">A label that represents the path to the save file.</param>
+    /// <param name="heroName">A label that represents the name of the hero.</param>
+    /// <returns>
+    /// The boolean that is true if the operation is succeeded or false if not.
+    /// </returns>
     public static bool TrySaveGameToFile(string savePath, string heroName)
     {
         // Check operation result
-        bool isSucceed;
+        bool isSuccess;
         // Create new binary formater
         BinaryFormatter binary = new BinaryFormatter();
         // Check if save already exists
@@ -541,12 +614,12 @@ public static class SettingsDatabase
             // Save hero inventory to file
             binary.Serialize(saveFile, GameSave);
             // Operation succeeded
-            isSucceed = true;
+            isSuccess = true;
         }
         catch
         {
             // Operation failed
-            isSucceed = false;
+            isSuccess = false;
         }
         // End action
         finally
@@ -557,14 +630,20 @@ public static class SettingsDatabase
             GameSave = new Save();
         }
         // Return operation result
-        return isSucceed;
+        return isSuccess;
     }
 
-    // Try load game progress from file
+    /// <summary>
+    /// Tries load the information about game progress from the file.
+    /// </summary>
+    /// <param name="savePath">A label that represents the path to the save file.</param>
+    /// <returns>
+    /// The boolean that is true if the operation is succeeded or false if not.
+    /// </returns>
     public static bool TryLoadGameFromFile(string savePath)
     {
         // Check operation result
-        bool isSucceed;
+        bool isSuccess;
         // Create new binary formater
         BinaryFormatter binary = new BinaryFormatter();
         // Check if file exists
@@ -590,13 +669,13 @@ public static class SettingsDatabase
             // Move data from file to variable
             GameSave = (Save)binary.Deserialize(saveFile);
             // Operation succeeded
-            isSucceed = true;
+            isSuccess = true;
         }
         // Catch exception
         catch
         {
             // Operation failed
-            isSucceed = false;
+            isSuccess = false;
         }
         // End action
         finally
@@ -605,6 +684,6 @@ public static class SettingsDatabase
             saveFile.Close();
         }
         // Return operation result
-        return isSucceed;
+        return isSuccess;
     }
 }

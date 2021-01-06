@@ -1,4 +1,7 @@
-﻿public static class HeroDatabase
+﻿/// <summary>
+/// Stores information about individual heroes and their parameters.
+/// </summary>
+public static class HeroDatabase
 {
     // Paladin
     public static readonly string Paladin = "Paladin";
@@ -76,7 +79,7 @@
             MinDamage = 7,
             MaxDamage = 15,
             AttackRate = 1f,
-            SkillRate = 2f,
+            SkillRate = 3f,
             ActionChanceBonus = 0,
             StartAttackChance = 75,
             AttackChance = 75 - EnemyDatabase.Enemies[0].Level,

@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Controls the sounds made by enemies.
+/// </summary>
 public class EnemySound : MonoBehaviour
 {
     // Audio source
@@ -35,7 +38,9 @@ public class EnemySound : MonoBehaviour
         AudioSrc = GetComponent<AudioSource>();
     }
 
-    // Play attack sound during attack
+    /// <summary>
+    /// Plays proper enemy sound during an attack.
+    /// </summary>
     private void PlayAttackSound()
     {
         // Play audio

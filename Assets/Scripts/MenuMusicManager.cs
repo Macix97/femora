@@ -71,8 +71,10 @@ public class MenuMusicManager : MonoBehaviour
         }
     }
 
-    // Change sound volume value
-    public void AdaptSoundVolume()
+    /// <summary>
+    /// Changes sounds volume in the main menu.
+    /// </summary>
+    public void AdaptSoundsVolume()
     {
         // Prepare volume label
         int soundsValue = (int)Mathf.Round(_menuInterface.SoundSliderSld.value * 100f);
@@ -82,7 +84,9 @@ public class MenuMusicManager : MonoBehaviour
         SoundsSrc.volume = _menuInterface.SoundSliderSld.value;
     }
 
-    // Change music volume value
+    /// <summary>
+    /// Changes music volume in the main menu.
+    /// </summary>
     public void AdaptMusicVolume()
     {
         // Prepare volume label

@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Checks position of the cursor and adapts its texture.
+/// </summary>
 public class CursorManager : MonoBehaviour
 {
     // Maximal click distance
@@ -30,13 +33,18 @@ public class CursorManager : MonoBehaviour
         _gameInterface = GameObject.Find(GameInterface.GameInterfaceController).GetComponent<GameInterface>();
     }
 
-    // Set cursor texture
+    /// <summary>
+    /// Sets proper texture of the cursor.
+    /// </summary>
+    /// <param name="texture">A current texture to set.</param>
     private void SetCursorTexture(Texture2D texture)
     {
         Cursor.SetCursor(texture, Vector2.zero, CursorMode.Auto);
     }
 
-    // Check current cursor position
+    /// <summary>
+    /// Checks position of the cursor and searches proper textures.
+    /// </summary>
     private void CheckCursorPosition()
     {
         // Check specific case and set standard cursor

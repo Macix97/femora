@@ -3,6 +3,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Controls actions related to the menu graphics interface and initialize GUI.
+/// </summary>
 public class MenuInterface : MonoBehaviour
 {
     // Menu music manager
@@ -259,7 +262,7 @@ public class MenuInterface : MonoBehaviour
         // Set parameters from configuration file (default or saved)
         SettingsDatabase.ReadMenuFromConfig(ref menuInterface);
         // Add event listeners
-        SoundSliderSld.onValueChanged.AddListener(delegate { _menuMusicManager.AdaptSoundVolume(); });
+        SoundSliderSld.onValueChanged.AddListener(delegate { _menuMusicManager.AdaptSoundsVolume(); });
         MusicSliderSld.onValueChanged.AddListener(delegate { _menuMusicManager.AdaptMusicVolume(); });
         // Set proper texts
         CreateTxt.text = TypeNameForHero;
@@ -269,7 +272,7 @@ public class MenuInterface : MonoBehaviour
         // Add event listener
         NameInputField.onValueChanged.AddListener(delegate { CheckNameChange(); });
         // Update sliders labels
-        _menuMusicManager.AdaptSoundVolume();
+        _menuMusicManager.AdaptSoundsVolume();
         _menuMusicManager.AdaptMusicVolume();
         // Initialize saves
         Saves = new Text[SettingsDatabase.HeroesLimit];
@@ -310,35 +313,50 @@ public class MenuInterface : MonoBehaviour
         Cursor.SetCursor(CursorDatabase.Pointers[0].Texture, Vector2.zero, CursorMode.Auto);
     }
 
-    // Activate some GUI element
+    /// <summary>
+    /// Activates selected UI element.
+    /// </summary>
+    /// <param name="trans">A transform that represents the UI element.</param>
     public void ActivateElement(Transform trans)
     {
         // Set visibility
         trans.gameObject.SetActive(true);
     }
 
-    // Deactivate some GUI element
+    /// <summary>
+    /// Deactivates selected UI element.
+    /// </summary>
+    /// <param name="trans">A transform that represents the UI element.</param>
     public void DeactivateElement(Transform trans)
     {
         // Set visibility
         trans.gameObject.SetActive(false);
     }
 
-    // Set text color to gold
+    /// <summary>
+    /// Sets gold color for the selected text.
+    /// </summary>
+    /// <param name="panel">A transform that represents the UI element.</param>
     public void SetGoldText(Transform panel)
     {
         // Set gold color
         panel.GetComponentInChildren<Text>().color = Gold;
     }
 
-    // Set text color to white
+    /// <summary>
+    /// Sets white color for the selected text.
+    /// </summary>
+    /// <param name="panel">A transform that represents the UI element.</param>
     public void SetWhiteText(Transform panel)
     {
         // Set white color
         panel.GetComponentInChildren<Text>().color = White;
     }
 
-    // Show proper crosses in main menu
+    /// <summary>
+    /// Shows crosses next to the selected label in the menu.
+    /// </summary>
+    /// <param name="panel">A transform that represents a panel.</param>
     public void ShowMenuCrosses(Transform panel)
     {
         // Show left cross
@@ -347,7 +365,10 @@ public class MenuInterface : MonoBehaviour
         panel.GetChild(1).gameObject.SetActive(true);
     }
 
-    // Hide proper crosses in main menu
+    /// <summary>
+    /// Hides crosses next to the selected label in the menu.
+    /// </summary>
+    /// <param name="panel">A transform that represents a panel.</param>
     public void HideMenuCrosses(Transform panel)
     {
         // Hide left cross
@@ -356,7 +377,9 @@ public class MenuInterface : MonoBehaviour
         panel.GetChild(1).gameObject.SetActive(false);
     }
 
-    // Create saves folder when game is starting
+    /// <summary>
+    /// Creates saves folder when the game is starting
+    /// </summary>
     public void CreateSavesFolder()
     {
         // Check if folder exist
@@ -365,7 +388,9 @@ public class MenuInterface : MonoBehaviour
             Directory.CreateDirectory(Application.persistentDataPath + SettingsDatabase.Saves);
     }
 
-    // Check if hero name is changing
+    /// <summary>
+    /// Checks if the content of the text input is changing.
+    /// </summary>
     public void CheckNameChange()
     {
         // Check if name contains at least two characters
@@ -378,7 +403,10 @@ public class MenuInterface : MonoBehaviour
             ActivateElement(AcceptHeroImg.transform);
     }
 
-    // Check if inserted character name is correct
+    /// <summary>
+    /// Checks if the inserted hero name is correct.
+    /// </summary>
+    /// <param name="name">A label that represents the name of the hero.</param>
     public void CheckNameCorrectness(string name)
     {
         // Check if hero directory already axists in saves folder
@@ -445,7 +473,9 @@ public class MenuInterface : MonoBehaviour
         SceneManager.LoadScene(GameScene, UnityEngine.SceneManagement.LoadSceneMode.Single);
     }
 
-    // Activate load menu after click button
+    /// <summary>
+    /// Activates load menu after clicking the proper button.
+    /// </summary>
     public void ActivateLoadMenu()
     {
         // Show proper elements
@@ -471,7 +501,10 @@ public class MenuInterface : MonoBehaviour
             Saves[cnt].text = saveFolders[cnt].Substring(saveFolders[cnt].LastIndexOf("/") + 1);
     }
 
-    // Load game progress from save
+    /// <summary>
+    /// Loads the game progress from the proper file.
+    /// </summary>
+    /// <param name="contents">A label that represents the name of the directory for the proper hero.</param>
     public void LoadGameProgress(string contents)
     {
         // Check if data is loaded
