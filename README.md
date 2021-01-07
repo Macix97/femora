@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="Media/Logo/Logo.png" alt="Logo" />
-</p>
+![Banner](./Media/Banner.png)
 
 ## Abstract
 
@@ -57,21 +55,21 @@ The game has the following properties:
 ### The pictures below show the most important aspects of the game:
 
 #### Main Menu
-![Main Menu](./Media/Pictures/MainMenu.png)
+![Main Menu](./Media/MainMenu.png)
 #### Hero Choice
-![Hero Choice](./Media/Pictures/HeroChoice.png)
+![Hero Choice](./Media/HeroChoice.png)
 #### Return to Refugee Camp
-![Return To Refugee Camp](./Media/Pictures/ReturnToRefugeeCamp.png)
+![Return To Refugee Camp](./Media/ReturnToRefugeeCamp.png)
 #### Dialogue With Mirlanda
-![Dialogue With Mirlanda](./Media/Pictures/DialogueWithMirlanda.png)
+![Dialogue With Mirlanda](./Media/DialogueWithMirlanda.png)
 #### Trade
-![Trade](./Media/Pictures/Trade.png)
+![Trade](./Media/Trade.png)
 #### Hero Development
-![Hero Development](./Media/Pictures/HeroDevelopment.png)
+![Hero Development](./Media/HeroDevelopment.png)
 #### Combat
-![Combat](./Media/Pictures/Combat.png)
+![Combat](./Media/Combat.png)
 #### Game Over
-![Game Over](./Media/Pictures/GameOver.png)
+![Game Over](./Media/GameOver.png)
 
 ## Used technologies
 

@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['refugeecamp_1795',['RefugeeCamp',['../class_music_database.html#ac80e9a09c697af14756189b213205ee4',1,'MusicDatabase']]],
+  ['regenerative_1796',['Regenerative',['../class_hero_skill_database.html#af178a4aafcd8d4bcc8ac64bb07f368a9',1,'HeroSkillDatabase']]],
+  ['releasable_1797',['Releasable',['../class_hero_skill_database.html#ac823525129d551c78cfa8eb71294e34b',1,'HeroSkillDatabase']]],
+  ['remains_1798',['Remains',['../class_sound_database.html#a4e45511214c2977602d5464002b3a6dc',1,'SoundDatabase']]],
+  ['resetitem_1799',['ResetItem',['../class_hero_inventory.html#ae715160e2c2e9d673067ba404228aaa2',1,'HeroInventory']]],
+  ['resistmagicid_1800',['ResistMagicId',['../class_hero_class.html#a6a7ed73278108fdf0fb9cedaeb448c57',1,'HeroClass']]],
+  ['resistmagictext_1801',['ResistMagicText',['../class_game_interface.html#afc3221740d130cee16e79a17546f5816',1,'GameInterface']]],
+  ['respawnmotion_1802',['RespawnMotion',['../class_enemy_class.html#a575a11ac1a91c0dcc9ca4a98ff9994d2',1,'EnemyClass']]],
+  ['respawntime_1803',['RespawnTime',['../class_enemy_class.html#a5536ace937daf0c6f22bbc12892b9a75',1,'EnemyClass']]],
+  ['returnaudiopanel_1804',['ReturnAudioPanel',['../class_game_interface.html#a7578a3d4c31696641042e15eb564e8c2',1,'GameInterface']]],
+  ['returncontrolpanel_1805',['ReturnControlPanel',['../class_game_interface.html#a41a09612d880aed263386bc63905ce40',1,'GameInterface']]],
+  ['returnmenupanel_1806',['ReturnMenuPanel',['../class_game_interface.html#a4bc609561bfec7ced74fcf680aa1921c',1,'GameInterface']]],
+  ['returntomainmenu_1807',['ReturnToMainMenu',['../class_menu_interface.html#a82acae4b4a2d84c309f61462be0139ad',1,'MenuInterface']]],
+  ['returnvideopanel_1808',['ReturnVideoPanel',['../class_game_interface.html#a5e0fcdfb84e20399cc2283810f690f1f',1,'GameInterface']]],
+  ['rightclickid_1809',['RightClickId',['../class_game_interface.html#a256bec11e2eb0801f1d7f264e8ee8696',1,'GameInterface']]],
+  ['rightclickimage_1810',['RightClickImage',['../class_game_interface.html#abc44ea22e2c3245ff3b2196fed9f0ecf',1,'GameInterface']]],
+  ['righthand_1811',['RightHand',['../class_item_database.html#af1ae8239f61ddd26393ff6d2050a4c20',1,'ItemDatabase.RightHand()'],['../struct_settings_database_1_1_save.html#aaf4457cd7b6c12f52b0f8a845d6c52fb',1,'SettingsDatabase.Save.RightHand()']]],
+  ['righthandslot_1812',['RightHandSlot',['../class_hero_inventory.html#a10f2fc5fe8b47cbd7692be8bccc36b64',1,'HeroInventory']]],
+  ['righthandslotid_1813',['RightHandSlotId',['../class_hero_inventory.html#abe7927f15f9782f39f959b02427e80bf',1,'HeroInventory']]],
+  ['rightitemholder_1814',['RightItemHolder',['../class_item_class.html#aade7789d779dd63d86641f7ce6f881e4',1,'ItemClass']]],
+  ['rightmousebtn_1815',['RightMouseBtn',['../class_game_interface.html#aeede087a67be7f6fa89620b04044ffd3',1,'GameInterface']]],
+  ['rightskill_1816',['RightSkill',['../class_game_interface.html#a961586d51d998b3b1eb456e78ea117cd',1,'GameInterface']]],
+  ['risemotion_1817',['RiseMotion',['../class_hero_class.html#acd15d97dfa75da1d5e812c6b02930c93',1,'HeroClass']]],
+  ['rotfiend_1818',['Rotfiend',['../class_enemy_database.html#ac738adb0627bf27cd3cc6ff64082924c',1,'EnemyDatabase']]],
+  ['runmotion_1819',['RunMotion',['../class_hero_class.html#a39d073474210581bb770dc49d324e0e4',1,'HeroClass']]]
+];
