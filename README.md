@@ -1,8 +1,10 @@
 ![Banner](./Media/Banner.png)
 
+<center>
 Licence | Release
 ------- | -------
 ![Logo](./Media/Logo.png) | ![Logo](./Media/Logo.png)
+</center>
 
 ## Abstract
 
