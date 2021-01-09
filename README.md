@@ -1,5 +1,10 @@
 ![Banner](./Media/Banner.png)
 
+## Important links
+* [![Release](./Media/ReleaseTile.png)](https://github.com/Macix97/femora/releases)
+* [![License](./Media/LicenseTile.png)](https://github.com/Macix97/femora/blob/main/LICENSE.txt)
+* [![Docs](./Media/DocsTile.png)](https://macix97.github.io/femora/docs/index.html)
+
 ## Abstract
 
 Femora is a hack and slash game based on Diablo II created by Blizzard Entertainment. The history takes place in medieval-fantasy universe where Prime Evil tries to destroy the last bastion of humanity. In the game appear a lot of monsters and mechanisms known in titles like Titan Quest or Path of Exile.
