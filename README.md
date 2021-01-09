@@ -1,9 +1,10 @@
 ![Banner](./Media/Banner.png)
 
 ## Important links
-* [![Release](./Media/ReleaseTile.png)](https://github.com/Macix97/femora/releases)
-* [![License](./Media/LicenseTile.png)](https://github.com/Macix97/femora/blob/main/LICENSE.txt)
-* [![Docs](./Media/DocsTile.png)](https://macix97.github.io/femora/docs/index.html)
+[![Release](./Media/ReleaseTile.png)](https://github.com/Macix97/femora/releases)
+[![License](./Media/LicenseTile.png)](https://github.com/Macix97/femora/blob/main/LICENSE.txt)
+[![Docs](./Media/DocsTile.png)](https://macix97.github.io/femora/docs/index.html)
+[![Author Site](./Media/AuthorSiteTile.png)](https://macix97.github.io)
 
 ## Abstract
 
