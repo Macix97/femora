@@ -438,12 +438,17 @@ public class HeroBehavior : MonoBehaviour
             _heroClass.IsTalking = true;
             // Remember last met person
             PersonClass = _target.GetComponent<PersonClass>();
-            // She is Mirlanda
-            if (PersonClass.name.Equals("Mirlanda"))
+            // She is Mirlanda and hero is wound
+            if (PersonClass.name.Equals("Mirlanda")
+                && (_heroClass.CurHealth < _heroClass.MaxHealth
+                || _heroClass.CurEnergy < _heroClass.MaxEnergy))
             {
                 // Renew hero vitality and energy
                 _heroParameter.AdaptHealth(_heroClass.MaxHealth);
                 _heroParameter.AdaptEnergy(_heroClass.MaxEnergy);
+                // Play proper sound
+                _heroSound.AudioSrc.PlayOneShot(SoundDatabase
+                    .GetProperSound(SoundDatabase.Sanctuary, SoundDatabase.PaladinSounds));
             }
             // Prepare user interface to talk
             _gameInterface.PrepareUIToTalk();
