@@ -1,10 +1,10 @@
 ![Banner](./Media/Banner.png)
 
 ## Important links
-[![Release](./Media/ReleaseTile.png)](https://github.com/Macix97/femora/releases)
-[![License](./Media/LicenseTile.png)](https://github.com/Macix97/femora/blob/main/LICENSE.txt)
-[![Docs](./Media/DocsTile.png)](https://github.com/Macix97/femora/tree/main/Docs/index.html)
-[![Author Site](./Media/AuthorSiteTile.png)](https://www.mwiktor.tk)
+* [Release](https://github.com/Macix97/femora/releases)
+* [License](https://github.com/Macix97/femora/blob/main/LICENSE.txt)
+* [Documentation](https://github.com/Macix97/femora/tree/main/Docs/Femora v1.0.pdf)
+* [Author Site](https://www.mwiktor.tk)
 
 ## Abstract
 
@@ -60,21 +60,20 @@ The game has the following properties:
 
 ### The pictures below show the most important aspects of the game:
 
-#### Main Menu
 ![Main Menu](./Media/MainMenu.png)
-#### Hero Choice
+
 ![Hero Choice](./Media/HeroChoice.png)
-#### Return to Refugee Camp
+
 ![Return To Refugee Camp](./Media/ReturnToRefugeeCamp.png)
-#### Dialogue With Mirlanda
+
 ![Dialogue With Mirlanda](./Media/DialogueWithMirlanda.png)
-#### Trade
+
 ![Trade](./Media/Trade.png)
-#### Hero Development
+
 ![Hero Development](./Media/HeroDevelopment.png)
-#### Combat
+
 ![Combat](./Media/Combat.png)
-#### Game Over
+
 ![Game Over](./Media/GameOver.png)
 
 ## Used technologies
