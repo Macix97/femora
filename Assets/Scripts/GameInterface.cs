@@ -595,6 +595,8 @@ public class GameInterface : MonoBehaviour
         AdaptAgilityParameter();
         AdaptExpParameter();
         AdaptHeroGoldAmount();
+        AdaptSoundsVolume();
+        AdaptMusicVolume();
         // Hide elements
         HideHealthBar();
         HideCharWindow();
@@ -2188,9 +2190,6 @@ public class GameInterface : MonoBehaviour
             // Adapt sliders
             SoundSliderSld.value = SettingsDatabase.GameSave.SoundVolume;
             MusicSliderSld.value = SettingsDatabase.GameSave.MusicVolume;
-            // Adapt volume
-            AdaptSoundsVolume();
-            AdaptMusicVolume();
             // Adapt graphics detail
             QualityLevel = SettingsDatabase.GameSave.QualityLevel;
             // Get quality levels
