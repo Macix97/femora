@@ -1,5 +1,2 @@
-# Ignore metadata folder
-Library/metadata*
-
-# Ignore PlayerDataCache folder
-Library/PlayerDataCache*
+# Ignore whole Library folder
+Library/
