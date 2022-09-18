@@ -4,7 +4,6 @@
 * [Release](https://github.com/Macix97/femora/releases)
 * [License](https://github.com/Macix97/femora/blob/main/LICENSE.txt)
 * [Documentation](https://github.com/Macix97/femora/tree/main/Docs/FemoraV1.0.pdf)
-* [Author Site](https://www.mwiktor.tk)
 
 ## Abstract
 
